@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reports | FactoryOS</title>
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="../css/output.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body class="bg-slate-950 text-white">
+
+<div class="flex min-h-screen">
+
+    <!-- Sidebar -->
+
+    <aside class="w-72 bg-slate-900 border-r border-slate-800 flex flex-col">
+
+        <div class="h-20 flex items-center justify-center border-b border-slate-800">
+
+            <div class="text-center">
+
+                <h1 class="text-3xl font-bold text-cyan-400">
+
+                    FactoryOS
+
+                </h1>
+
+                <p class="text-xs text-slate-400 mt-1">
+
+                    Smart Factory Management
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <nav class="flex-1 px-5 py-6 space-y-3">
+
+            <a href="../index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
+
+                <i class="fas fa-chart-line"></i>
+
+                Dashboard
+
+            </a>
+
+            <a href="machines.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
+
+                <i class="fas fa-industry"></i>
+
+                Machines
+
+            </a>
+
+            <a href="inventory.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
+
+                <i class="fas fa-boxes"></i>
+
+                Inventory
+
+            </a>
+
+            <a href="production.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
+
+                <i class="fas fa-gears"></i>
+
+                Production
+
+            </a>
+
+            <a href="orders.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
+
+                <i class="fas fa-cart-shopping"></i>
+
+                Orders
+
+            </a>
+
+            <a href="invoice.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
+
+                <i class="fas fa-file-invoice"></i>
+
+                Invoice
+
+            </a>
+
+            <a href="reports.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl bg-cyan-500/20 text-cyan-400">
+
+                <i class="fas fa-chart-pie"></i>
+
+                Reports
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <!-- Main -->
+
+    <main class="flex-1 overflow-y-auto">
+
+        <!-- Header -->
+
+        <header class="h-20 border-b border-slate-800 px-8 flex items-center justify-between">
+
+            <div>
+
+                <h2 class="text-3xl font-bold">
+
+                    Reports & Analytics
+
+                </h2>
+
+                <p class="text-slate-400">
+
+                    Business Insights & Factory Performance
+
+                </p>
+
+            </div>
+
+            <div class="flex gap-3">
+
+                <button class="bg-green-600 hover:bg-green-700 px-5 py-3 rounded-xl">
+
+                    Export Excel
+
+                </button>
+
+                <button class="bg-cyan-500 hover:bg-cyan-600 px-5 py-3 rounded-xl">
+
+                    Export PDF
+
+                </button>
+
+            </div>
+
+        </header>
+
+        <section class="p-8">
+
+            <!-- KPI -->
+
+            <div class="grid grid-cols-4 gap-6">
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+
+                    <p class="text-slate-400">
+
+                        Revenue
+
+                    </p>
+
+                    <h2 class="text-4xl font-bold mt-3 text-cyan-400">
+
+                        ₹58.2L
+
+                    </h2>
+
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+
+                    <p class="text-slate-400">
+
+                        Orders
+
+                    </p>
+
+                    <h2 class="text-4xl font-bold mt-3">
+
+                        1245
+
+                    </h2>
+
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+
+                    <p class="text-slate-400">
+
+                        Production
+
+                    </p>
+
+                    <h2 class="text-4xl font-bold mt-3 text-green-400">
+
+                        96%
+
+                    </h2>
+
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+
+                    <p class="text-slate-400">
+
+                        Profit
+
+                    </p>
+
+                    <h2 class="text-4xl font-bold mt-3 text-yellow-400">
+
+                        ₹18L
+
+                    </h2>
+
+                </div>
+
+            </div>
+
+            <!-- Analytics Section -->
+
+<div class="grid grid-cols-3 gap-6 mt-8">
+
+    <!-- Revenue Chart -->
+
+    <div class="col-span-2 bg-slate-900 border border-slate-800 rounded-2xl p-6">
+
+        <div class="flex justify-between items-center mb-6">
+
+            <div>
+
+                <h2 class="text-2xl font-bold">
+                    Revenue Analytics
+                </h2>
+
+                <p class="text-slate-400">
+                    Monthly Revenue Trend
+                </p>
+
+            </div>
+
+            <span class="bg-cyan-500/20 text-cyan-400 px-4 py-2 rounded-xl">
+                Last 6 Months
+            </span>
+
+        </div>
+
+        <canvas id="revenueChart" height="110"></canvas>
+
+    </div>
+
+    <!-- Machine Efficiency -->
+
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+
+        <h2 class="text-2xl font-bold mb-6">
+
+            Machine Efficiency
+
+        </h2>
+
+        <div class="space-y-5">
+
+            <div>
+
+                <div class="flex justify-between mb-2">
+
+                    <span>Extruder</span>
+
+                    <span class="text-green-400">96%</span>
+
+                </div>
+
+                <div class="w-full bg-slate-800 rounded-full h-3">
+
+                    <div class="bg-green-500 h-3 rounded-full w-[96%]"></div>
+
+                </div>
+
+            </div>
+
+            <div>
+
+                <div class="flex justify-between mb-2">
+
+                    <span>Printing</span>
+
+                    <span class="text-yellow-400">88%</span>
+
+                </div>
+
+                <div class="w-full bg-slate-800 rounded-full h-3">
+
+                    <div class="bg-yellow-400 h-3 rounded-full w-[88%]"></div>
+
+                </div>
+
+            </div>
+
+            <div>
+
+                <div class="flex justify-between mb-2">
+
+                    <span>Cutting</span>
+
+                    <span class="text-red-400">72%</span>
+
+                </div>
+
+                <div class="w-full bg-slate-800 rounded-full h-3">
+
+                    <div class="bg-red-500 h-3 rounded-full w-[72%]"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Second Row -->
+
+<div class="grid grid-cols-2 gap-6 mt-8">
+
+    <!-- Production Chart -->
+
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+
+        <h2 class="text-2xl font-bold mb-6">
+
+            Production Report
+
+        </h2>
+
+        <canvas id="productionChart" height="120"></canvas>
+
+    </div>
+
+    <!-- Material Usage -->
+
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+
+        <h2 class="text-2xl font-bold mb-6">
+
+            Material Usage
+
+        </h2>
+
+        <canvas id="materialChart" height="120"></canvas>
+
+    </div>
+
+</div>
+
+<!-- Export History -->
+
+<div class="bg-slate-900 border border-slate-800 rounded-2xl mt-8 overflow-hidden">
+
+    <div class="p-6 border-b border-slate-800">
+
+        <h2 class="text-2xl font-bold">
+            Export History
+        </h2>
+
+        <p class="text-slate-400">
+            Recently Generated Reports
+        </p>
+
+    </div>
+
+    <table class="w-full">
+
+        <thead class="bg-slate-800">
+
+            <tr>
+
+                <th class="px-6 py-4 text-left">Report</th>
+                <th class="px-6 py-4 text-center">Date</th>
+                <th class="px-6 py-4 text-center">Format</th>
+                <th class="px-6 py-4 text-center">Status</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody class="divide-y divide-slate-800">
+
+            <tr class="hover:bg-slate-800/60">
+
+                <td class="px-6 py-4">Monthly Revenue</td>
+
+                <td class="px-6 py-4 text-center">
+                    28 Jul 2026
+                </td>
+
+                <td class="px-6 py-4 text-center">
+                    PDF
+                </td>
+
+                <td class="px-6 py-4 text-center">
+
+                    <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs">
+
+                        Downloaded
+
+                    </span>
+
+                </td>
+
+            </tr>
+
+            <tr class="hover:bg-slate-800/60">
+
+                <td class="px-6 py-4">Production Report</td>
+
+                <td class="px-6 py-4 text-center">
+                    26 Jul 2026
+                </td>
+
+                <td class="px-6 py-4 text-center">
+                    Excel
+                </td>
+
+                <td class="px-6 py-4 text-center">
+
+                    <span class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-xs">
+
+                        Exported
+
+                    </span>
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../js/app.js"></script>
+
+</body>
+
+</html>

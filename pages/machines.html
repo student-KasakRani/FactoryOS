@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Machines | FactoryOS</title>
+
+    <link rel="stylesheet" href="../css/output.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body class="bg-slate-950 text-white">
+
+  <div class="flex min-h-screen">
+
+    <!-- Sidebar -->
+    <aside class="w-72 bg-slate-900 border-r border-slate-800 flex flex-col">
+
+        <!-- Logo -->
+        <div class="h-20 flex items-center justify-center border-b border-slate-800">
+
+            <div class="text-center">
+
+                <h1 class="text-3xl font-bold text-cyan-400">
+                    FactoryOS
+                </h1>
+
+                <p class="text-xs text-slate-400 mt-1">
+                    Smart Factory Management
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Menu -->
+        <nav class="flex-1 px-5 py-6 space-y-3">
+
+            <a href="../index.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+
+                <i class="fas fa-chart-line"></i>
+                Dashboard
+
+            </a>
+
+            <a href="machines.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl bg-cyan-500/20 text-cyan-400">
+
+                <i class="fas fa-industry"></i>
+                Machines
+
+            </a>
+
+            <a href="inventory.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+
+                <i class="fas fa-boxes"></i>
+                Inventory
+
+            </a>
+
+            <a href="production.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+
+                <i class="fas fa-gears"></i>
+                Production
+
+            </a>
+
+            <a href="orders.html"
+class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+
+    <i class="fas fa-cart-shopping"></i>
+
+    Orders
+
+</a>
+
+            <a href="invoice.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+
+                <i class="fas fa-file-invoice"></i>
+                Invoice
+
+            </a>
+
+            <a href="reports.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+
+                <i class="fas fa-chart-pie"></i>
+                Reports
+
+            </a>
+
+            <a href="employees.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+
+                <i class="fas fa-users"></i>
+                Employees
+
+            </a>
+
+            <a href="settings.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+
+                <i class="fas fa-gear"></i>
+                Settings
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 overflow-y-auto">
+
+        <!-- Navbar -->
+        <header class="h-20 border-b border-slate-800 px-8 flex items-center justify-between">
+
+            <div>
+
+                <h2 class="text-3xl font-bold">
+                    Machines
+                </h2>
+
+                <p class="text-slate-400">
+                    Manage Factory Machines
+                </p>
+
+            </div>
+
+            <div class="flex items-center gap-5">
+
+                <input
+                    type="text"
+                    placeholder="Search Machine..."
+                    class="bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 w-72 outline-none focus:border-cyan-400">
+
+                <button
+                    class="bg-cyan-500 hover:bg-cyan-600 px-5 py-2 rounded-xl font-semibold">
+
+                    <i class="fas fa-plus mr-2"></i>
+
+                    Add Machine
+
+                </button>
+
+            </div>
+
+        </header>
+
+        <!-- Page Content -->
+        <section class="p-8">
+
+            <!-- KPI Cards Start -->
+
+            <div class="grid grid-cols-4 gap-6">
+
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+
+        <p class="text-slate-400 text-sm">Total Machines</p>
+
+        <h2 class="text-4xl font-bold mt-3">32</h2>
+
+        <p class="text-green-400 mt-2">+2 This Month</p>
+
+    </div>
+
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+
+        <p class="text-slate-400 text-sm">Running</p>
+
+        <h2 class="text-4xl font-bold mt-3 text-green-400">28</h2>
+
+        <p class="mt-2 text-slate-400">87.5% Active</p>
+
+    </div>
+
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+
+        <p class="text-slate-400 text-sm">Maintenance</p>
+
+        <h2 class="text-4xl font-bold mt-3 text-yellow-400">3</h2>
+
+        <p class="mt-2 text-slate-400">Scheduled</p>
+
+    </div>
+
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+
+        <p class="text-slate-400 text-sm">Stopped</p>
+
+        <h2 class="text-4xl font-bold mt-3 text-red-400">1</h2>
+
+        <p class="mt-2 text-slate-400">Needs Attention</p>
+
+    </div>
+
+</div>
+
+<!-- Machine Table -->
+
+<div class="mt-8 bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden">
+
+    <div class="flex justify-between items-center p-6 border-b border-slate-800">
+
+        <div>
+
+            <h2 class="text-2xl font-bold">
+                Machine List
+            </h2>
+
+            <p class="text-slate-400 text-sm">
+                Live Factory Machines
+            </p>
+
+        </div>
+
+        <button
+            class="bg-cyan-500 hover:bg-cyan-600 px-5 py-2 rounded-xl">
+
+            Export Report
+
+        </button>
+
+    </div>
+
+    <table class="w-full table-auto">
+
+        <thead class="bg-slate-800">
+
+            <tr>
+
+                <th class="px-6 py-4 text-left">ID</th>
+
+                <th class="px-6 py-4 text-left">Machine</th>
+
+                <th class="px-6 py-4 text-left">Status</th>
+
+                <th class="px-6 py-4 text-left">RPM</th>
+
+                <th class="px-6 py-4 text-left">Temperature</th>
+
+                <th class="px-6 py-4 text-left">Efficiency</th>
+
+                <th class="px-6 py-4 text-left">Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody class="divide-y divide-slate-800">
+
+           <tr class="border-t border-slate-800 hover:bg-slate-800/60 transition-all duration-300">
+
+    <td class="px-6 py-4">M001</td>
+
+    <td class="px-6 py-4">
+        Extruder Machine
+    </td>
+
+    <td class="px-6 py-4">
+        <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs">
+            Running
+        </span>
+    </td>
+
+    <td class="px-6 py-4 text-center">
+        1450
+    </td>
+
+    <td class="px-6 py-4 text-center">
+        78°C
+    </td>
+
+    <td class="px-6 py-4 text-center">
+        96%
+    </td>
+
+    <td class="px-6 py-4">
+        <div class="flex items-center justify-center gap-4">
+
+            <button class="text-cyan-400 hover:text-cyan-300 hover:scale-110 transition">
+                <i class="fas fa-eye"></i>
+            </button>
+
+            <button class="text-yellow-400 hover:text-yellow-300 hover:scale-110 transition">
+                <i class="fas fa-pen"></i>
+            </button>
+
+            <button class="text-red-400 hover:text-red-300 hover:scale-110 transition">
+                <i class="fas fa-trash"></i>
+            </button>
+
+        </div>
+    </td>
+
+</tr>
+
+            <tr class="border-t border-slate-800 hover:bg-slate-800/60 transition-all duration-300">
+
+    <td class="px-6 py-4">M002</td>
+
+    <td class="px-6 py-4 min-w-[220px]">
+        Printing Machine
+    </td>
+
+    <td class="px-6 py-4">
+        <span class="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-xs">
+            Maintenance
+        </span>
+    </td>
+
+    <td class="px-6 py-4 text-center">
+        1120
+    </td>
+
+    <td class="px-6 py-4 text-center">
+        69°C
+    </td>
+
+    <td class="px-6 py-4 text-center">
+        88%
+    </td>
+
+    <td class="px-6 py-4">
+        <div class="flex items-center justify-center gap-4">
+
+            <button class="text-cyan-400 hover:text-cyan-300 hover:scale-110 transition">
+                <i class="fas fa-eye"></i>
+            </button>
+
+            <button class="text-yellow-400 hover:text-yellow-300 hover:scale-110 transition">
+                <i class="fas fa-pen"></i>
+            </button>
+
+            <button class="text-red-400 hover:text-red-300 hover:scale-110 transition">
+                <i class="fas fa-trash"></i>
+            </button>
+
+        </div>
+    </td>
+
+</tr>
+            <tr class="border-t border-slate-800 hover:bg-slate-800/60 transition-all duration-300">
+
+    <td class="px-6 py-4">M003</td>
+
+    <td class="px-6 py-4 min-w-[220px]">
+        Cutting Machine
+    </td>
+
+    <td class="px-6 py-4">
+
+        <span class="bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-xs">
+            Stopped
+        </span>
+
+    </td>
+
+    <td class="px-6 py-4 text-center">
+        0
+    </td>
+
+    <td class="px-6 py-4 text-center">
+        32°C
+    </td>
+
+    <td class="px-6 py-4 text-center">
+        0%
+    </td>
+
+    <td class="px-6 py-4">
+
+        <div class="flex items-center justify-center gap-4">
+
+            <button class="text-cyan-400 hover:text-cyan-300 hover:scale-110 transition duration-200">
+                <i class="fas fa-eye"></i>
+            </button>
+
+            <button class="text-yellow-400 hover:text-yellow-300 hover:scale-110 transition duration-200">
+                <i class="fas fa-pen"></i>
+            </button>
+
+            <button class="text-red-400 hover:text-red-300 hover:scale-110 transition duration-200">
+                <i class="fas fa-trash"></i>
+            </button>
+
+        </div>
+
+    </td>
+
+</tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+        </section>
+
+    </main>
+
+</div>
+<!-- Machine Health + Maintenance -->
+<div class="grid grid-cols-3 gap-6 mt-8">
+
+    <!-- Machine Health -->
+    <div class="col-span-2 bg-slate-900 border border-slate-800 rounded-2xl p-6">
+
+        <h2 class="text-2xl font-bold mb-6">
+            Machine Health
+        </h2>
+
+        <div class="space-y-6">
+
+            <!-- Extruder -->
+            <div>
+
+                <div class="flex justify-between mb-2">
+
+                    <span>Extruder Machine</span>
+
+                    <span class="text-green-400">95%</span>
+
+                </div>
+
+                <div class="w-full bg-slate-800 rounded-full h-3">
+
+                    <div class="bg-green-500 h-3 rounded-full w-[95%]"></div>
+
+                </div>
+
+            </div>
+
+            
+
+            <!-- Printing -->
+
+            <div>
+
+                <div class="flex justify-between mb-2">
+
+                    <span>Printing Machine</span>
+
+                    <span class="text-yellow-400">82%</span>
+
+                </div>
+
+                <div class="w-full bg-slate-800 rounded-full h-3">
+
+                    <div class="bg-yellow-400 h-3 rounded-full w-[82%]"></div>
+
+                </div>
+
+            </div>
+
+            <!-- Cutting -->
+
+            <div>
+
+                <div class="flex justify-between mb-2">
+
+                    <span>Cutting Machine</span>
+
+                    <span class="text-red-400">40%</span>
+
+                </div>
+
+                <div class="w-full bg-slate-800 rounded-full h-3">
+
+                    <div class="bg-red-500 h-3 rounded-full w-[40%]"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Today's Maintenance -->
+
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+
+        <h2 class="text-2xl font-bold mb-6">
+            Today's Maintenance
+        </h2>
+
+        <div class="space-y-4">
+
+            <div class="bg-slate-800 rounded-xl p-4">
+
+                <p class="font-semibold">
+                    🛠 Oil Change
+                </p>
+
+                <p class="text-slate-400 text-sm">
+                    Extruder Machine
+                </p>
+
+                <p class="text-cyan-400 mt-2">
+                    09:00 AM
+                </p>
+
+            </div>
+
+            <div class="bg-slate-800 rounded-xl p-4">
+
+                <p class="font-semibold">
+                    ⚙ Motor Check
+                </p>
+
+                <p class="text-slate-400 text-sm">
+                    Printing Machine
+                </p>
+
+                <p class="text-cyan-400 mt-2">
+                    11:30 AM
+                </p>
+
+            </div>
+
+            <div class="bg-slate-800 rounded-xl p-4">
+
+                <p class="font-semibold">
+                    🔧 Belt Replacement
+                </p>
+
+                <p class="text-slate-400 text-sm">
+                    Cutting Machine
+                </p>
+
+                <p class="text-cyan-400 mt-2">
+                    03:00 PM
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Recent Machine Activity -->
+
+<div class="mt-8 bg-slate-900 border border-slate-800 rounded-2xl p-6">
+
+    <div class="flex justify-between items-center mb-6">
+
+        <div>
+
+            <h2 class="text-2xl font-bold">
+                Recent Machine Activity
+            </h2>
+
+            <p class="text-slate-400 text-sm">
+                Live Factory Events
+            </p>
+
+        </div>
+
+        <span class="bg-green-500/20 text-green-400 px-4 py-2 rounded-xl">
+            LIVE
+        </span>
+
+    </div>
+
+    <div class="space-y-4">
+
+        <div class="flex items-center justify-between bg-slate-800 rounded-xl p-4">
+
+            <div>
+
+                <h3 class="font-semibold">
+                    Extruder Machine Started
+                </h3>
+
+                <p class="text-slate-400 text-sm">
+                    Production Line A
+                </p>
+
+            </div>
+
+            <span class="text-cyan-400">
+                09:18 AM
+            </span>
+
+        </div>
+
+        <div class="flex items-center justify-between bg-slate-800 rounded-xl p-4">
+
+            <div>
+
+                <h3 class="font-semibold">
+                    Printing Machine Maintenance Completed
+                </h3>
+
+                <p class="text-slate-400 text-sm">
+                    Machine Ready
+                </p>
+
+            </div>
+
+            <span class="text-cyan-400">
+                10:05 AM
+            </span>
+
+        </div>
+
+        <div class="flex items-center justify-between bg-slate-800 rounded-xl p-4">
+
+            <div>
+
+                <h3 class="font-semibold">
+                    Cutting Machine Stopped
+                </h3>
+
+                <p class="text-slate-400 text-sm">
+                    Operator Requested
+                </p>
+
+            </div>
+
+            <span class="text-red-400">
+                11:42 AM
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="../js/machines.js"></script>
+
+
+</body>
+
+</html>

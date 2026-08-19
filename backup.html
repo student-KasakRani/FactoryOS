@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FactoryOS - Smart Factory Management</title>
+
+    
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/output.css">
+</head>
+
+<body class="bg-slate-950 text-white">
+
+    <div class="flex h-screen bg-slate-950">
+
+    <!-- Sidebar -->
+    <aside class="w-72 bg-slate-900 border-r border-slate-800 flex flex-col">
+
+        <!-- Logo -->
+        <div class="h-20 flex items-center justify-center border-b border-slate-800">
+
+            <div class="text-center">
+
+                <h1 class="text-3xl font-bold text-cyan-400">
+                    FactoryOS
+                </h1>
+
+                <p class="text-xs text-slate-400 mt-1">
+                    Smart Factory Management
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Menu -->
+
+        <nav class="flex-1 px-5 py-6 space-y-3">
+
+            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-cyan-500/20 text-cyan-400">
+
+                <i class="fas fa-chart-line"></i>
+
+                Dashboard
+
+            </a>
+
+            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+
+                <i class="fas fa-industry"></i>
+
+                Machines
+
+            </a>
+
+            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+
+                <i class="fas fa-boxes"></i>
+
+                Inventory
+
+            </a>
+
+            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+
+                <i class="fas fa-gears"></i>
+
+                Production
+
+            </a>
+
+            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+
+                <i class="fas fa-file-invoice"></i>
+
+                Invoices
+
+            </a>
+
+            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+
+                <i class="fas fa-chart-pie"></i>
+
+                Reports
+
+            </a>
+
+            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+
+                <i class="fas fa-users"></i>
+
+                Employees
+
+            </a>
+
+            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+
+                <i class="fas fa-gear"></i>
+
+                Settings
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <!-- Main Content -->
+
+   <main class="flex-1 bg-slate-950">
+
+    <!-- Top Navbar -->
+
+    <header class="h-20 border-b border-slate-800 px-8 flex items-center justify-between">
+
+        <div>
+
+            <h2 class="text-3xl font-bold">
+                Dashboard
+            </h2>
+
+            <p class="text-slate-400 text-sm">
+                Welcome back 👋
+            </p>
+
+        </div>
+
+        <div class="flex items-center gap-6">
+
+            <!-- Search -->
+
+            <div class="relative">
+
+                <input
+                    type="text"
+                    placeholder="Search..."
+                    class="bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 pl-10 w-72 outline-none focus:border-cyan-400">
+
+                <i class="fas fa-search absolute left-3 top-3 text-slate-500"></i>
+
+            </div>
+
+            <!-- Notification -->
+
+            <button class="text-2xl hover:text-cyan-400">
+
+                <i class="fas fa-bell"></i>
+
+            </button>
+
+            <!-- User -->
+
+            <div class="flex items-center gap-3">
+
+                <img
+                    src="https://i.pravatar.cc/45"
+                    class="w-11 h-11 rounded-full">
+
+                <div>
+
+                    <p class="font-semibold">
+                        Admin
+                    </p>
+
+                    <p class="text-xs text-slate-400">
+                        Factory Manager
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+</main>
+
+</div>
+
+    <script src="js/app.js"></script>
+
+</body>
+</html>

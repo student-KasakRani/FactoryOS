@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Inventory | FactoryOS</title>
+
+<link rel="stylesheet" href="../css/output.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body class="bg-slate-950 text-white">
+
+<div class="flex min-h-screen">
+
+    <!-- Sidebar -->
+    <aside class="w-72 bg-slate-900 border-r border-slate-800 flex flex-col">
+
+        <div class="h-20 flex items-center justify-center border-b border-slate-800">
+            <div class="text-center">
+                <h1 class="text-3xl font-bold text-cyan-400">FactoryOS</h1>
+                <p class="text-xs text-slate-400 mt-1">Smart Factory Management</p>
+            </div>
+        </div>
+
+        <nav class="flex-1 px-5 py-6 space-y-3">
+
+            <a href="../index.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+                <i class="fas fa-chart-line"></i>
+                Dashboard
+            </a>
+
+            <a href="machines.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+                <i class="fas fa-industry"></i>
+                Machines
+            </a>
+
+            <a href="inventory.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl bg-cyan-500/20 text-cyan-400">
+                <i class="fas fa-boxes"></i>
+                Inventory
+            </a>
+
+            <a href="production.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+                <i class="fas fa-gears"></i>
+                Production
+            </a>
+
+           <a href="orders.html"
+class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+
+    <i class="fas fa-cart-shopping"></i>
+
+    Orders
+
+</a> 
+
+            <a href="invoice.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+                <i class="fas fa-file-invoice"></i>
+                Invoice
+            </a>
+
+            <a href="reports.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+                <i class="fas fa-chart-pie"></i>
+                Reports
+            </a>
+
+            <a href="employees.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+                <i class="fas fa-users"></i>
+                Employees
+            </a>
+
+            <a href="settings.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+                <i class="fas fa-gear"></i>
+                Settings
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 overflow-y-auto">
+
+        <!-- Navbar -->
+        <header class="h-20 border-b border-slate-800 px-8 flex items-center justify-between">
+
+            <div>
+                <h2 class="text-3xl font-bold">Inventory</h2>
+                <p class="text-slate-400">Manage Raw Materials & Stock</p>
+            </div>
+
+            <div class="flex items-center gap-5">
+
+                <input
+                    type="text"
+                    placeholder="Search Material..."
+                    class="bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 w-72 outline-none focus:border-cyan-400">
+
+                <button
+                    class="bg-cyan-500 hover:bg-cyan-600 px-5 py-2 rounded-xl font-semibold">
+
+                    <i class="fas fa-plus mr-2"></i>
+
+                    Add Material
+
+                </button>
+
+            </div>
+
+        </header>
+
+        <!-- Page Content -->
+        <section class="p-8">
+
+            <!-- Inventory Cards -->
+            <div class="grid grid-cols-4 gap-6">
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                    <p class="text-slate-400 text-sm">Total Materials</p>
+                    <h2 class="text-4xl font-bold mt-3">148</h2>
+                    <p class="text-green-400 mt-2">+12 This Month</p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                    <p class="text-slate-400 text-sm">Low Stock</p>
+                    <h2 class="text-4xl font-bold mt-3 text-red-400">6</h2>
+                    <p class="text-slate-400 mt-2">Need Reorder</p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                    <p class="text-slate-400 text-sm">Suppliers</p>
+                    <h2 class="text-4xl font-bold mt-3 text-cyan-400">24</h2>
+                    <p class="text-slate-400 mt-2">Active Vendors</p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                    <p class="text-slate-400 text-sm">Inventory Value</p>
+                    <h2 class="text-4xl font-bold mt-3 text-yellow-400">₹18L</h2>
+                    <p class="text-slate-400 mt-2">Current Value</p>
+                </div>
+
+            </div>
+
+            <!-- Material Table -->
+
+<div class="bg-slate-900 border border-slate-800 rounded-2xl mt-8 overflow-hidden">
+
+    <div class="flex justify-between items-center p-6">
+
+        <div>
+
+            <h2 class="text-2xl font-bold">
+                Material Inventory
+            </h2>
+
+            <p class="text-slate-400 text-sm">
+                Plastic & Packaging Raw Materials
+            </p>
+
+        </div>
+
+        <button
+            class="bg-cyan-500 hover:bg-cyan-600 px-5 py-2 rounded-xl">
+
+            Export Report
+
+        </button>
+
+    </div>
+
+    <table class="w-full">
+
+        <thead class="bg-slate-800">
+
+            <tr>
+
+                <th class="text-left p-4">Material</th>
+
+                <th class="text-left">Category</th>
+
+                <th class="text-left">Quantity</th>
+
+                <th class="text-left">Minimum</th>
+
+                <th class="text-left">Supplier</th>
+
+                <th class="text-left">Status</th>
+
+                <th class="text-center">Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr class="border-t border-slate-800 hover:bg-slate-800/50">
+
+                <td class="p-4">Plastic Granules</td>
+
+                <td>Raw Material</td>
+
+                <td>950 Kg</td>
+
+                <td>300 Kg</td>
+
+                <td>ABC Polymers</td>
+
+                <td>
+
+                    <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm">
+
+                        In Stock
+
+                    </span>
+
+                </td>
+
+                <td class="text-center">
+
+                    <div class="flex justify-center gap-3">
+
+                        <button class="text-cyan-400">
+                            <i class="fas fa-eye"></i>
+                        </button>
+
+                        <button class="text-yellow-400">
+                            <i class="fas fa-pen"></i>
+                        </button>
+
+                        <button class="text-red-400">
+                            <i class="fas fa-trash"></i>
+                        </button>
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+            <tr class="border-t border-slate-800 hover:bg-slate-800/50">
+
+                <td class="p-4">Printing Ink</td>
+
+                <td>Chemical</td>
+
+                <td>80 L</td>
+
+                <td>100 L</td>
+
+                <td>ColorTech</td>
+
+                <td>
+
+                    <span class="bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-sm">
+
+                        Low Stock
+
+                    </span>
+
+                </td>
+
+                <td class="text-center">
+
+                    <div class="flex justify-center gap-3">
+
+                        <button class="text-cyan-400">
+                            <i class="fas fa-eye"></i>
+                        </button>
+
+                        <button class="text-yellow-400">
+                            <i class="fas fa-pen"></i>
+                        </button>
+
+                        <button class="text-red-400">
+                            <i class="fas fa-trash"></i>
+                        </button>
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+            <tr class="border-t border-slate-800 hover:bg-slate-800/50">
+
+                <td class="p-4">Packaging Rolls</td>
+
+                <td>Packing</td>
+
+                <td>420 Rolls</td>
+
+                <td>120 Rolls</td>
+
+                <td>Pack India</td>
+
+                <td>
+
+                    <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm">
+
+                        Available
+
+                    </span>
+
+                </td>
+
+                <td class="text-center">
+
+                    <div class="flex justify-center gap-3">
+
+                        <button class="text-cyan-400">
+                            <i class="fas fa-eye"></i>
+                        </button>
+
+                        <button class="text-yellow-400">
+                            <i class="fas fa-pen"></i>
+                        </button>
+
+                        <button class="text-red-400">
+                            <i class="fas fa-trash"></i>
+                        </button>
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<!-- Stock Analytics + Low Stock -->
+
+<div class="grid grid-cols-3 gap-6 mt-8">
+
+    <!-- Stock Analytics -->
+
+    <div class="col-span-2 bg-slate-900 border border-slate-800 rounded-2xl p-6">
+
+        <div class="flex justify-between items-center mb-6">
+
+            <div>
+
+                <h2 class="text-2xl font-bold">
+                    Stock Analytics
+                </h2>
+
+                <p class="text-slate-400 text-sm">
+                    Weekly Inventory Usage
+                </p>
+
+            </div>
+
+            <select
+    id="productionPeriod"
+    class="bg-slate-800 border border-slate-700 rounded-xl px-4 py-2">
+
+    <option value="week">This Week</option>
+    <option value="month">This Month</option>
+
+</select>
+
+        </div>
+
+        <div class="h-72">
+    <canvas id="inventoryChart"></canvas>
+</div>
+
+    </div>
+
+    <!-- Low Stock -->
+
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+
+        <h2 class="text-2xl font-bold mb-6">
+            Low Stock Alerts
+        </h2>
+
+        <div class="space-y-4">
+
+            <div class="bg-red-500/10 border border-red-500 rounded-xl p-4">
+
+                <h3 class="font-semibold">
+                    Printing Ink
+                </h3>
+
+                <p class="text-red-400 text-sm">
+                    Only 80L Left
+                </p>
+
+            </div>
+
+            <div class="bg-yellow-500/10 border border-yellow-500 rounded-xl p-4">
+
+                <h3 class="font-semibold">
+                    Adhesive
+                </h3>
+
+                <p class="text-yellow-400 text-sm">
+                    120 Kg Remaining
+                </p>
+
+            </div>
+
+            <div class="bg-red-500/10 border border-red-500 rounded-xl p-4">
+
+                <h3 class="font-semibold">
+                    Packaging Labels
+                </h3>
+
+                <p class="text-red-400 text-sm">
+                    Reorder Required
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Bottom Section -->
+
+<div class="grid grid-cols-3 gap-6 mt-8">
+
+    <!-- Supplier Summary -->
+
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+
+        <h2 class="text-xl font-bold mb-5">
+            Supplier Summary
+        </h2>
+
+        <div class="space-y-4">
+
+            <div class="flex justify-between">
+
+                <span>Total Suppliers</span>
+
+                <span class="text-cyan-400 font-bold">24</span>
+
+            </div>
+
+            <div class="flex justify-between">
+
+                <span>Active Suppliers</span>
+
+                <span class="text-green-400 font-bold">20</span>
+
+            </div>
+
+            <div class="flex justify-between">
+
+                <span>Pending Orders</span>
+
+                <span class="text-yellow-400 font-bold">4</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Quick Actions -->
+
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+
+        <h2 class="text-xl font-bold mb-5">
+
+            Quick Actions
+
+        </h2>
+
+        <div class="space-y-4">
+
+            <button class="w-full bg-cyan-500 hover:bg-cyan-600 py-3 rounded-xl">
+
+                + Add Material
+
+            </button>
+
+            <button class="w-full bg-green-600 hover:bg-green-700 py-3 rounded-xl">
+
+                Create Purchase Order
+
+            </button>
+
+            <button class="w-full bg-yellow-500 hover:bg-yellow-600 py-3 rounded-xl">
+
+                Download Report
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Inventory Status -->
+
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+
+        <h2 class="text-xl font-bold mb-5">
+
+            Inventory Status
+
+        </h2>
+
+        <div class="space-y-4">
+
+            <div>
+
+                <p class="text-slate-400">Storage Utilization</p>
+
+                <div class="w-full bg-slate-800 rounded-full h-3 mt-2">
+                    <div class="bg-cyan-500 h-3 rounded-full w-[72%]"></div>
+                </div>
+
+            </div>
+
+            <div>
+
+                <p class="text-slate-400">Warehouse Capacity</p>
+
+                <div class="w-full bg-slate-800 rounded-full h-3 mt-2">
+                    <div class="bg-green-500 h-3 rounded-full w-[88%]"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Recent Purchase Orders -->
+
+<div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 mt-8">
+
+    <div class="flex justify-between items-center mb-6">
+
+        <div>
+            <h2 class="text-2xl font-bold">
+                Recent Purchase Orders
+            </h2>
+
+            <p class="text-slate-400 text-sm">
+                Latest Orders From Suppliers
+            </p>
+        </div>
+
+        <button class="bg-cyan-500 hover:bg-cyan-600 px-5 py-2 rounded-xl">
+            View All
+        </button>
+
+    </div>
+
+    <table class="w-full">
+
+        <thead class="bg-slate-800">
+
+            <tr>
+
+                <th class="text-left p-4">PO No.</th>
+                <th class="text-left">Supplier</th>
+                <th class="text-left">Material</th>
+                <th class="text-left">Amount</th>
+                <th class="text-left">Status</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr class="border-t border-slate-800 hover:bg-slate-800/40">
+
+                <td class="p-4">PO-1001</td>
+                <td>ABC Polymers</td>
+                <td>Plastic Granules</td>
+                <td>₹2,40,000</td>
+
+                <td>
+                    <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm">
+                        Delivered
+                    </span>
+                </td>
+
+            </tr>
+
+            <tr class="border-t border-slate-800 hover:bg-slate-800/40">
+
+                <td class="p-4">PO-1002</td>
+                <td>ColorTech</td>
+                <td>Printing Ink</td>
+                <td>₹65,000</td>
+
+                <td>
+                    <span class="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-sm">
+                        In Transit
+                    </span>
+                </td>
+
+            </tr>
+
+            <tr class="border-t border-slate-800 hover:bg-slate-800/40">
+
+                <td class="p-4">PO-1003</td>
+                <td>Pack India</td>
+                <td>Packaging Rolls</td>
+                <td>₹1,15,000</td>
+
+                <td>
+                    <span class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-sm">
+                        Processing
+                    </span>
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../js/app.js"></script>
+
+</div>
+
+</body>
+
+</html>

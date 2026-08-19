@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Orders | FactoryOS</title>
+
+<link rel="stylesheet" href="../css/output.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body class="bg-slate-950 text-white">
+
+<div class="flex min-h-screen">
+
+    <!-- Sidebar -->
+    <aside class="w-72 bg-slate-900 border-r border-slate-800 flex flex-col">
+
+        <div class="h-20 flex items-center justify-center border-b border-slate-800">
+
+            <div class="text-center">
+
+                <h1 class="text-3xl font-bold text-cyan-400">
+                    FactoryOS
+                </h1>
+
+                <p class="text-xs text-slate-400 mt-1">
+                    Smart Factory Management
+                </p>
+
+            </div>
+
+        </div>
+
+        <nav class="flex-1 px-5 py-6 space-y-3">
+
+            <a href="../index.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+
+                <i class="fas fa-chart-line"></i>
+
+                Dashboard
+
+            </a>
+
+            <a href="machines.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+
+                <i class="fas fa-industry"></i>
+
+                Machines
+
+            </a>
+
+            <a href="inventory.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+
+                <i class="fas fa-boxes"></i>
+
+                Inventory
+
+            </a>
+
+            <a href="production.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+
+                <i class="fas fa-gears"></i>
+
+                Production
+
+            </a>
+
+            <a href="orders.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl bg-cyan-500/20 text-cyan-400">
+
+                <i class="fas fa-cart-shopping"></i>
+
+                Orders
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <!-- Main -->
+
+    <main class="flex-1 overflow-y-auto">
+
+        <!-- Navbar -->
+
+        <header class="h-20 border-b border-slate-800 px-8 flex items-center justify-between">
+
+            <div>
+
+                <h2 class="text-3xl font-bold">
+                    Orders Management
+                </h2>
+
+                <p class="text-slate-400">
+                    Customer Orders & Dispatch Tracking
+                </p>
+
+            </div>
+
+            <div class="flex gap-4">
+
+                <input
+                 id="orderSearch"
+                    type="text"
+                    placeholder="Search Orders..."
+                    class="bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 w-72 outline-none focus:border-cyan-400">
+
+                <button
+                   id="newOrderBtn"
+                    class="bg-cyan-500 hover:bg-cyan-600 px-6 py-2 rounded-xl font-semibold">
+
+                    + New Order
+
+                </button>
+
+            </div>
+
+        </header>
+
+        <!-- Page Content -->
+
+        <section class="p-8">
+
+            <!-- KPI Cards -->
+
+            <div class="grid grid-cols-4 gap-6">
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+
+                    <p class="text-slate-400">
+                        Total Orders
+                    </p>
+
+                    <h2 class="text-4xl font-bold mt-3">
+                        184
+                    </h2>
+
+                    <p class="text-green-400 mt-2">
+                        +18 Today
+                    </p>
+
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+
+                    <p class="text-slate-400">
+                        Pending Orders
+                    </p>
+
+                    <h2 class="text-4xl font-bold mt-3 text-yellow-400">
+                        23
+                    </h2>
+
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+
+                    <p class="text-slate-400">
+                        Delivered
+                    </p>
+
+                    <h2 class="text-4xl font-bold mt-3 text-green-400">
+                        151
+                    </h2>
+
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+
+                    <p class="text-slate-400">
+                        Revenue
+                    </p>
+
+                    <h2 class="text-4xl font-bold mt-3 text-cyan-400">
+                        ₹42L
+                    </h2>
+
+                </div>
+
+            </div>
+
+            <!-- Orders Table -->
+
+<div class="bg-slate-900 border border-slate-800 rounded-2xl mt-8 overflow-hidden">
+
+    <div class="flex justify-between items-center p-6">
+
+        <div>
+
+            <h2 class="text-3xl font-bold">
+                Recent Orders
+            </h2>
+
+            <p class="text-slate-400">
+                Plastic & Packaging Orders
+            </p>
+
+        </div>
+
+        <button
+         id="exportOrdersBtn"
+            class="bg-cyan-500 hover:bg-cyan-600 px-5 py-3 rounded-xl">
+
+            Export Orders
+
+        </button>
+
+    </div>
+
+    <table class="w-full">
+
+        <thead class="bg-slate-800">
+
+            <tr>
+
+                <th class="px-6 py-4 text-left">Order ID</th>
+
+                <th class="px-6 py-4 text-left">Customer</th>
+
+                <th class="px-6 py-4 text-left">Product</th>
+
+                <th class="px-6 py-4 text-center">Amount</th>
+
+                <th class="px-6 py-4 text-center">Payment</th>
+
+                <th class="px-6 py-4 text-center">Delivery</th>
+
+                <th class="px-6 py-4 text-center">Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody  id="ordersTableBody" class="divide-y divide-slate-800">
+
+          <!-- Order 1 -->
+
+<tr class="hover:bg-slate-800/60 transition-all duration-300">
+
+    <td class="px-6 py-4">ORD-1001</td>
+
+    <td class="px-6 py-4">ABC Packaging Pvt Ltd</td>
+
+    <td class="px-6 py-4">Plastic Carry Bags</td>
+
+    <td class="px-6 py-4 text-center">₹2,45,000</td>
+
+    <td class="px-6 py-4 text-center">
+        <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs">
+            Paid
+        </span>
+    </td>
+
+    <td class="px-6 py-4 text-center">
+        <span class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-xs">
+            Dispatched
+        </span>
+    </td>
+
+    <td class="px-6 py-4">
+        <div class="flex items-center justify-center gap-4">
+
+            <button class="text-cyan-400 hover:text-cyan-300 hover:scale-110 transition">
+                <i class="fas fa-eye"></i>
+            </button>
+
+            <button class="text-yellow-400 hover:text-yellow-300 hover:scale-110 transition">
+                <i class="fas fa-pen"></i>
+            </button>
+
+            <button class="text-red-400 hover:text-red-300 hover:scale-110 transition">
+                <i class="fas fa-trash"></i>
+            </button>
+
+        </div>
+    </td>
+
+</tr>
+
+<!-- Order 2 -->
+
+<tr class="hover:bg-slate-800/60 transition-all duration-300">
+
+    <td class="px-6 py-4">ORD-1002</td>
+
+    <td class="px-6 py-4">XYZ Industries</td>
+
+    <td class="px-6 py-4">Stretch Film Rolls</td>
+
+    <td class="px-6 py-4 text-center">₹1,18,000</td>
+
+    <td class="px-6 py-4 text-center">
+        <span class="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-xs">
+            Pending
+        </span>
+    </td>
+
+    <td class="px-6 py-4 text-center">
+        <span class="bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full text-xs">
+            In Production
+        </span>
+    </td>
+
+    <td class="px-6 py-4">
+        <div class="flex items-center justify-center gap-4">
+
+            <button class="text-cyan-400 hover:text-cyan-300 hover:scale-110 transition">
+                <i class="fas fa-eye"></i>
+            </button>
+
+            <button class="text-yellow-400 hover:text-yellow-300 hover:scale-110 transition">
+                <i class="fas fa-pen"></i>
+            </button>
+
+            <button class="text-red-400 hover:text-red-300 hover:scale-110 transition">
+                <i class="fas fa-trash"></i>
+            </button>
+
+        </div>
+    </td>
+
+</tr>
+
+<!-- Order 3 -->
+
+<tr class="hover:bg-slate-800/60 transition-all duration-300">
+
+    <td class="px-6 py-4">ORD-1003</td>
+
+    <td class="px-6 py-4">GreenPack Solutions</td>
+
+    <td class="px-6 py-4">Food Packaging Pouches</td>
+
+    <td class="px-6 py-4 text-center">₹3,72,500</td>
+
+    <td class="px-6 py-4 text-center">
+        <span class="bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-xs">
+            Overdue
+        </span>
+    </td>
+
+    <td class="px-6 py-4 text-center">
+        <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs">
+            Delivered
+        </span>
+    </td>
+
+    <td class="px-6 py-4">
+        <div class="flex items-center justify-center gap-4">
+
+            <button class="text-cyan-400 hover:text-cyan-300 hover:scale-110 transition">
+                <i class="fas fa-eye"></i>
+            </button>
+
+            <button class="text-yellow-400 hover:text-yellow-300 hover:scale-110 transition">
+                <i class="fas fa-pen"></i>
+            </button>
+
+            <button class="text-red-400 hover:text-red-300 hover:scale-110 transition">
+                <i class="fas fa-trash"></i>
+            </button>
+
+        </div>
+    </td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<!-- Bottom Section -->
+
+<div class="grid grid-cols-3 gap-6 mt-8">
+
+    <!-- Order Analytics -->
+
+    <div class="col-span-2 bg-slate-900 border border-slate-800 rounded-2xl p-6">
+
+        <div class="flex justify-between items-center mb-6">
+
+            <div>
+
+                <h2 class="text-2xl font-bold">
+                    Monthly Revenue
+                </h2>
+
+                <p class="text-slate-400">
+                    Orders Revenue Analytics
+                </p>
+
+            </div>
+
+        </div>
+
+        <canvas id="ordersChart" height="120"></canvas>
+
+    </div>
+
+    <!-- Delivery Timeline -->
+
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+
+        <h2 class="text-2xl font-bold mb-6">
+
+            Delivery Timeline
+
+        </h2>
+
+        <div class="space-y-5">
+
+            <div>
+
+                <p class="font-semibold">Today</p>
+
+                <p class="text-slate-400 text-sm">
+                    8 Orders Dispatch
+                </p>
+
+            </div>
+
+            <div>
+
+                <p class="font-semibold">Tomorrow</p>
+
+                <p class="text-slate-400 text-sm">
+                    12 Orders Dispatch
+                </p>
+
+            </div>
+
+            <div>
+
+                <p class="font-semibold">Friday</p>
+
+                <p class="text-slate-400 text-sm">
+                    5 Orders Delivery
+                </p>
+
+            </div>
+
+            <div>
+
+                <p class="font-semibold">Saturday</p>
+
+                <p class="text-slate-400 text-sm">
+                    Factory Holiday
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+<script src="../js/app.js"></script>
+
+
+
+</body>
+
+</html>
