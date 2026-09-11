@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FactoryOS | Sign In</title>
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="../css/output.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  </head>
+
+  <body class="min-h-screen">
+
+    <div class="min-h-screen pt-3 sm:px-8 px-5 flex flex-col">
+
+      <header>
+      <nav class="w-full">
+        <div class="flex items-center justify-between">
+          <div class="text-xl lg:text-2xl flex gap-2 items-center">
+          <div
+          class="flex h-6 w-6 items-center justify-center rounded-md bg-slate-900 text-[10px] font-black text-white"
+        >
+          F
+        </div>
+
+        <span class=" font-bold tracking-tight text-slate-900">
+          FactoryOS
+        </span>
+      </div>
+          <div class="flex gap-2 text-sm">
+            <p>Create your Account? </p>
+            <a  href="../pages/signup.html">Sign Up</a>
+            </div>
+        </div>
+      </nav>
+      </header>
+
+      <div class="h-px bg-slate-200 mt-3"></div>
+
+      <main class="flex-1 flex items-center justify-center">
+
+        <div class="w-full max-w-lg py-10 sm:px-8">
+          <!-- Card -->
+          <div
+            class="bg-slate-50 border border-slate-300 rounded-2xl p-6 sm:p-8 shadow-2xl"
+          >
+            <!-- Heading -->
+            <div class="mb-6">
+              <p class="text-sm mb-2 text-slate-800">Welcome back</p>
+              <h1 class="text-2xl lg:text-3xl font-semibold text-slate-800">
+                Sign in to your account
+              </h1>
+            </div>
+
+            <!-- Form -->
+
+            <form class="space-y-5">
+              <!-- Email -->
+
+              <div>
+                <label
+                  for="email"
+                  class="block text-sm font-medium mb-2 text-slate-800"
+                >
+                  Work Email
+                </label>
+
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  autocomplete="email"
+                  placeholder="you@company.com"
+                  required
+                  class="w-full h-12 rounded-lg border border-slate-400 bg-slate-200 px-4 text-sm placeholder:text-slate-400 outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition"
+                />
+              </div>
+
+              <!-- Password -->
+
+              <div>
+                <div class="flex justify-between mb-2 items-center">
+                  <label
+                    for="password"
+                    class="text-sm font-medium text-slate-800"
+                  >
+                    Password
+                  </label>
+
+                  <a href="#" class="text-xs hover:text-slate-800">
+                    Forgot password?
+                  </a>
+                </div>
+
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  autocomplete="current-password"
+                  placeholder="Enter your password"
+                  required
+                  class="w-full h-12 rounded-lg border border-slate-400 bg-slate-200 px-4 text-sm placeholder:text-slate-400 outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-400 transition"
+                />
+              </div>
+
+              <!-- Remember -->
+
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="checkbox" name="remember" class="w-4 h-4 accent-slate-800" />
+
+                <span class="text-sm"> Remember me </span>
+              </label>
+
+              <!-- Login Button -->
+
+              <button
+                type="submit"
+                onclick="window.location.href='../dashboard.html'"
+                class="w-full h-12 rounded-lg bg-slate-800 text-slate-100 font-semibold text-sm cursor-pointer transition hover:bg-slate-950 active:scale-[0.98]"
+              >
+                Sign In
+              </button>
+            </form>
+
+            <!-- Divider -->
+
+            <div class="flex items-center gap-4 my-3">
+              <div class="h-px bg-slate-400 flex-1"></div>
+
+              <span class="text-xs"> OR </span>
+
+              <div class="h-px bg-slate-400 flex-1"></div>
+            </div>
+
+            <!-- Social Login -->
+
+            <div class="flex gap-4 justify-center">
+              <button
+                type="button"
+                aria-label="Continue with Google"
+                class="h-11 w-11 rounded-lg border border-slate-700 bg-slate-50 hover:bg-slate-200 active:scale-95 transition flex justify-center items-center gap-3 cursor-pointer"
+              >
+                <svg width="25" height="25" viewBox="0 0 24 24">
+                  <path
+                    fill="#4285F4"
+                    d="M21.35 12.27c0-.79-.07-1.55-.2-2.27H12v4.3h5.24a4.48 4.48 0 0 1-1.94 2.94v2.45h3.14c1.84-1.69 2.91-4.18 2.91-7.42z"
+                  />
+                  <path
+                    fill="#34A853"
+                    d="M12 21.5c2.63 0 4.84-.87 6.45-2.36l-3.14-2.45c-.87.58-1.98.92-3.31.92-2.54 0-4.69-1.72-5.46-4.03H3.3v2.53A9.74 9.74 0 0 0 12 21.5z"
+                  />
+                  <path
+                    fill="#FBBC05"
+                    d="M6.54 13.58A5.86 5.86 0 0 1 6.23 12c0-.55.1-1.09.31-1.58V7.89H3.3A9.5 9.5 0 0 0 2.25 12c0 1.48.35 2.88 1.05 4.11l3.24-2.53z"
+                  />
+                  <path
+                    fill="#EA4335"
+                    d="M12 6.39c1.43 0 2.71.49 3.72 1.45l2.79-2.79C16.84 3.48 14.63 2.5 12 2.5a9.74 9.74 0 0 0-8.7 5.39l3.24 2.53C6.54 8.11 8.69 6.39 12 6.39z"
+                  />
+                </svg>
+              </button>
+
+              <button
+                type="button"
+                aria-label="Continue with Microsoft"
+                class="h-11 w-11 rounded-lg border border-slate-700 bg-slate-50 hover:bg-slate-200 active:scale-95 transition flex justify-center items-center gap-3 cursor-pointer"
+              >
+                <svg width="25" height="25" viewBox="0 0 24 24">
+                  <rect x="2" y="2" width="9.5" height="9.5" fill="#F25022" />
+                  <rect
+                    x="12.5"
+                    y="2"
+                    width="9.5"
+                    height="9.5"
+                    fill="#7FBA00"
+                  />
+                  <rect
+                    x="2"
+                    y="12.5"
+                    width="9.5"
+                    height="9.5"
+                    fill="#00A4EF"
+                  />
+                  <rect
+                    x="12.5"
+                    y="12.5"
+                    width="9.5"
+                    height="9.5"
+                    fill="#FFB900"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Signup -->
+
+            <p class="text-center text-sm mt-4">
+              Don't have an account?
+              <a
+                href="signup.html"
+                class="text-slate-950 font-medium hover:underline"
+              >
+                Create Account
+              </a>
+            </p>
+          </div>
+        </div>
+      <!-- </div> -->
+      </main>
+      <footer class="flex flex-col">
+        <div class="h-px bg-slate-300"></div>
+        <p class="text-center text-xs text-slate-600 my-3">
+          © 2026 FactoryOS. All rights reserved.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

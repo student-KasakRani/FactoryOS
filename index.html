@@ -1,489 +1,826 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FactoryOS</title>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
 
-    <link rel="stylesheet" href="css/output.css">
+  <title>FactoryOS</title>
 
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="./css/output.css" />
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
-<body class="bg-slate-950 text-white overflow-x-hidden">
 
-<div class="flex min-h-screen">
+<body class="bg-slate-950 font-sans text-slate-50 antialiased">
 
-    <!-- Sidebar -->
-    <aside class="w-72 bg-slate-900 border-r border-slate-800">
-
-        <div class="h-20 flex items-center justify-center border-b border-slate-800">
-
-            <div class="text-center">
-
-                <h1 class="text-3xl font-bold text-cyan-400">
-                    FactoryOS
-                </h1>
-
-                <p class="text-xs text-slate-500">
-                    Smart Factory Management
-                </p>
-
-            </div>
-
+  <!-- NAVBAR -->
+  <header class="border-b border-slate-800 bg-slate-950">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8 lg:px-10">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2">
+        <div
+          class="flex h-6 w-6 items-center justify-center rounded-md bg-slate-50 text-xl lg:text-2xl font-black text-slate-950"
+        >
+          F
         </div>
 
-        <nav class="p-6 space-y-2">
-
-            <a class="flex items-center gap-3 bg-cyan-500/20 text-cyan-400 rounded-xl px-4 py-3">
-                <i class="fas fa-chart-line"></i>
-                Dashboard
-            </a>
-
-           <a href="pages/machines.html"
-   class="flex items-center gap-3 hover:bg-slate-800 rounded-xl px-4 py-3">
-    <i class="fas fa-industry"></i>
-    Machines
-</a>
-
-            <a class="flex items-center gap-3 hover:bg-slate-800 rounded-xl px-4 py-3">
-                <i class="fas fa-boxes"></i>
-                Inventory
-            </a>
-
-            <a class="flex items-center gap-3 hover:bg-slate-800 rounded-xl px-4 py-3">
-                <i class="fas fa-gears"></i>
-                Production
-            </a>
-
-            <a class="flex items-center gap-3 hover:bg-slate-800 rounded-xl px-4 py-3">
-                <i class="fas fa-file-invoice"></i>
-                Invoice
-            </a>
-
-            <a class="flex items-center gap-3 hover:bg-slate-800 rounded-xl px-4 py-3">
-                <i class="fas fa-chart-pie"></i>
-                Reports
-            </a>
-
-        </nav>
-
-    </aside>
-
-    <!-- Main -->
-
-    <main class="flex-1 flex flex-col overflow-y-auto">
-
-        <!-- Navbar -->
-
-        <header class="h-20 border-b border-slate-800 px-8 flex justify-between items-center">
-
-            <div>
-
-                <h2 class="text-2xl font-bold">
-                    Dashboard
-                </h2>
-
-                <p class="text-slate-500">
-                    Plastic & Packaging Factory
-                </p>
-
-            </div>
-
-            <div class="flex items-center gap-5">
-
-                <input
-                type="text"
-                placeholder="Search..."
-                class="bg-slate-900 rounded-xl px-4 py-2 border border-slate-700 w-72">
-
-                <button class="text-xl">
-                    <i class="fas fa-bell"></i>
-                </button>
-
-                <div class="w-11 h-11 rounded-full bg-cyan-500 flex items-center justify-center font-bold">
-                    A
-                </div>
-
-            </div>
-
-        </header>
-
-        <!-- Dashboard -->
-
-        <section class="p-8">
-
-    <!-- KPI Cards -->
-
-    <div class="grid grid-cols-4 gap-6">
-
-        <!-- Card 1 -->
-
-        <div id="today-production-card"
-            class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-cyan-400 transition">
-
-            <div class="flex justify-between items-center">
-
-                <div>
-
-                    <p class="text-slate-400 text-sm">
-                        Today's Production
-                    </p>
-
-                    <h2 class="text-4xl font-bold mt-3">
-                        12.8T
-                    </h2>
-
-                    <p class="text-green-400 mt-3 text-sm">
-                        +12.5%
-                    </p>
-
-                </div>
-
-                <div
-                    class="w-16 h-16 rounded-2xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-3xl">
-
-                    <i class="fas fa-industry"></i>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- Card 2 -->
-
-        <div id="machine-running-card"
-            class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-green-400 transition">
-
-            <div class="flex justify-between items-center">
-
-                <div>
-
-                    <p class="text-slate-400 text-sm">
-                        Running Machines
-                    </p>
-
-                    <h2 class="text-4xl font-bold mt-3">
-                        24
-                    </h2>
-
-                    <p class="text-green-400 mt-3 text-sm">
-                        Active
-                    </p>
-
-                </div>
-
-                <div
-                    class="w-16 h-16 rounded-2xl bg-green-500/20 flex items-center justify-center text-green-400 text-3xl">
-
-                    <i class="fas fa-gears"></i>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- Card 3 -->
-
-        <div id="stock-card"
-            class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-yellow-400 transition">
-
-            <div class="flex justify-between items-center">
-
-                <div>
-
-                    <p class="text-slate-400 text-sm">
-                        Raw Material
-                    </p>
-
-                    <h2 class="text-4xl font-bold mt-3">
-                        81%
-                    </h2>
-
-                    <p class="text-yellow-400 mt-3 text-sm">
-                        Available
-                    </p>
-
-                </div>
-
-                <div
-                    class="w-16 h-16 rounded-2xl bg-yellow-500/20 flex items-center justify-center text-yellow-400 text-3xl">
-
-                    <i class="fas fa-boxes"></i>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- Card 4 -->
-
-        <div id="revenue-card"
-            class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-purple-400 transition">
-
-            <div class="flex justify-between items-center">
-
-                <div>
-
-                    <p class="text-slate-400 text-sm">
-                        Revenue
-                    </p>
-
-                    <h2 class="text-4xl font-bold mt-3">
-                        ₹4.2L
-                    </h2>
-
-                    <p class="text-purple-400 mt-3 text-sm">
-                        This Month
-                    </p>
-
-                </div>
-
-                <div
-                    class="w-16 h-16 rounded-2xl bg-purple-500/20 flex items-center justify-center text-purple-400 text-3xl">
-
-                    <i class="fas fa-chart-line"></i>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-<!-- Second Row -->
-<div class="grid grid-cols-12 gap-6 mt-8">
-
-    <!-- Machine Wastage -->
-    <div id="machine-wastage-panel"
-        class="col-span-8 bg-slate-900 border border-slate-800 rounded-2xl p-6">
-
-        <div class="flex justify-between items-center mb-6">
-            <div>
-                <h2 class="text-xl font-bold">Live Machine Wastage</h2>
-                <p class="text-slate-400 text-sm">Real-time machine monitoring</p>
-            </div>
-
-            <span class="px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-xs font-semibold">
-                LIVE
-            </span>
-        </div>
-
-        <!-- Machine 1 -->
-        <div class="mb-6">
-
-            <div class="flex justify-between mb-2">
-
-                <span class="font-medium">Extruder Machine</span>
-
-                <span class="text-red-400 font-semibold">6%</span>
-
-            </div>
-
-            <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
-
-                <div class="h-full bg-red-500 rounded-full" style="width:6%"></div>
-
-            </div>
-
-        </div>
-
-        <!-- Machine 2 -->
-
-        <div class="mb-6">
-
-            <div class="flex justify-between mb-2">
-
-                <span class="font-medium">Printing Machine</span>
-
-                <span class="text-yellow-400 font-semibold">3%</span>
-
-            </div>
-
-            <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
-
-                <div class="h-full bg-yellow-400 rounded-full" style="width:3%"></div>
-
-            </div>
-
-        </div>
-
-        <!-- Machine 3 -->
-
+        <span class="font-bold tracking-tight text-slate-50 text-xl lg:text-2xl">
+          FactoryOS
+          <span><p class="text-xs text-slate-50 font-light">Smart Factory Management</p></span>
+        </span>
+      </a>
+
+      <!-- Navigation -->
+      <div
+        class="hidden items-center gap-7 text-sm text-slate-400 md:flex "
+      >
+        <a
+          href="#product"
+          class="transition hover:text-slate-50"
+        >
+          Product
+        </a>
+
+        <a
+          href="#how-it-works"
+          class="transition hover:text-slate-50"
+        >
+          How it works
+        </a>
+
+        <a
+          href="#why-factoryos"
+          class="transition hover:text-slate-50"
+        >
+          Why FactoryOS
+        </a>
+      </div>
+
+      <!-- CTA -->
+      <a
+        href="./pages/signup.html"
+        class="rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-500"
+      >
+        Signup
+
+      </a>
+
+    </nav>
+
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section
+      id="product"
+      class="mx-auto max-w-7xl px-5 pb-16 pt-14 sm:px-8 sm:pb-20 sm:pt-20 lg:px-10 lg:pb-24"
+    >
+      <div
+        class="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16"
+      >
+
+        <!-- Hero Text -->
         <div>
+          <div
+            class="mb-5 inline-flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.16em] text-blue-400"
+          >
 
-            <div class="flex justify-between mb-2">
+            <span
+              class="h-1.5 w-1.5 rounded-full bg-blue-500"
+            ></span>
 
-                <span class="font-medium">Cutting Machine</span>
+            Factory operations platform
 
-                <span class="text-green-400 font-semibold">1%</span>
+          </div>
 
-            </div>
 
-            <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
+          <h1
+            class="max-w-xl text-4xl font-extrabold leading-[0.98] tracking-[-0.045em] text-slate-50 sm:text-5xl lg:text-[58px]"
+          >
+            RUN YOUR FACTORY
+            <br />
 
-                <div class="h-full bg-green-500 rounded-full" style="width:1%"></div>
+            WITH CLARITY.
+          </h1>
 
-            </div>
 
-        </div>
+          <p
+            class="mt-6 max-w-md text-sm leading-6 text-slate-400"
+          >
+            One platform to bring production, inventory, machines,
+            and day-to-day factory operations under control.
+          </p>
 
-    </div>
 
-    <!-- Stock Alerts -->
+          <div
+            class="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center"
+          >
 
-    <div id="stock-alert-panel"
-        class="col-span-4 bg-slate-900 border border-slate-800 rounded-2xl p-6">
+            <a
+              href="./pages/signup.html"
+              class="rounded-full bg-blue-600 px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-blue-500"
+            >
+              Get Started
+            </a>
 
-        <h2 class="text-xl font-bold mb-6">
 
-            Stock Alerts
+            <a
+              href="#how-it-works"
+              class="text-center text-sm font-medium text-slate-400 transition hover:text-slate-50 sm:px-2"
+            >
+              See how it works
+              <span class="ml-1">→</span>
+            </a>
 
-        </h2>
-
-        <div class="space-y-4">
-
-            <div class="rounded-xl border border-red-500 bg-red-500/10 p-4">
-
-                <p class="font-semibold">
-                    Plastic Granules
-                </p>
-
-                <p class="text-sm text-red-400 mt-1">
-                    Low Stock
-                </p>
-
-            </div>
-
-            <div class="rounded-xl border border-yellow-500 bg-yellow-500/10 p-4">
-
-                <p class="font-semibold">
-                    Ink
-                </p>
-
-                <p class="text-sm text-yellow-400 mt-1">
-                    Medium Stock
-                </p>
-
-            </div>
-
-            <div class="rounded-xl border border-green-500 bg-green-500/10 p-4">
-
-                <p class="font-semibold">
-                    Packaging Rolls
-                </p>
-
-                <p class="text-sm text-green-400 mt-1">
-                    In Stock
-                </p>
-
-            </div>
+          </div>
 
         </div>
 
-    </div>
+        <!-- Dashboard Preview -->
+        <div
+          class="rounded-2xl border border-slate-800 bg-slate-900 p-4 shadow-2xl shadow-black/30 sm:p-5"
+        >
 
-</div>
-
-<!-- Third Row -->
-<div class="grid grid-cols-12 gap-6 mt-8">
-
-    <!-- Production Chart -->
-
-    <div class="col-span-8 bg-slate-900 border border-slate-800 rounded-2xl p-6">
-
-        <div class="flex justify-between items-center mb-6">
+          <div class="mb-5 flex items-center justify-between">
 
             <div>
 
-                <h2 class="text-xl font-bold">
-                    Production Efficiency
-                </h2>
+              <p class="text-[12px] text-slate-500">
+                Factory overview
+              </p>
 
-                <p class="text-slate-400 text-sm">
-                    Weekly Production Performance
-                </p>
+              <p class="mt-1 text-lg font-bold text-slate-50">
+                94%
+              </p>
+            </div>
+
+            <span
+              class="rounded-md bg-emerald-500/10 px-2 py-1 text-[11px] text-emerald-400"
+            >
+              Live
+            </span>
+          </div>
+
+          <div class="grid grid-cols-[1fr_90px] gap-4">
+            <!-- Chart -->
+            <div>
+
+              <div
+                class="mb-2 flex items-end justify-between"
+              >
+
+                <span class="text-[12px] text-slate-500">
+                  Production output
+                </span>
+
+                <span class="text-[12px] text-slate-600">
+                  This week
+                </span>
+
+              </div>
+
+
+              <div
+                class="flex h-32 items-end gap-2 rounded-xl border border-slate-800 bg-slate-950 px-4 py-4"
+              >
+
+                <div
+                  class="h-[35%] w-full rounded-t bg-blue-700"
+                ></div>
+
+                <div
+                  class="h-[48%] w-full rounded-t bg-blue-600"
+                ></div>
+
+                <div
+                  class="h-[42%] w-full rounded-t bg-blue-700"
+                ></div>
+
+                <div
+                  class="h-[67%] w-full rounded-t bg-blue-600"
+                ></div>
+
+                <div
+                  class="h-[59%] w-full rounded-t bg-blue-600"
+                ></div>
+
+                <div
+                  class="h-[82%] w-full rounded-t bg-blue-500"
+                ></div>
+
+                <div
+                  class="h-[72%] w-full rounded-t bg-blue-500"
+                ></div>
+
+              </div>
 
             </div>
 
-            <select
-              id="productionPeriod"
-                class="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2">
 
-                <option value="This Week">This Week</option>
-                <option value="This Month">This Month</option>
+            <!-- Stats -->
 
-            </select>
+            <div class="space-y-2">
+
+              <div
+                class="rounded-lg border border-slate-800 bg-slate-800/60 p-3"
+              >
+
+                <p class="text-[12px] text-slate-500">
+                  Efficiency
+                </p>
+
+                <p class="mt-1 text-sm font-bold text-slate-50">
+                  94%
+                </p>
+
+              </div>
+
+
+              <div
+                class="rounded-lg border border-slate-800 bg-slate-800/60 p-3"
+              >
+
+                <p class="text-[12px] text-slate-500">
+                  Downtime
+                </p>
+
+                <p class="mt-1 text-sm font-bold text-slate-50">
+                  1.8%
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
 
         </div>
 
-        <canvas id="productionChart" height="120"></canvas>
+      </div>
 
-    </div>
+    </section>
 
-    <!-- WhatsApp Invoice -->
-
-    <div class="col-span-4 bg-slate-900 border border-slate-800 rounded-2xl p-6">
-
-        <h2 class="text-xl font-bold mb-4">
-
-            WhatsApp Invoice
-
-        </h2>
-
-        <p class="text-slate-400 text-sm mb-6">
-
-            Send invoice instantly to customer.
-
+    <!-- OPERATIONAL VISIBILITY -->
+    <section
+      id="why-factoryos"
+      class="mx-auto max-w-7xl px-5 py-10 sm:px-8 lg:px-10"
+    >
+      <div class="max-w-xl">
+        <p
+          class="text-[11px] font-semibold uppercase tracking-[0.18em] text-blue-400"
+        >
+          Full factory visibility
         </p>
 
-        <input
-         id="customerName"
-            type="text"
-            placeholder="Customer Name"
-            class="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 mb-4">
+        <h2
+          class="mt-3 text-2xl font-bold tracking-tight text-slate-50 sm:text-3xl"
+        >
+          Replace scattered processes with one clear operational view.
+        </h2>
 
-        <input
-          id="whatsappNumber"
-            type="text"
-            placeholder="WhatsApp Number"
-            class="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 mb-4">
+      </div>
 
-        <input
-         id="invoiceAmount"
-            type="text"
-            placeholder="Invoice Amount"
-            class="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 mb-6">
+      <div class="mt-8 grid gap-3 sm:grid-cols-2">
 
-        <button
-           id="sendInvoiceBtn"
-            class="w-full bg-green-500 hover:bg-green-600 transition rounded-xl py-3 font-semibold">
+        <!-- Card -->
 
-            <i class="fab fa-whatsapp mr-2"></i>
+        <div
+          class="rounded-xl border border-slate-800 bg-slate-900 p-5 transition hover:border-slate-700"
+        >
 
-            Send Invoice
+          <div
+            class="mb-4 flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500/10 text-blue-400"
+          >
+            ✓
+          </div>
 
-        </button>
 
+          <h3 class="text-sm lg:text-lg font-semibold text-slate-50">
+            Material flow
+          </h3>
+
+
+          <p class="mt-2 text-[12px] lg:text-sm leading-5 text-slate-400">
+            Track raw materials, components and production movement.
+          </p>
+
+        </div>
+
+
+
+        <!-- Card -->
+
+        <div
+          class="rounded-xl border border-slate-800 bg-slate-900 p-5 transition hover:border-slate-700"
+        >
+
+          <div
+            class="mb-4 flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500/10 text-blue-400"
+          >
+            ✓
+          </div>
+
+
+          <h3 class="text-sm lg:text-lg font-semibold text-slate-50">
+            Material waste
+          </h3>
+
+
+          <p class="mt-2 text-[12px] lg:text-sm leading-5 text-slate-400">
+            See where materials are being lost and improve efficiency.
+          </p>
+
+        </div>
+
+
+
+        <!-- Card -->
+
+        <div
+          class="rounded-xl border border-slate-800 bg-slate-900 p-5 transition hover:border-slate-700"
+        >
+
+          <div
+            class="mb-4 flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500/10 text-blue-400"
+          >
+            ✓
+          </div>
+
+
+          <h3 class="text-sm lg:text-lg font-semibold text-slate-50">
+            Stockouts
+          </h3>
+
+
+          <p class="mt-2 text-[12px] lg:text-sm leading-5 text-slate-400">
+            Know what's missing before it stops your production line.
+          </p>
+
+        </div>
+
+
+
+        <!-- Card -->
+
+        <div
+          class="rounded-xl border border-slate-800 bg-slate-900 p-5 transition hover:border-slate-700"
+        >
+
+          <div
+            class="mb-4 flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500/10 text-blue-400"
+          >
+            ✓
+          </div>
+
+
+          <h3 class="text-sm lg:text-lg font-semibold text-slate-50">
+            Billing mismatches
+          </h3>
+
+
+          <p class="mt-2 text-[12px] lg:text-sm leading-5 text-slate-400">
+            Detect discrepancies before they impact your bottom line.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         COMPLETE CONTROL
+    ====================================================== -->
+
+    <section
+      class="mx-auto max-w-7xl px-5 py-12 sm:px-8 lg:px-10"
+    >
+
+      <div class="max-w-xl">
+
+        <h2
+          class="text-2xl font-bold tracking-tight text-slate-50 sm:text-3xl"
+        >
+          ONE PLATFORM. COMPLETE FACTORY CONTROL.
+        </h2>
+
+
+        <p
+          class="mt-3 text-[11px] leading-5 text-slate-400"
+        >
+          Everything you need to operate, monitor and move your factory forward.
+        </p>
+
+      </div>
+
+
+      <div class="mt-8 grid gap-3 sm:grid-cols-2">
+
+
+        <!-- Feature 1 -->
+
+        <div
+          class="rounded-xl border border-slate-800 bg-slate-900 p-5"
+        >
+
+          <div class="flex gap-4">
+
+            <span
+              class="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-blue-600 text-[9px] font-bold text-white"
+            >
+              1
+            </span>
+
+
+            <div>
+
+              <h3 class="text-sm lg:text-lg font-semibold text-slate-50">
+                Production visibility
+              </h3>
+
+              <p
+                class="mt-2 text-[12px] lg:text-sm leading-5 text-slate-400"
+              >
+                Track production status and identify bottlenecks instantly.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Feature 2 -->
+
+        <div
+          class="rounded-xl border border-slate-800 bg-slate-900 p-5"
+        >
+
+          <div class="flex gap-4">
+
+            <span
+              class="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-blue-600 text-[9px] font-bold text-white"
+            >
+              2
+            </span>
+
+
+            <div>
+
+              <h3 class="text-sm lg:text-lg font-semibold text-slate-50">
+                Machine awareness
+              </h3>
+
+              <p
+                class="mt-2 text-[12px] lg:text-sm leading-5 text-slate-400"
+              >
+                Know what every machine is doing and when maintenance is due.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Feature 3 -->
+
+        <div
+          class="rounded-xl border border-slate-800 bg-slate-900 p-5"
+        >
+
+          <div class="flex gap-4">
+
+            <span
+              class="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-blue-600 text-[9px] font-bold text-white"
+            >
+              3
+            </span>
+
+
+            <div>
+
+              <h3 class="text-sm lg:text-lg font-semibold text-slate-50">
+                Inventory control
+              </h3>
+
+              <p
+                class="mt-2 text-[12px] lg:text-sm leading-5 text-slate-400"
+              >
+                Keep stock levels visible and prevent unexpected shortages.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Feature 4 -->
+
+        <div
+          class="rounded-xl border border-slate-800 bg-slate-900 p-5"
+        >
+
+          <div class="flex gap-4">
+
+            <span
+              class="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-blue-600 text-[9px] font-bold text-white"
+            >
+              4
+            </span>
+
+
+            <div>
+
+              <h3 class="text-sm lg:text-lg font-semibold text-slate-50">
+                Operational clarity
+              </h3>
+
+              <p
+                class="mt-2 text-[12px] lg:text-sm leading-5 text-slate-400"
+              >
+                One view for your people, machines, materials and processes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLUE CTA -->
+
+    <section
+      id="demo"
+      class="mx-auto max-w-7xl px-5 py-8 sm:px-8 lg:px-10"
+    >
+      <div
+        class="flex flex-col gap-6 rounded-xl bg-blue-600 px-6 py-7 sm:flex-row sm:items-center sm:justify-between sm:px-8"
+      >
+        <div>
+          <h2
+            class="text-xl font-bold tracking-tight text-white sm:text-2xl"
+          >
+            STOP LOSING TIME TO OPERATIONAL
+            <br class="hidden sm:block" />
+            BLIND SPOTS.
+          </h2>
+          <p
+            class="mt-2 text-[10px] leading-5 text-blue-100"
+          >
+            See how FactoryOS can bring clarity to your factory in one view.
+          </p>
+
+        </div>
+
+
+        <a
+          href="#contact"
+          class="shrink-0 rounded-full bg-white px-5 py-2.5 text-center text-sm font-semibold text-blue-700 transition hover:bg-slate-100"
+        >
+          Get Started
+        </a>
+
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+
+    <section
+      id="how-it-works"
+      class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10"
+    >
+
+      <div class="max-w-xl">
+
+        <p
+          class="text-[11px] font-semibold uppercase tracking-[0.18em] text-blue-400"
+        >
+          A simpler way to operate
+        </p>
+
+
+        <h2
+          class="mt-3 text-2xl font-bold tracking-tight text-slate-50 sm:text-3xl"
+        >
+          HOW FACTORYOS FITS INTO YOUR DAY
+        </h2>
+
+
+        <p
+          class="mt-3 text-[12px] text-slate-400"
+        >
+          A simple flow that's happening in your actual operations.
+        </p>
+
+      </div>
+
+
+      <div class="mt-10 max-w-3xl">
+
+
+        <!-- Step 1 -->
+
+        <div
+          class="flex gap-5 border-b border-slate-800 py-6"
+        >
+
+          <div
+            class="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-blue-500/10 text-[9px] font-bold text-blue-400"
+          >
+            01
+          </div>
+
+
+          <div>
+
+            <h3 class="text-sm lg:text-lg font-semibold text-slate-50">
+              Capture
+            </h3>
+
+            <p
+              class="mt-2 text-[12px] lg:text-sm leading-5 text-slate-400"
+            >
+              Bring operational information into one platform.
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Step 2 -->
+
+        <div
+          class="flex gap-5 border-b border-slate-800 py-6"
+        >
+
+          <div
+            class="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-blue-500/10 text-[9px] font-bold text-blue-400"
+          >
+            02
+          </div>
+
+
+          <div>
+
+            <h3 class="text-sm lg:text-lg font-semibold text-slate-50">
+              See
+            </h3>
+
+            <p
+              class="mt-2 text-[12px] lg:text-sm leading-5 text-slate-400"
+            >
+              Get a clear picture of production, machines, inventory and people.
+            </p>
+
+          </div>
+
+        </div>
+
+        <!-- Step 3 -->
+
+        <div
+          class="flex gap-5 border-b border-slate-800 py-6"
+        >
+
+          <div
+            class="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-blue-500/10 text-[9px] font-bold text-blue-400"
+          >
+            03
+          </div>
+
+
+          <div>
+
+            <h3 class="text-sm lg:text-lg font-semibold text-slate-50">
+              Act
+            </h3>
+
+            <p
+              class="mt-2 text-[12px] lg:text-sm leading-5 text-slate-400"
+            >
+              Turn that visibility into faster and smarter operations.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+
+    <section
+      id="contact"
+      class="mx-auto max-w-7xl px-5 pb-16 sm:px-8 lg:px-10 lg:pb-24"
+    >
+
+      <div
+        class="rounded-xl border border-slate-800 bg-slate-900 px-6 py-8 shadow-xl shadow-black/20 sm:px-8 sm:py-10"
+      >
+
+        <div class="max-w-lg">
+
+          <h2
+            class="text-2xl font-bold leading-tight tracking-tight text-slate-50 sm:text-3xl"
+          >
+            MAKE YOUR FACTORY
+            <br />
+            EASIER TO RUN.
+          </h2>
+
+
+          <p
+            class="mt-3 max-w-md text-sm leading-5 text-slate-400"
+          >
+            Get visibility. Reduce downtime. Prevent stockouts.
+          </p>
+
+
+          <a
+            href="./pages/signup.html"
+            class="mt-6 inline-flex rounded-full bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-500"
+          >
+            Get Started Now
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer
+    class="border-t border-slate-800 bg-slate-950"
+  >
+    <div
+      class="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-8 sm:px-8 md:flex-row md:items-center md:justify-between lg:px-10"
+    >
+      <div>
+        <div class="flex items-center gap-2">
+          <div
+            class="flex h-6 w-6 items-center justify-center rounded-md bg-slate-50 text-[10px] font-black text-slate-950"
+          >
+            F
+          </div>
+          <span class="text-sm font-bold text-slate-50">
+            FactoryOS
+          </span>
+        </div>
+        <p class="mt-2 text-[12px] text-slate-500">
+          Complete factory control, simplified.
+        </p>
+      </div>
+      <div
+        class="flex flex-wrap gap-5 text-[12px] text-slate-500"
+      >
+        <a
+          href="#"
+          class="transition hover:text-slate-50"
+        >
+          Product
+        </a>
+        <a
+          href="#"
+          class="transition hover:text-slate-50"
+        >
+          Privacy
+        </a>
+        <a
+          href="#"
+          class="transition hover:text-slate-50"
+        >
+          Terms
+        </a>
+        <a
+          href="#"
+          class="transition hover:text-slate-50"
+        >
+          Contact
+        </a>
+      </div>
     </div>
-
-</div>
-
-</section>
-    </main>
-
-</div>
-
-<script src="js/dummyData.js"></script>
-<script src="js/app.js"></script>
-
+    <div class="text-[12px] text-slate-500 mx-auto max-w-7xl px-5 py-6 sm:px-8 lg:px-10">
+      <p>© 2026 FactoryOS | All Rights Reserved</p>
+    </div>
+  </footer>
 </body>
 </html>
