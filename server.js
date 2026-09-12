@@ -18,6 +18,7 @@ const purchaseRoutes = require("./routes/purchaseRoutes");
 const inventoryMovementRoutes = require("./routes/inventoryMovementRoutes");
 const dashboardRoutes = require("./routes/dashboardRoutes");
 const reportRoutes = require("./routes/reportRoutes");
+const productRoutes = require("./routes/productRoutes");
 
 dotenv.config();
 
@@ -54,6 +55,7 @@ app.use("/api/purchases", purchaseRoutes);
 app.use("/api/inventory-movements", inventoryMovementRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/reports", reportRoutes);
+app.use("/api/products", productRoutes);
 
 // ===============================
 // HEALTH CHECK

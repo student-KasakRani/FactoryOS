@@ -14,6 +14,12 @@ const productionSchema = new mongoose.Schema(
             required: true
         },
 
+        product: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Product",
+    required: true
+},
+
         productionDate: {
             type: Date,
             required: true
@@ -82,6 +88,54 @@ const productionSchema = new mongoose.Schema(
 
         unit: {
             type: String,
+            trim: true
+        }
+    }
+],
+
+      materialUsageAnalysis: [
+    {
+        rawMaterial: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "RawMaterial",
+            required: true
+        },
+
+        expectedQuantity: {
+            type: Number,
+            required: true,
+            min: 0
+        },
+
+        actualQuantity: {
+            type: Number,
+            required: true,
+            min: 0
+        },
+
+        difference: {
+            type: Number,
+            required: true
+        },
+
+        usagePercentage: {
+            type: Number,
+            required: true,
+            min: 0
+        },
+
+        status: {
+            type: String,
+            enum: [
+                "within_standard",
+                "above_standard"
+            ],
+            required: true
+        },
+
+        unit: {
+            type: String,
+            required: true,
             trim: true
         }
     }
