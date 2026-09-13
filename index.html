@@ -3,70 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FactoryOS</title>
+
+    <title>FactoryOS - Dashboard</title>
 
     <link rel="stylesheet" href="css/output.css">
 
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 </head>
 
-<body class="bg-slate-950 text-white overflow-x-hidden">
+<body class="bg-slate-50 text-slate-900 overflow-x-hidden">
 
 <div class="flex min-h-screen">
 
-    <!-- Sidebar -->
-    <aside class="w-72 bg-slate-900 border-r border-slate-800">
+    <!-- ================================================== -->
+    <!-- SIDEBAR -->
+    <!-- ================================================== -->
 
-        <div class="h-20 flex items-center justify-center border-b border-slate-800">
+    <aside class="w-64 bg-white border-r border-slate-200 flex-shrink-0">
 
-            <div class="text-center">
+        <!-- Logo -->
+        <div class="h-20 flex items-center px-6 border-b border-slate-200">
 
-                <h1 class="text-3xl font-bold text-cyan-400">
+            <div>
+                <h1 class="text-2xl font-bold text-cyan-600">
                     FactoryOS
                 </h1>
 
-                <p class="text-xs text-slate-500">
+                <p class="text-xs text-slate-500 mt-1">
                     Smart Factory Management
                 </p>
-
             </div>
 
         </div>
 
-        <nav class="p-6 space-y-2">
 
-            <a class="flex items-center gap-3 bg-cyan-500/20 text-cyan-400 rounded-xl px-4 py-3">
-                <i class="fas fa-chart-line"></i>
+        <!-- Navigation -->
+        <nav class="p-4 space-y-1">
+
+            <a
+                href="index.html"
+                class="flex items-center gap-3 bg-cyan-50 text-cyan-700 rounded-xl px-4 py-3 font-medium"
+            >
+                <i class="fas fa-chart-line w-5"></i>
                 Dashboard
             </a>
 
-           <a href="pages/machines.html"
-   class="flex items-center gap-3 hover:bg-slate-800 rounded-xl px-4 py-3">
-    <i class="fas fa-industry"></i>
-    Machines
-</a>
 
-            <a class="flex items-center gap-3 hover:bg-slate-800 rounded-xl px-4 py-3">
-                <i class="fas fa-boxes"></i>
+            <a
+                href="pages/machines.html"
+                class="flex items-center gap-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900 rounded-xl px-4 py-3 transition"
+            >
+                <i class="fas fa-industry w-5"></i>
+                Machines
+            </a>
+
+
+            <a
+                href="pages/inventory.html"
+                class="flex items-center gap-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900 rounded-xl px-4 py-3 transition"
+            >
+                <i class="fas fa-boxes-stacked w-5"></i>
                 Inventory
             </a>
 
-            <a class="flex items-center gap-3 hover:bg-slate-800 rounded-xl px-4 py-3">
-                <i class="fas fa-gears"></i>
+
+            <a
+                href="pages/production.html"
+                class="flex items-center gap-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900 rounded-xl px-4 py-3 transition"
+            >
+                <i class="fas fa-gears w-5"></i>
                 Production
             </a>
 
-            <a class="flex items-center gap-3 hover:bg-slate-800 rounded-xl px-4 py-3">
-                <i class="fas fa-file-invoice"></i>
+
+            <a
+                href="pages/orders.html"
+                class="flex items-center gap-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900 rounded-xl px-4 py-3 transition"
+            >
+                <i class="fas fa-file-invoice-dollar w-5"></i>
+                Orders
+            </a>
+
+
+            <a
+                href="pages/invoice.html"
+                class="flex items-center gap-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900 rounded-xl px-4 py-3 transition"
+            >
+                <i class="fas fa-file-invoice w-5"></i>
                 Invoice
             </a>
 
-            <a class="flex items-center gap-3 hover:bg-slate-800 rounded-xl px-4 py-3">
-                <i class="fas fa-chart-pie"></i>
+
+            <a
+                href="pages/reports.html"
+                class="flex items-center gap-3 text-slate-600 hover:bg-slate-100 hover:text-slate-900 rounded-xl px-4 py-3 transition"
+            >
+                <i class="fas fa-chart-pie w-5"></i>
                 Reports
             </a>
 
@@ -74,415 +111,468 @@
 
     </aside>
 
-    <!-- Main -->
 
-    <main class="flex-1 flex flex-col overflow-y-auto">
+    <!-- ================================================== -->
+    <!-- MAIN -->
+    <!-- ================================================== -->
 
-        <!-- Navbar -->
+    <main class="flex-1 min-w-0">
 
-        <header class="h-20 border-b border-slate-800 px-8 flex justify-between items-center">
+        <!-- Header -->
+        <header class="h-20 bg-white border-b border-slate-200 px-8 flex items-center justify-between">
 
             <div>
-
-                <h2 class="text-2xl font-bold">
+                <h2 class="text-2xl font-bold text-slate-900">
                     Dashboard
                 </h2>
 
-                <p class="text-slate-500">
-                    Plastic & Packaging Factory
+                <p class="text-sm text-slate-500 mt-1">
+                    Factory overview and daily operations
                 </p>
-
             </div>
+
 
             <div class="flex items-center gap-5">
 
-                <input
-                type="text"
-                placeholder="Search..."
-                class="bg-slate-900 rounded-xl px-4 py-2 border border-slate-700 w-72">
-
-                <button class="text-xl">
+                <!-- Notification -->
+                <button
+                    class="w-10 h-10 rounded-xl hover:bg-slate-100 text-slate-600 transition"
+                    title="Notifications"
+                >
                     <i class="fas fa-bell"></i>
                 </button>
 
-                <div class="w-11 h-11 rounded-full bg-cyan-500 flex items-center justify-center font-bold">
-                    A
+
+                <!-- User -->
+                <div class="flex items-center gap-3">
+
+                    <div
+                        id="userAvatar"
+                        class="w-10 h-10 rounded-full bg-cyan-600 text-white flex items-center justify-center font-semibold"
+                    >
+                        A
+                    </div>
+
+                    <div class="hidden sm:block">
+                        <p
+                            id="userName"
+                            class="text-sm font-semibold text-slate-800"
+                        >
+                            Factory Admin
+                        </p>
+
+                        <p
+                            id="userRole"
+                            class="text-xs text-slate-500"
+                        >
+                            Administrator
+                        </p>
+                    </div>
+
                 </div>
 
             </div>
 
         </header>
 
-        <!-- Dashboard -->
+
+        <!-- ================================================== -->
+        <!-- DASHBOARD CONTENT -->
+        <!-- ================================================== -->
 
         <section class="p-8">
 
-    <!-- KPI Cards -->
+            <!-- Loading -->
+            <div
+                id="dashboardLoading"
+                class="mb-6 rounded-2xl bg-white border border-slate-200 p-5 text-slate-500"
+            >
+                <i class="fas fa-spinner fa-spin mr-2"></i>
+                Loading factory data...
+            </div>
 
-    <div class="grid grid-cols-4 gap-6">
 
-        <!-- Card 1 -->
+            <!-- Error -->
+            <div
+                id="dashboardError"
+                class="hidden mb-6 rounded-2xl bg-red-50 border border-red-200 p-5 text-red-700"
+            ></div>
 
-        <div id="today-production-card"
-            class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-cyan-400 transition">
 
-            <div class="flex justify-between items-center">
+            <!-- ================================================== -->
+            <!-- KPI CARDS -->
+            <!-- ================================================== -->
 
-                <div>
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
 
-                    <p class="text-slate-400 text-sm">
-                        Today's Production
-                    </p>
+                <!-- Today's Production -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
 
-                    <h2 class="text-4xl font-bold mt-3">
-                        12.8T
+                    <div class="flex items-start justify-between">
+
+                        <div>
+
+                            <p class="text-sm text-slate-500">
+                                Today's Production
+                            </p>
+
+                            <h2
+                                id="todayProduction"
+                                class="text-3xl font-bold mt-3 text-slate-900"
+                            >
+                                —
+                            </h2>
+
+                            <p
+                                id="todayProductionMeta"
+                                class="text-sm text-slate-500 mt-2"
+                            >
+                                Loading...
+                            </p>
+
+                        </div>
+
+
+                        <div class="w-12 h-12 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center">
+                            <i class="fas fa-industry text-xl"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Running Machines -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+
+                    <div class="flex items-start justify-between">
+
+                        <div>
+
+                            <p class="text-sm text-slate-500">
+                                Running Machines
+                            </p>
+
+                            <h2
+                                id="runningMachines"
+                                class="text-3xl font-bold mt-3 text-slate-900"
+                            >
+                                —
+                            </h2>
+
+                            <p
+                                id="machineMeta"
+                                class="text-sm text-slate-500 mt-2"
+                            >
+                                Loading...
+                            </p>
+
+                        </div>
+
+
+                        <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                            <i class="fas fa-gears text-xl"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Low Stock -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+
+                    <div class="flex items-start justify-between">
+
+                        <div>
+
+                            <p class="text-sm text-slate-500">
+                                Low Stock
+                            </p>
+
+                            <h2
+                                id="lowStockCount"
+                                class="text-3xl font-bold mt-3 text-slate-900"
+                            >
+                                —
+                            </h2>
+
+                            <p
+                                id="stockMeta"
+                                class="text-sm text-slate-500 mt-2"
+                            >
+                                Loading...
+                            </p>
+
+                        </div>
+
+
+                        <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
+                            <i class="fas fa-boxes-stacked text-xl"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Pending Purchases -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+
+                    <div class="flex items-start justify-between">
+
+                        <div>
+
+                            <p class="text-sm text-slate-500">
+                                Pending Purchases
+                            </p>
+
+                            <h2
+                                id="pendingPurchases"
+                                class="text-3xl font-bold mt-3 text-slate-900"
+                            >
+                                —
+                            </h2>
+
+                            <p
+                                id="purchaseMeta"
+                                class="text-sm text-slate-500 mt-2"
+                            >
+                                Loading...
+                            </p>
+
+                        </div>
+
+
+                        <div class="w-12 h-12 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center">
+                            <i class="fas fa-truck text-xl"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================================== -->
+            <!-- MAIN GRID -->
+            <!-- ================================================== -->
+
+            <div class="grid grid-cols-1 xl:grid-cols-3 gap-5 mt-6">
+
+                <!-- Production Chart -->
+                <div class="xl:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+
+                    <div class="flex items-center justify-between mb-6">
+
+                        <div>
+                            <h2 class="text-lg font-bold text-slate-900">
+                                Production Trend
+                            </h2>
+
+                            <p class="text-sm text-slate-500 mt-1">
+                                Actual production from the last 7 days
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="h-72">
+                        <canvas id="productionChart"></canvas>
+                    </div>
+
+                </div>
+
+
+                <!-- Stock Alerts -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+
+                    <div class="flex items-center justify-between mb-5">
+
+                        <div>
+                            <h2 class="text-lg font-bold text-slate-900">
+                                Stock Alerts
+                            </h2>
+
+                            <p class="text-sm text-slate-500 mt-1">
+                                Materials requiring attention
+                            </p>
+                        </div>
+
+                        <span
+                            id="stockAlertBadge"
+                            class="text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 text-slate-600"
+                        >
+                            0
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        id="stockAlertsList"
+                        class="space-y-3"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================================== -->
+            <!-- SECOND GRID -->
+            <!-- ================================================== -->
+
+            <div class="grid grid-cols-1 xl:grid-cols-3 gap-5 mt-6">
+
+                <!-- Machine Overview -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+
+                    <h2 class="text-lg font-bold text-slate-900">
+                        Machine Overview
                     </h2>
 
-                    <p class="text-green-400 mt-3 text-sm">
-                        +12.5%
+                    <p class="text-sm text-slate-500 mt-1">
+                        Current machine status
                     </p>
+
+
+                    <div class="space-y-4 mt-6">
+
+                        <div class="flex items-center justify-between">
+
+                            <div class="flex items-center gap-3">
+
+                                <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+
+                                <span class="text-sm text-slate-600">
+                                    Running
+                                </span>
+
+                            </div>
+
+                            <span
+                                id="machineRunningValue"
+                                class="font-semibold"
+                            >
+                                0
+                            </span>
+
+                        </div>
+
+
+                        <div class="flex items-center justify-between">
+
+                            <div class="flex items-center gap-3">
+
+                                <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+
+                                <span class="text-sm text-slate-600">
+                                    Maintenance
+                                </span>
+
+                            </div>
+
+                            <span
+                                id="machineMaintenanceValue"
+                                class="font-semibold"
+                            >
+                                0
+                            </span>
+
+                        </div>
+
+
+                        <div class="pt-4 border-t border-slate-100">
+
+                            <div class="flex justify-between text-sm">
+
+                                <span class="text-slate-500">
+                                    Total Machines
+                                </span>
+
+                                <span
+                                    id="machineTotalValue"
+                                    class="font-semibold"
+                                >
+                                    0
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
-                <div
-                    class="w-16 h-16 rounded-2xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-3xl">
 
-                    <i class="fas fa-industry"></i>
+                <!-- Material Usage Alert -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
 
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- Card 2 -->
-
-        <div id="machine-running-card"
-            class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-green-400 transition">
-
-            <div class="flex justify-between items-center">
-
-                <div>
-
-                    <p class="text-slate-400 text-sm">
-                        Running Machines
-                    </p>
-
-                    <h2 class="text-4xl font-bold mt-3">
-                        24
+                    <h2 class="text-lg font-bold text-slate-900">
+                        Material Usage
                     </h2>
 
-                    <p class="text-green-400 mt-3 text-sm">
-                        Active
+                    <p class="text-sm text-slate-500 mt-1">
+                        Wastage and usage monitoring
                     </p>
+
+
+                    <div class="mt-6">
+
+                        <p class="text-sm text-slate-500">
+                            Current wastage
+                        </p>
+
+                        <h3
+                            id="wastagePercentage"
+                            class="text-3xl font-bold mt-2 text-slate-900"
+                        >
+                            —
+                        </h3>
+
+                        <p
+                            id="wastageDetails"
+                            class="text-sm text-slate-500 mt-2"
+                        >
+                            Loading...
+                        </p>
+
+                    </div>
 
                 </div>
 
-                <div
-                    class="w-16 h-16 rounded-2xl bg-green-500/20 flex items-center justify-center text-green-400 text-3xl">
 
-                    <i class="fas fa-gears"></i>
+                <!-- Recent Activity -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
 
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- Card 3 -->
-
-        <div id="stock-card"
-            class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-yellow-400 transition">
-
-            <div class="flex justify-between items-center">
-
-                <div>
-
-                    <p class="text-slate-400 text-sm">
-                        Raw Material
-                    </p>
-
-                    <h2 class="text-4xl font-bold mt-3">
-                        81%
+                    <h2 class="text-lg font-bold text-slate-900">
+                        Recent Activity
                     </h2>
 
-                    <p class="text-yellow-400 mt-3 text-sm">
-                        Available
+                    <p class="text-sm text-slate-500 mt-1">
+                        Latest inventory movements
                     </p>
 
-                </div>
 
-                <div
-                    class="w-16 h-16 rounded-2xl bg-yellow-500/20 flex items-center justify-center text-yellow-400 text-3xl">
-
-                    <i class="fas fa-boxes"></i>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- Card 4 -->
-
-        <div id="revenue-card"
-            class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-purple-400 transition">
-
-            <div class="flex justify-between items-center">
-
-                <div>
-
-                    <p class="text-slate-400 text-sm">
-                        Revenue
-                    </p>
-
-                    <h2 class="text-4xl font-bold mt-3">
-                        ₹4.2L
-                    </h2>
-
-                    <p class="text-purple-400 mt-3 text-sm">
-                        This Month
-                    </p>
-
-                </div>
-
-                <div
-                    class="w-16 h-16 rounded-2xl bg-purple-500/20 flex items-center justify-center text-purple-400 text-3xl">
-
-                    <i class="fas fa-chart-line"></i>
+                    <div
+                        id="recentActivityList"
+                        class="space-y-4 mt-6"
+                    ></div>
 
                 </div>
 
             </div>
 
-        </div>
+        </section>
 
-    </div>
-
-<!-- Second Row -->
-<div class="grid grid-cols-12 gap-6 mt-8">
-
-    <!-- Machine Wastage -->
-    <div id="machine-wastage-panel"
-        class="col-span-8 bg-slate-900 border border-slate-800 rounded-2xl p-6">
-
-        <div class="flex justify-between items-center mb-6">
-            <div>
-                <h2 class="text-xl font-bold">Live Machine Wastage</h2>
-                <p class="text-slate-400 text-sm">Real-time machine monitoring</p>
-            </div>
-
-            <span class="px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-xs font-semibold">
-                LIVE
-            </span>
-        </div>
-
-        <!-- Machine 1 -->
-        <div class="mb-6">
-
-            <div class="flex justify-between mb-2">
-
-                <span class="font-medium">Extruder Machine</span>
-
-                <span class="text-red-400 font-semibold">6%</span>
-
-            </div>
-
-            <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
-
-                <div class="h-full bg-red-500 rounded-full" style="width:6%"></div>
-
-            </div>
-
-        </div>
-
-        <!-- Machine 2 -->
-
-        <div class="mb-6">
-
-            <div class="flex justify-between mb-2">
-
-                <span class="font-medium">Printing Machine</span>
-
-                <span class="text-yellow-400 font-semibold">3%</span>
-
-            </div>
-
-            <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
-
-                <div class="h-full bg-yellow-400 rounded-full" style="width:3%"></div>
-
-            </div>
-
-        </div>
-
-        <!-- Machine 3 -->
-
-        <div>
-
-            <div class="flex justify-between mb-2">
-
-                <span class="font-medium">Cutting Machine</span>
-
-                <span class="text-green-400 font-semibold">1%</span>
-
-            </div>
-
-            <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
-
-                <div class="h-full bg-green-500 rounded-full" style="width:1%"></div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- Stock Alerts -->
-
-    <div id="stock-alert-panel"
-        class="col-span-4 bg-slate-900 border border-slate-800 rounded-2xl p-6">
-
-        <h2 class="text-xl font-bold mb-6">
-
-            Stock Alerts
-
-        </h2>
-
-        <div class="space-y-4">
-
-            <div class="rounded-xl border border-red-500 bg-red-500/10 p-4">
-
-                <p class="font-semibold">
-                    Plastic Granules
-                </p>
-
-                <p class="text-sm text-red-400 mt-1">
-                    Low Stock
-                </p>
-
-            </div>
-
-            <div class="rounded-xl border border-yellow-500 bg-yellow-500/10 p-4">
-
-                <p class="font-semibold">
-                    Ink
-                </p>
-
-                <p class="text-sm text-yellow-400 mt-1">
-                    Medium Stock
-                </p>
-
-            </div>
-
-            <div class="rounded-xl border border-green-500 bg-green-500/10 p-4">
-
-                <p class="font-semibold">
-                    Packaging Rolls
-                </p>
-
-                <p class="text-sm text-green-400 mt-1">
-                    In Stock
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-<!-- Third Row -->
-<div class="grid grid-cols-12 gap-6 mt-8">
-
-    <!-- Production Chart -->
-
-    <div class="col-span-8 bg-slate-900 border border-slate-800 rounded-2xl p-6">
-
-        <div class="flex justify-between items-center mb-6">
-
-            <div>
-
-                <h2 class="text-xl font-bold">
-                    Production Efficiency
-                </h2>
-
-                <p class="text-slate-400 text-sm">
-                    Weekly Production Performance
-                </p>
-
-            </div>
-
-            <select
-              id="productionPeriod"
-                class="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2">
-
-                <option value="This Week">This Week</option>
-                <option value="This Month">This Month</option>
-
-            </select>
-
-        </div>
-
-        <canvas id="productionChart" height="120"></canvas>
-
-    </div>
-
-    <!-- WhatsApp Invoice -->
-
-    <div class="col-span-4 bg-slate-900 border border-slate-800 rounded-2xl p-6">
-
-        <h2 class="text-xl font-bold mb-4">
-
-            WhatsApp Invoice
-
-        </h2>
-
-        <p class="text-slate-400 text-sm mb-6">
-
-            Send invoice instantly to customer.
-
-        </p>
-
-        <input
-         id="customerName"
-            type="text"
-            placeholder="Customer Name"
-            class="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 mb-4">
-
-        <input
-          id="whatsappNumber"
-            type="text"
-            placeholder="WhatsApp Number"
-            class="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 mb-4">
-
-        <input
-         id="invoiceAmount"
-            type="text"
-            placeholder="Invoice Amount"
-            class="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 mb-6">
-
-        <button
-           id="sendInvoiceBtn"
-            class="w-full bg-green-500 hover:bg-green-600 transition rounded-xl py-3 font-semibold">
-
-            <i class="fab fa-whatsapp mr-2"></i>
-
-            Send Invoice
-
-        </button>
-
-    </div>
-
-</div>
-
-</section>
     </main>
 
 </div>
 
-<script src="js/dummyData.js"></script>
+
 <script src="js/app.js"></script>
 
 </body>
