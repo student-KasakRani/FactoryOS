@@ -1,4 +1,5 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
@@ -7,23 +8,26 @@ const Factory = require("../models/Factory");
 const router = express.Router();
 
 // ======================================================
-// SIGNUP
+// SIGNUP - CREATE NEW FACTORY + OWNER ACCOUNT
 // ======================================================
 
 router.post("/signup", async (req, res) => {
+    const session = await mongoose.startSession();
+
     try {
         const {
             name,
             email,
             password,
-            factoryId
+            factoryName
         } = req.body;
 
         // Basic validation
-        if (!name || !email || !password) {
+        if (!name || !email || !password || !factoryName) {
             return res.status(400).json({
                 success: false,
-                message: "Name, email and password are required."
+                message:
+                    "Owner name, email, password and factory name are required."
             });
         }
 
@@ -34,79 +38,146 @@ router.post("/signup", async (req, res) => {
             });
         }
 
-        const normalizedEmail = email.toLowerCase().trim();
+        const normalizedEmail = email
+            .toLowerCase()
+            .trim();
 
-        // Check existing user
+        const normalizedFactoryName = factoryName.trim();
+
+        // Check duplicate user
         const existingUser = await User.findOne({
             email: normalizedEmail
-        });
+        }).session(session);
 
         if (existingUser) {
             return res.status(409).json({
                 success: false,
-                message: "User already exists."
+                message: "An account with this email already exists."
             });
         }
 
-        // Factory is optional for public signup.
-        // If factoryId is provided, verify it.
-        let factory = null;
+        const hashedPassword = await bcrypt.hash(
+            password,
+            10
+        );
 
-        if (factoryId) {
-            factory = await Factory.findOne({
-                _id: factoryId,
-                isActive: true
-            });
+        // Generate a unique factory code
+        let factoryCode;
+        let codeExists = true;
 
-            if (!factory) {
-                return res.status(404).json({
-                    success: false,
-                    message: "Factory not found or inactive."
-                });
-            }
+        while (codeExists) {
+            factoryCode =
+                "FAC-" +
+                Math.random()
+                    .toString(36)
+                    .substring(2, 8)
+                    .toUpperCase();
+
+            const existingFactory = await Factory.findOne({
+                factoryCode
+            }).session(session);
+
+            codeExists = !!existingFactory;
         }
 
-        // Hash password
-        const hashedPassword = await bcrypt.hash(password, 10);
+        let createdUser;
+        let createdFactory;
 
-        // IMPORTANT:
-        // Public signup can ONLY create employee accounts.
-        // Admin/manager accounts must NOT be created by simply
-        // sending role: "admin" or role: "manager".
-        const user = await User.create({
-            name: name.trim(),
-            email: normalizedEmail,
-            password: hashedPassword,
-            role: "employee",
-            factoryId: factory ? factory._id : null,
-            factoryName: factory ? factory.name : "",
-            isActive: true
+        await session.withTransaction(async () => {
+
+            // Step 1: Create owner/admin user temporarily
+            const users = await User.create(
+                [
+                    {
+                        name: name.trim(),
+                        email: normalizedEmail,
+                        password: hashedPassword,
+                        role: "admin",
+                        factoryId: null,
+                        factoryName: normalizedFactoryName,
+                        isActive: true
+                    }
+                ],
+                { session }
+            );
+
+            createdUser = users[0];
+
+            // Step 2: Create factory with this user as owner
+            const factories = await Factory.create(
+                [
+                    {
+                        name: normalizedFactoryName,
+                        owner: createdUser._id,
+                        factoryCode,
+                        industry: "Plastic & Packaging",
+                        country: "India",
+                        email: normalizedEmail,
+                        isActive: true
+                    }
+                ],
+                { session }
+            );
+
+            createdFactory = factories[0];
+
+            // Step 3: Attach factory to owner account
+            createdUser.factoryId =
+                createdFactory._id;
+
+            createdUser.factoryName =
+                createdFactory.name;
+
+            await createdUser.save({ session });
         });
+
+        // Create JWT for automatic login
+        const token = jwt.sign(
+            {
+                id: createdUser._id,
+                role: createdUser.role,
+                factoryId: createdFactory._id
+            },
+            process.env.JWT_SECRET,
+            {
+                expiresIn: "7d"
+            }
+        );
 
         return res.status(201).json({
             success: true,
-            message: "User registered successfully.",
+            message: "Factory account created successfully.",
+            token,
             user: {
-                id: user._id,
-                name: user.name,
-                email: user.email,
-                role: user.role,
-                factoryId: user.factoryId,
-                factoryName: user.factoryName,
-                isActive: user.isActive
+                id: createdUser._id,
+                name: createdUser.name,
+                email: createdUser.email,
+                role: createdUser.role,
+                factoryId: createdUser.factoryId,
+                factoryName: createdUser.factoryName,
+                isActive: createdUser.isActive
+            },
+            factory: {
+                id: createdFactory._id,
+                name: createdFactory.name,
+                factoryCode: createdFactory.factoryCode,
+                industry: createdFactory.industry,
+                country: createdFactory.country,
+                isActive: createdFactory.isActive
             }
         });
 
     } catch (error) {
-        console.error("Signup Error:", error.message);
+        console.error("Signup Error:", error);
 
         return res.status(500).json({
             success: false,
-            message: "Server error during signup."
+            message: "Server error during factory signup."
         });
+    } finally {
+        await session.endSession();
     }
 });
-
 
 // ======================================================
 // LOGIN

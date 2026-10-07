@@ -2,473 +2,585 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
+    <title>Production | FactoryOS</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/output.css">
 
-<title>Production | FactoryOS</title>
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
 
-<link rel="stylesheet" href="../css/output.css">
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body class="bg-slate-950 text-white">
+
+<body class="bg-slate-50 text-slate-900 overflow-x-hidden">
 
 <div class="flex min-h-screen">
 
-    <!-- Sidebar -->
-    <aside class="w-72 bg-slate-900 border-r border-slate-800 flex flex-col">
 
-        <div class="h-20 flex items-center justify-center border-b border-slate-800">
-            <div class="text-center">
-                <h1 class="text-3xl font-bold text-cyan-400">FactoryOS</h1>
-                <p class="text-xs text-slate-400 mt-1">Smart Factory Management</p>
+    <!-- ================================================= -->
+    <!-- SIDEBAR -->
+    <!-- ================================================= -->
+
+    <aside class="w-64 bg-white border-r border-slate-200 flex-shrink-0">
+
+        <!-- Logo -->
+
+        <div class="h-20 flex items-center px-6 border-b border-slate-200">
+
+            <div>
+
+                <h1 class="text-2xl font-bold text-cyan-600">
+                    FactoryOS
+                </h1>
+
+                <p class="text-xs text-slate-500 mt-1">
+                    Smart Factory Management
+                </p>
+
             </div>
+
         </div>
 
-        <nav class="flex-1 px-5 py-6 space-y-3">
 
-            <a href="../index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
-                <i class="fas fa-chart-line"></i>
+        <!-- Navigation -->
+
+        <nav class="p-4 space-y-1">
+
+            <a
+                href="../index.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-100 transition"
+            >
+                <i class="fas fa-chart-line w-5"></i>
                 Dashboard
             </a>
 
-            <a href="machines.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
-                <i class="fas fa-industry"></i>
+
+            <a
+                href="machines.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-100 transition"
+            >
+                <i class="fas fa-industry w-5"></i>
                 Machines
             </a>
 
-            <a href="inventory.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
-                <i class="fas fa-boxes"></i>
+
+            <a
+                href="inventory.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-100 transition"
+            >
+                <i class="fas fa-boxes-stacked w-5"></i>
                 Inventory
             </a>
 
-            <a href="production.html" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-cyan-500/20 text-cyan-400">
-                <i class="fas fa-gears"></i>
+
+            <a
+                href="production.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl bg-cyan-50 text-cyan-700 font-medium"
+            >
+                <i class="fas fa-gears w-5"></i>
                 Production
             </a>
 
-            <a href="orders.html"
-class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
 
-    <i class="fas fa-cart-shopping"></i>
+            <a
+                href="orders.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-100 transition"
+            >
+                <i class="fas fa-cart-shopping w-5"></i>
+                Orders
+            </a>
 
-    Orders
 
-</a>
+            <a
+                href="invoice.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-100 transition"
+            >
+                <i class="fas fa-file-invoice w-5"></i>
+                Invoice
+            </a>
+
+
+            <a
+                href="reports.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-100 transition"
+            >
+                <i class="fas fa-chart-pie w-5"></i>
+                Reports
+            </a>
 
         </nav>
 
     </aside>
 
-    <main class="flex-1 overflow-y-auto">
 
-        <header class="h-20 border-b border-slate-800 px-8 flex items-center justify-between">
+
+    <!-- ================================================= -->
+    <!-- MAIN -->
+    <!-- ================================================= -->
+
+    <main class="flex-1 min-w-0">
+
+        <!-- Header -->
+
+        <header class="h-20 bg-white border-b border-slate-200 px-8 flex items-center justify-between">
 
             <div>
 
-                <h2 class="text-3xl font-bold">
+                <h2 class="text-2xl font-bold text-slate-900">
                     Production
                 </h2>
 
-                <p class="text-slate-400">
-                    Live Factory Production Monitoring
+                <p class="text-sm text-slate-500 mt-1">
+                    Monitor daily production and material usage
                 </p>
 
             </div>
 
-         <button
-    id="newProductionBtn"
-    class="bg-cyan-500 hover:bg-cyan-600 px-6 py-2 rounded-xl">
-    + New Production
-</button>
+
+            <button
+                id="newProductionBtn"
+                class="bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2.5 rounded-xl font-medium transition"
+            >
+                <i class="fas fa-plus mr-2"></i>
+                New Production
+            </button>
 
         </header>
 
+
+
+        <!-- ================================================= -->
+        <!-- CONTENT -->
+        <!-- ================================================= -->
+
         <section class="p-8">
 
-            <!-- KPI Cards -->
 
-            <div class="grid grid-cols-4 gap-6">
+            <!-- Page error container -->
 
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+            <div
+                id="productionPageError"
+                class="hidden mb-6 rounded-xl bg-red-50 border border-red-200 text-red-700 p-4"
+            ></div>
 
-                    <p class="text-slate-400">Today's Production</p>
 
-                    <h2 class="text-4xl font-bold mt-3">
-                        12,450
+
+            <!-- ================================================= -->
+            <!-- KPI CARDS -->
+            <!-- ================================================= -->
+
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+
+                <!-- Today's Production -->
+
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+
+                    <p class="text-sm text-slate-500">
+                        Today's Production
+                    </p>
+
+                    <h2 class="text-3xl font-bold mt-3">
+                        0
                     </h2>
 
-                    <p class="text-green-400 mt-2">
-                        Units
+                    <p class="text-sm text-slate-500 mt-2">
+                        Loading...
                     </p>
 
                 </div>
 
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
 
-                    <p class="text-slate-400">Efficiency</p>
 
-                    <h2 class="text-4xl font-bold mt-3 text-cyan-400">
-                        96%
+                <!-- Efficiency -->
+
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+
+                    <p class="text-sm text-slate-500">
+                        Efficiency
+                    </p>
+
+                    <h2 class="text-3xl font-bold mt-3 text-cyan-600">
+                        0%
                     </h2>
 
+                    <p class="text-sm text-slate-500 mt-2">
+                        Target vs actual
+                    </p>
+
                 </div>
 
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
 
-                    <p class="text-slate-400">Running Lines</p>
 
-                    <h2 class="text-4xl font-bold mt-3 text-green-400">
-                        8
+                <!-- Running Machines -->
+
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+
+                    <p class="text-sm text-slate-500">
+                        Running Machines
+                    </p>
+
+                    <h2 class="text-3xl font-bold mt-3 text-emerald-600">
+                        0
                     </h2>
 
+                    <p class="text-sm text-slate-500 mt-2">
+                        Loading...
+                    </p>
+
                 </div>
 
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
 
-                    <p class="text-slate-400">Rejected Units</p>
 
-                    <h2 class="text-4xl font-bold mt-3 text-red-400">
-                        83
+                <!-- Rejected Units -->
+
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+
+                    <p class="text-sm text-slate-500">
+                        Rejected Units
+                    </p>
+
+                    <h2 class="text-3xl font-bold mt-3 text-red-500">
+                        0
                     </h2>
 
+                    <p class="text-sm text-slate-500 mt-2">
+                        Today
+                    </p>
+
                 </div>
 
             </div>
 
-            <!-- Production Analytics -->
 
-<div class="grid grid-cols-3 gap-6 mt-8">
 
-    <!-- Production Graph -->
+            <!-- ================================================= -->
+            <!-- PRODUCTION ANALYTICS + LIVE STATUS -->
+            <!-- ================================================= -->
 
-   <div class="col-span-2 bg-slate-900 border border-slate-800 rounded-2xl p-6 h-[400px]">
+            <div class="grid grid-cols-1 xl:grid-cols-3 gap-5 mt-6">
 
-        <div class="flex justify-between items-center mb-6">
 
-            <div>
+                <!-- Production Analytics -->
 
-                <h2 class="text-2xl font-bold">
-                    Production Analytics
-                </h2>
+                <div class="xl:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
 
-                <p class="text-slate-400 text-sm">
-                    Daily Production Output
-                </p>
+                    <div class="flex items-center justify-between mb-6">
 
-            </div>
-             <select
-    id="productionPeriod"
-    class="bg-slate-800 border border-slate-700 rounded-xl px-4 py-2">
-            
+                        <div>
 
-                <option value="Today">Today</option>
-                <option  value="This Week">This Week</option>
-                <option value="This Month">This Month</option>
+                            <h2 class="text-lg font-bold">
+                                Production Analytics
+                            </h2>
 
-            </select>
+                            <p class="text-sm text-slate-500 mt-1">
+                                Production output over the last 7 days
+                            </p>
 
-        </div>
+                        </div>
 
-       
-    <div class="h-[300px] w-full">
-        <canvas id="productionChart"></canvas>
-    </div>
 
-    </div>
+                        <select
+                            id="productionPeriod"
+                            class="bg-white border border-slate-300 rounded-xl px-4 py-2 text-sm"
+                        >
+                            <option value="Today">
+                                Today
+                            </option>
 
-    <!-- Live Production Status -->
+                            <option value="This Week" selected>
+                                This Week
+                            </option>
 
-    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                            <option value="This Month">
+                                This Month
+                            </option>
+                        </select>
 
-        <h2 class="text-2xl font-bold mb-6">
-            Live Status
-        </h2>
+                    </div>
 
-        <div class="space-y-5">
 
-            <div class="flex justify-between items-center">
+                    <div class="h-72">
 
-                <span>Extruder Line</span>
+                        <canvas id="productionChart"></canvas>
 
-                <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full">
-                    Running
-                </span>
+                    </div>
 
-            </div>
+                </div>
 
-            <div class="flex justify-between items-center">
 
-                <span>Printing Line</span>
 
-                <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full">
-                    Running
-                </span>
+                <!-- Live Status -->
 
-            </div>
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
 
-            <div class="flex justify-between items-center">
+                    <h2 class="text-lg font-bold">
+                        Live Status
+                    </h2>
 
-                <span>Cutting Line</span>
+                    <p class="text-sm text-slate-500 mt-1">
+                        Current machine status
+                    </p>
 
-                <span class="bg-red-500/20 text-red-400 px-3 py-1 rounded-full">
-                    Stopped
-                </span>
 
-            </div>
+                    <div class="space-y-4 mt-6">
 
-            <div class="flex justify-between items-center">
+                        <!-- production.js will populate this -->
 
-                <span>Packing Line</span>
+                    </div>
 
-                <span class="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full">
-                    Maintenance
-                </span>
+                </div>
 
             </div>
 
-        </div>
 
-    </div>
+
+            <!-- ================================================= -->
+            <!-- PRODUCTION RECORDS -->
+            <!-- ================================================= -->
+
+            <div class="bg-white border border-slate-200 rounded-2xl shadow-sm mt-6 overflow-hidden">
+
+                <div class="p-6 flex items-center justify-between">
+
+                    <div>
+
+                        <h2 class="text-lg font-bold">
+                            Production Records
+                        </h2>
+
+                        <p class="text-sm text-slate-500 mt-1">
+                            Recent production entries from your factory
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="overflow-x-auto">
+
+                    <table class="w-full text-sm">
+
+                        <thead class="bg-slate-50 border-y border-slate-200">
+
+                            <tr>
+
+                                <th class="text-left p-4 font-semibold">
+                                    Product
+                                </th>
+
+                                <th class="text-left font-semibold">
+                                    Machine
+                                </th>
+
+                                <th class="text-left font-semibold">
+                                    Shift
+                                </th>
+
+                                <th class="text-left font-semibold">
+                                    Date
+                                </th>
+
+                                <th class="text-left font-semibold">
+                                    Target
+                                </th>
+
+                                <th class="text-left font-semibold">
+                                    Produced
+                                </th>
+
+                                <th class="text-left font-semibold">
+                                    Status
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="productionTableBody">
+
+                            <tr>
+
+                                <td
+                                    colspan="7"
+                                    class="p-8 text-center text-slate-500"
+                                >
+                                    Loading production records...
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================================================= -->
+            <!-- ALERTS + EFFICIENCY -->
+            <!-- ================================================= -->
+
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-5 mt-6">
+
+
+                <!-- Production Alerts -->
+
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+
+                    <h2 class="text-lg font-bold">
+                        Production Alerts
+                    </h2>
+
+                    <p class="text-sm text-slate-500 mt-1">
+                        Issues that may need attention
+                    </p>
+
+
+                    <div class="space-y-4 mt-6">
+
+                        <!-- production.js will populate alerts -->
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Efficiency Meter -->
+
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+
+                    <h2 class="text-lg font-bold">
+                        Efficiency Meter
+                    </h2>
+
+                    <p class="text-sm text-slate-500 mt-1">
+                        Current operational performance
+                    </p>
+
+
+                    <div class="space-y-6 mt-6">
+
+
+                        <!-- Production Efficiency -->
+
+                        <div>
+
+                            <div class="flex justify-between mb-2">
+
+                                <span class="text-sm font-medium">
+                                    Production Efficiency
+                                </span>
+
+                                <span class="text-sm font-semibold text-cyan-600">
+                                    0%
+                                </span>
+
+                            </div>
+
+
+                            <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+
+                                <div
+                                    class="h-full bg-cyan-500 rounded-full"
+                                    style="width: 0%"
+                                ></div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Machine Utilization -->
+
+                        <div>
+
+                            <div class="flex justify-between mb-2">
+
+                                <span class="text-sm font-medium">
+                                    Machine Utilization
+                                </span>
+
+                                <span class="text-sm font-semibold text-emerald-600">
+                                    0%
+                                </span>
+
+                            </div>
+
+
+                            <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+
+                                <div
+                                    class="h-full bg-emerald-500 rounded-full"
+                                    style="width: 0%"
+                                ></div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Order Completion -->
+
+                        <div>
+
+                            <div class="flex justify-between mb-2">
+
+                                <span class="text-sm font-medium">
+                                    Production Completion
+                                </span>
+
+                                <span class="text-sm font-semibold text-amber-600">
+                                    0%
+                                </span>
+
+                            </div>
+
+
+                            <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+
+                                <div
+                                    class="h-full bg-amber-500 rounded-full"
+                                    style="width: 0%"
+                                ></div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+    </main>
 
 </div>
 
-<!-- Running Production Lines -->
 
-<div class="bg-slate-900 border border-slate-800 rounded-2xl mt-8 overflow-hidden">
 
-    <div class="flex justify-between items-center p-6">
+<!-- ================================================= -->
+<!-- PRODUCTION JS -->
+<!-- ================================================= -->
 
-        <div>
-
-            <h2 class="text-2xl font-bold">
-                Running Production Lines
-            </h2>
-
-            <p class="text-slate-400 text-sm">
-                Live Factory Operations
-            </p>
-
-        </div>
-
-        <button
-    id="addProductionLineBtn"
-    class="bg-cyan-500 hover:bg-cyan-600 px-5 py-2 rounded-xl">
-    + Add Line
-</button>
-
-    </div>
-
-    <table class="w-full">
-
-        <thead class="bg-slate-800">
-
-            <tr>
-
-                <th class="text-left p-4">Line</th>
-                <th class="text-left">Machine</th>
-                <th class="text-left">Operator</th>
-                <th class="text-left">Target</th>
-                <th class="text-left">Completed</th>
-                <th class="text-left">Status</th>
-
-            </tr>
-
-        </thead>
-
-         <tbody id="productionTableBody">
-
-            <tr class="border-t border-slate-800 hover:bg-slate-800/40">
-
-                <td class="p-4">Line A</td>
-                <td>Extruder</td>
-                <td>Rahul</td>
-                <td>5000</td>
-                <td>4200</td>
-
-                <td>
-                    <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full">
-                        Running
-                    </span>
-                </td>
-
-            </tr>
-
-            <tr class="border-t border-slate-800 hover:bg-slate-800/40">
-
-                <td class="p-4">Line B</td>
-                <td>Printing</td>
-                <td>Amit</td>
-                <td>3200</td>
-                <td>2800</td>
-
-                <td>
-                    <span class="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full">
-                        Slow
-                    </span>
-                </td>
-
-            </tr>
-
-            <tr class="border-t border-slate-800 hover:bg-slate-800/40">
-
-                <td class="p-4">Line C</td>
-                <td>Cutting</td>
-                <td>Vikas</td>
-                <td>4100</td>
-                <td>0</td>
-
-                <td>
-                    <span class="bg-red-500/20 text-red-400 px-3 py-1 rounded-full">
-                        Stopped
-                    </span>
-                </td>
-
-            </tr>
-
-        </tbody>
-
-    </table>
-
-</div>
-
-<!-- Bottom Section -->
-
-<div class="grid grid-cols-3 gap-6 mt-8">
-
-    <!-- Production Alerts -->
-
-    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-
-        <h2 class="text-2xl font-bold mb-6">
-            Production Alerts
-        </h2>
-
-        <div class="space-y-4">
-
-            <div class="bg-red-500/10 border border-red-500 rounded-xl p-4">
-                <h3 class="font-semibold">⚠ Cutting Line Stopped</h3>
-                <p class="text-red-400 text-sm">Operator attention required.</p>
-            </div>
-
-            <div class="bg-yellow-500/10 border border-yellow-500 rounded-xl p-4">
-                <h3 class="font-semibold">⚠ Low Raw Material</h3>
-                <p class="text-yellow-400 text-sm">Plastic Granules below threshold.</p>
-            </div>
-
-            <div class="bg-green-500/10 border border-green-500 rounded-xl p-4">
-                <h3 class="font-semibold">✔ Line A Target Achieved</h3>
-                <p class="text-green-400 text-sm">Production completed successfully.</p>
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- Today's Schedule -->
-
-    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-
-        <h2 class="text-2xl font-bold mb-6">
-            Today's Schedule
-        </h2>
-
-        <div class="space-y-5">
-
-            <div>
-                <p class="font-semibold">08:00 AM</p>
-                <p class="text-slate-400">Extruder Start</p>
-            </div>
-
-            <div>
-                <p class="font-semibold">10:30 AM</p>
-                <p class="text-slate-400">Printing Quality Check</p>
-            </div>
-
-            <div>
-                <p class="font-semibold">02:00 PM</p>
-                <p class="text-slate-400">Packing Line Inspection</p>
-            </div>
-
-            <div>
-                <p class="font-semibold">05:00 PM</p>
-                <p class="text-slate-400">Daily Production Report</p>
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- Efficiency Meter -->
-
-    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-
-        <h2 class="text-2xl font-bold mb-6">
-            Efficiency Meter
-        </h2>
-
-        <div class="space-y-6">
-
-            <div>
-
-                <div class="flex justify-between mb-2">
-                    <span>Production Efficiency</span>
-                    <span class="text-cyan-400">96%</span>
-                </div>
-
-                <div class="w-full bg-slate-800 rounded-full h-3">
-                    <div class="bg-cyan-500 h-3 rounded-full w-[96%]"></div>
-                </div>
-
-            </div>
-
-            <div>
-
-                <div class="flex justify-between mb-2">
-                    <span>Machine Utilization</span>
-                    <span class="text-green-400">91%</span>
-                </div>
-
-                <div class="w-full bg-slate-800 rounded-full h-3">
-                    <div class="bg-green-500 h-3 rounded-full w-[91%]"></div>
-                </div>
-
-            </div>
-
-            <div>
-
-                <div class="flex justify-between mb-2">
-                    <span>Order Completion</span>
-                    <span class="text-yellow-400">84%</span>
-                </div>
-
-                <div class="w-full bg-slate-800 rounded-full h-3">
-                    <div class="bg-yellow-400 h-3 rounded-full w-[84%]"></div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-</section>
-
-</main>
-
-</div>
-
-<script src="../js/app.js"></script>
+<script src="../js/production.js"></script>
 
 </body>
-
 </html>

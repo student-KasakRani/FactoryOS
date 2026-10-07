@@ -34,7 +34,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
         <nav class="flex-1 px-5 py-6 space-y-3">
 
-            <a href="../index.html"
+            <a href="../dashboard.html"
                 class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
                 <i class="fas fa-chart-line"></i>
                 Dashboard
@@ -177,11 +177,11 @@ class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slat
         </div>
 
         <button
-            class="bg-cyan-500 hover:bg-cyan-600 px-5 py-2 rounded-xl">
-
-            Export Report
-
-        </button>
+    id="exportInventoryBtn"
+    type="button"
+    class="bg-cyan-500 hover:bg-cyan-600 px-5 py-2 rounded-xl">
+    Export Report
+</button>
 
     </div>
 
@@ -506,11 +506,12 @@ class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slat
 
             </button>
 
-            <button class="w-full bg-yellow-500 hover:bg-yellow-600 py-3 rounded-xl">
-
-                Download Report
-
-            </button>
+            <button
+    id="downloadInventoryReportBtn"
+    type="button"
+    class="w-full bg-yellow-500 hover:bg-yellow-600 py-3 rounded-xl">
+    Download Report
+</button>
 
         </div>
 
@@ -518,33 +519,74 @@ class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slat
 
     <!-- Inventory Status -->
 
-    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+    <!-- Inventory Status -->
 
-        <h2 class="text-xl font-bold mb-5">
+<div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
 
-            Inventory Status
+    <h2 class="text-xl font-bold mb-5">
+        Inventory Status
+    </h2>
 
-        </h2>
+    <div class="space-y-5">
 
-        <div class="space-y-4">
+        <!-- Stock Health -->
 
-            <div>
+        <div>
 
-                <p class="text-slate-400">Storage Utilization</p>
+            <div class="flex justify-between items-center mb-2">
 
-                <div class="w-full bg-slate-800 rounded-full h-3 mt-2">
-                    <div class="bg-cyan-500 h-3 rounded-full w-[72%]"></div>
-                </div>
+                <p class="text-slate-400">
+                    Stock Health
+                </p>
+
+                <span
+                    id="stockHealthValue"
+                    class="text-sm font-semibold text-cyan-400"
+                >
+                    0%
+                </span>
 
             </div>
 
-            <div>
+            <div class="w-full bg-slate-800 rounded-full h-3">
 
-                <p class="text-slate-400">Warehouse Capacity</p>
+                <div
+                    id="stockHealthBar"
+                    class="bg-cyan-500 h-3 rounded-full"
+                    style="width: 0%"
+                ></div>
 
-                <div class="w-full bg-slate-800 rounded-full h-3 mt-2">
-                    <div class="bg-green-500 h-3 rounded-full w-[88%]"></div>
-                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Reorder Required -->
+
+        <div>
+
+            <div class="flex justify-between items-center mb-2">
+
+                <p class="text-slate-400">
+                    Reorder Required
+                </p>
+
+                <span
+                    id="reorderRequiredValue"
+                    class="text-sm font-semibold text-red-400"
+                >
+                    0
+                </span>
+
+            </div>
+
+            <div class="w-full bg-slate-800 rounded-full h-3">
+
+                <div
+                    id="reorderRequiredBar"
+                    class="bg-red-500 h-3 rounded-full"
+                    style="width: 0%"
+                ></div>
 
             </div>
 
@@ -552,6 +594,7 @@ class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slat
 
     </div>
 
+</div>
 </div>
 
 <!-- Recent Purchase Orders -->
@@ -587,6 +630,7 @@ class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slat
                 <th class="text-left">Material</th>
                 <th class="text-left">Amount</th>
                 <th class="text-left">Status</th>
+                <th class="text-left">Action</th>
 
             </tr>
 
@@ -650,7 +694,7 @@ class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slat
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="../js/app.js"></script>
+<script src="../js/inventory.js?v=11"></script>
 
 </div>
 
