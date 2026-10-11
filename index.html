@@ -1,826 +1,525 @@
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
 <head>
   <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>FactoryOS</title>
+  <title>FactoryOS | Smart Factory Management</title>
 
-  <!-- Tailwind CSS -->
   <link rel="stylesheet" href="./css/output.css" />
-
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 </head>
 
-
-<body class="bg-slate-950 font-sans text-slate-50 antialiased">
+<body class="bg-slate-50 font-sans text-slate-900 antialiased">
 
   <!-- NAVBAR -->
-  <header class="border-b border-slate-800 bg-slate-950">
-    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8 lg:px-10">
-      <!-- Logo -->
-      <a href="#" class="flex items-center gap-2">
-        <div
-          class="flex h-6 w-6 items-center justify-center rounded-md bg-slate-50 text-xl lg:text-2xl font-black text-slate-950"
-        >
+  <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8 lg:px-10">
+
+      <a href="#" class="flex items-center gap-3">
+        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-900 text-xl font-black text-white shadow-sm">
           F
         </div>
 
-        <span class="font-bold tracking-tight text-slate-50 text-xl lg:text-2xl">
-          FactoryOS
-          <span><p class="text-xs text-slate-50 font-light">Smart Factory Management</p></span>
-        </span>
+        <div>
+          <span class="text-xl font-bold tracking-tight text-slate-900 lg:text-2xl">
+            FactoryOS
+          </span>
+          <p class="text-xs text-slate-500">
+            Smart Factory Management
+          </p>
+        </div>
       </a>
 
-      <!-- Navigation -->
-      <div
-        class="hidden items-center gap-7 text-sm text-slate-400 md:flex "
-      >
-        <a
-          href="#product"
-          class="transition hover:text-slate-50"
-        >
-          Product
-        </a>
-
-        <a
-          href="#how-it-works"
-          class="transition hover:text-slate-50"
-        >
-          How it works
-        </a>
-
-        <a
-          href="#why-factoryos"
-          class="transition hover:text-slate-50"
-        >
-          Why FactoryOS
-        </a>
+      <div class="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
+        <a href="#product" class="transition hover:text-blue-600">Product</a>
+        <a href="#how-it-works" class="transition hover:text-blue-600">How it works</a>
+        <a href="#why-factoryos" class="transition hover:text-blue-600">Why FactoryOS</a>
       </div>
 
-      <!-- CTA -->
       <a
         href="./pages/signup.html"
-        class="rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-500"
+        class="rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"
       >
-        Signup
-
+        Sign up
       </a>
 
     </nav>
-
   </header>
 
+  <div class="h-1 w-full bg--slate-600"></div>
+
   <main>
+
     <!-- HERO -->
     <section
       id="product"
       class="mx-auto max-w-7xl px-5 pb-16 pt-14 sm:px-8 sm:pb-20 sm:pt-20 lg:px-10 lg:pb-24"
     >
-      <div
-        class="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16"
-      >
+      <div class="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
 
         <!-- Hero Text -->
         <div>
-          <div
-            class="mb-5 inline-flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.16em] text-blue-400"
-          >
-
-            <span
-              class="h-1.5 w-1.5 rounded-full bg-blue-500"
-            ></span>
-
+          <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3 py-2 text-xs font-semibold uppercase tracking-wider text-slate-700">
+            <span class="h-2 w-2 rounded-full bg-slate-700"></span>
             Factory operations platform
-
           </div>
 
-
-          <h1
-            class="max-w-xl text-4xl font-extrabold leading-[0.98] tracking-[-0.045em] text-slate-50 sm:text-5xl lg:text-[58px]"
-          >
+          <h1 class="max-w-xl text-4xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
             RUN YOUR FACTORY
             <br />
-
             WITH CLARITY.
           </h1>
 
-
-          <p
-            class="mt-6 max-w-md text-sm leading-6 text-slate-400"
-          >
+          <p class="mt-6 max-w-lg text-base leading-7 text-slate-600">
             One platform to bring production, inventory, machines,
             and day-to-day factory operations under control.
           </p>
 
-
-          <div
-            class="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center"
-          >
-
+          <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
             <a
               href="./pages/signup.html"
-              class="rounded-full bg-blue-600 px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-blue-500"
+              class="rounded-full bg-blue-600 px-6 py-3 text-center text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-blue-700"
             >
               Get Started
+              <span class="ml-1">→</span>
             </a>
-
 
             <a
               href="#how-it-works"
-              class="text-center text-sm font-medium text-slate-400 transition hover:text-slate-50 sm:px-2"
+              class="text-center text-sm font-semibold text-slate-600 transition hover:text-blue-600 sm:px-2"
             >
               See how it works
               <span class="ml-1">→</span>
             </a>
-
           </div>
 
+          <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-slate-500">
+            <span class="flex items-center gap-2">
+              <span class="text-base text-emerald-600">✓</span>
+              Better visibility
+            </span>
+            <span class="flex items-center gap-2">
+              <span class="text-base text-emerald-600">✓</span>
+              Smarter operations
+            </span>
+          </div>
         </div>
 
         <!-- Dashboard Preview -->
-        <div
-          class="rounded-2xl border border-slate-800 bg-slate-900 p-4 shadow-2xl shadow-black/30 sm:p-5"
-        >
+        <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-xl shadow-slate-200/60 sm:p-6">
 
-          <div class="mb-5 flex items-center justify-between">
-
+          <div class="mb-6 flex items-center justify-between">
             <div>
-
-              <p class="text-[12px] text-slate-500">
+              <p class="text-sm font-medium text-slate-500">
                 Factory overview
               </p>
-
-              <p class="mt-1 text-lg font-bold text-slate-50">
+              <p class="mt-1 text-3xl font-bold tracking-tight text-slate-900">
                 94%
+              </p>
+              <p class="mt-1 text-xs text-slate-500">
+                Overall efficiency
               </p>
             </div>
 
-            <span
-              class="rounded-md bg-emerald-500/10 px-2 py-1 text-[11px] text-emerald-400"
-            >
+            <span class="flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-700">
+              <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
               Live
             </span>
           </div>
 
-          <div class="grid grid-cols-[1fr_90px] gap-4">
-            <!-- Chart -->
+          <div class="grid grid-cols-1 gap-5 sm:grid-cols-[1fr_110px]">
+
+            <!-- Production Chart -->
             <div>
-
-              <div
-                class="mb-2 flex items-end justify-between"
-              >
-
-                <span class="text-[12px] text-slate-500">
+              <div class="mb-3 flex items-center justify-between gap-2">
+                <span class="text-sm font-semibold text-slate-800">
                   Production output
                 </span>
-
-                <span class="text-[12px] text-slate-600">
+                <span class="text-xs text-slate-500">
                   This week
                 </span>
-
               </div>
 
-
-              <div
-                class="flex h-32 items-end gap-2 rounded-xl border border-slate-800 bg-slate-950 px-4 py-4"
-              >
-
-                <div
-                  class="h-[35%] w-full rounded-t bg-blue-700"
-                ></div>
-
-                <div
-                  class="h-[48%] w-full rounded-t bg-blue-600"
-                ></div>
-
-                <div
-                  class="h-[42%] w-full rounded-t bg-blue-700"
-                ></div>
-
-                <div
-                  class="h-[67%] w-full rounded-t bg-blue-600"
-                ></div>
-
-                <div
-                  class="h-[59%] w-full rounded-t bg-blue-600"
-                ></div>
-
-                <div
-                  class="h-[82%] w-full rounded-t bg-blue-500"
-                ></div>
-
-                <div
-                  class="h-[72%] w-full rounded-t bg-blue-500"
-                ></div>
-
+              <div class="flex h-36 items-end gap-2 rounded-xl border border-slate-200 bg-slate-50 px-4 py-4">
+                <div class="h-[35%] w-full rounded-t-md bg-blue-200 transition hover:bg-blue-400"></div>
+                <div class="h-[48%] w-full rounded-t-md bg-blue-300 transition hover:bg-blue-500"></div>
+                <div class="h-[42%] w-full rounded-t-md bg-blue-200 transition hover:bg-blue-400"></div>
+                <div class="h-[67%] w-full rounded-t-md bg-blue-400 transition hover:bg-blue-600"></div>
+                <div class="h-[59%] w-full rounded-t-md bg-blue-300 transition hover:bg-blue-500"></div>
+                <div class="h-[82%] w-full rounded-t-md bg-blue-600 transition hover:bg-blue-700"></div>
+                <div class="h-[72%] w-full rounded-t-md bg-blue-500 transition hover:bg-blue-700"></div>
               </div>
 
+              <div class="mt-3 flex justify-between text-xs text-slate-400">
+                <span>Mon</span>
+                <span>Tue</span>
+                <span>Wed</span>
+                <span>Thu</span>
+                <span>Fri</span>
+                <span>Sat</span>
+                <span>Sun</span>
+              </div>
             </div>
 
-
             <!-- Stats -->
-
-            <div class="space-y-2">
-
-              <div
-                class="rounded-lg border border-slate-800 bg-slate-800/60 p-3"
-              >
-
-                <p class="text-[12px] text-slate-500">
-                  Efficiency
-                </p>
-
-                <p class="mt-1 text-sm font-bold text-slate-50">
-                  94%
-                </p>
-
+            <div class="grid grid-cols-2 gap-3 sm:grid-cols-1">
+              <div class="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                <p class="text-xs text-slate-500">Efficiency</p>
+                <p class="mt-2 text-xl font-bold text-slate-900">94%</p>
+                <p class="mt-1 text-xs font-medium text-emerald-600">On track</p>
               </div>
 
-
-              <div
-                class="rounded-lg border border-slate-800 bg-slate-800/60 p-3"
-              >
-
-                <p class="text-[12px] text-slate-500">
-                  Downtime
-                </p>
-
-                <p class="mt-1 text-sm font-bold text-slate-50">
-                  1.8%
-                </p>
-
+              <div class="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                <p class="text-xs text-slate-500">Downtime</p>
+                <p class="mt-2 text-xl font-bold text-slate-900">1.8%</p>
+                <p class="mt-1 text-xs font-medium text-blue-600">Being monitored</p>
               </div>
-
             </div>
 
           </div>
 
+          <div class="mt-5 flex items-center gap-3 rounded-xl border border-blue-100 bg-blue-50/70 p-4">
+            <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-lg text-blue-600 shadow-sm">
+              ↗
+            </div>
+            <div>
+              <p class="text-sm font-semibold text-slate-800">Your operations at a glance</p>
+              <p class="mt-1 text-xs leading-5 text-slate-600">
+                Bring factory performance into one clear view.
+              </p>
+            </div>
+          </div>
+
         </div>
-
       </div>
-
     </section>
+
 
     <!-- OPERATIONAL VISIBILITY -->
     <section
       id="why-factoryos"
-      class="mx-auto max-w-7xl px-5 py-10 sm:px-8 lg:px-10"
+      class="mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-16 lg:px-10"
     >
-      <div class="max-w-xl">
-        <p
-          class="text-[11px] font-semibold uppercase tracking-[0.18em] text-blue-400"
-        >
+      <div class="max-w-2xl">
+        <p class="text-xs font-bold uppercase tracking-[0.18em] text-slate-700">
           Full factory visibility
         </p>
 
-        <h2
-          class="mt-3 text-2xl font-bold tracking-tight text-slate-50 sm:text-3xl"
-        >
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
           Replace scattered processes with one clear operational view.
         </h2>
 
+        <p class="mt-4 max-w-xl text-sm leading-6 text-slate-600">
+          Bring greater visibility to everyday challenges and make it easier
+          to understand what's happening across your factory.
+        </p>
       </div>
 
-      <div class="mt-8 grid gap-3 sm:grid-cols-2">
+      <div class="mt-9 grid gap-4 sm:grid-cols-2">
 
-        <!-- Card -->
-
-        <div
-          class="rounded-xl border border-slate-800 bg-slate-900 p-5 transition hover:border-slate-700"
-        >
-
-          <div
-            class="mb-4 flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500/10 text-blue-400"
-          >
+        <!-- Card 1 -->
+        <div class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg hover:shadow-slate-200/60">
+          <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-xl font-semibold text-blue-600 transition group-hover:bg-blue-600 group-hover:text-white">
             ✓
           </div>
-
-
-          <h3 class="text-sm lg:text-lg font-semibold text-slate-50">
-            Material flow
-          </h3>
-
-
-          <p class="mt-2 text-[12px] lg:text-sm leading-5 text-slate-400">
+          <h3 class="text-lg font-semibold text-slate-900">Material flow</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-600">
             Track raw materials, components and production movement.
           </p>
-
         </div>
 
-
-
-        <!-- Card -->
-
-        <div
-          class="rounded-xl border border-slate-800 bg-slate-900 p-5 transition hover:border-slate-700"
-        >
-
-          <div
-            class="mb-4 flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500/10 text-blue-400"
-          >
+        <!-- Card 2 -->
+        <div class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg hover:shadow-slate-200/60">
+          <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-xl font-semibold text-blue-600 transition group-hover:bg-blue-600 group-hover:text-white">
             ✓
           </div>
-
-
-          <h3 class="text-sm lg:text-lg font-semibold text-slate-50">
-            Material waste
-          </h3>
-
-
-          <p class="mt-2 text-[12px] lg:text-sm leading-5 text-slate-400">
+          <h3 class="text-lg font-semibold text-slate-900">Material waste</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-600">
             See where materials are being lost and improve efficiency.
           </p>
-
         </div>
 
-
-
-        <!-- Card -->
-
-        <div
-          class="rounded-xl border border-slate-800 bg-slate-900 p-5 transition hover:border-slate-700"
-        >
-
-          <div
-            class="mb-4 flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500/10 text-blue-400"
-          >
+        <!-- Card 3 -->
+        <div class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg hover:shadow-slate-200/60">
+          <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-xl font-semibold text-blue-600 transition group-hover:bg-blue-600 group-hover:text-white">
             ✓
           </div>
-
-
-          <h3 class="text-sm lg:text-lg font-semibold text-slate-50">
-            Stockouts
-          </h3>
-
-
-          <p class="mt-2 text-[12px] lg:text-sm leading-5 text-slate-400">
+          <h3 class="text-lg font-semibold text-slate-900">Stockouts</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-600">
             Know what's missing before it stops your production line.
           </p>
-
         </div>
 
-
-
-        <!-- Card -->
-
-        <div
-          class="rounded-xl border border-slate-800 bg-slate-900 p-5 transition hover:border-slate-700"
-        >
-
-          <div
-            class="mb-4 flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500/10 text-blue-400"
-          >
+        <!-- Card 4 -->
+        <div class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg hover:shadow-slate-200/60">
+          <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-xl font-semibold text-blue-600 transition group-hover:bg-blue-600 group-hover:text-white">
             ✓
           </div>
-
-
-          <h3 class="text-sm lg:text-lg font-semibold text-slate-50">
-            Billing mismatches
-          </h3>
-
-
-          <p class="mt-2 text-[12px] lg:text-sm leading-5 text-slate-400">
+          <h3 class="text-lg font-semibold text-slate-900">Billing mismatches</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-600">
             Detect discrepancies before they impact your bottom line.
           </p>
-
         </div>
 
       </div>
-
     </section>
 
 
+    <!-- COMPLETE CONTROL -->
+    <section class="mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-16 lg:px-10">
 
-    <!-- =====================================================
-         COMPLETE CONTROL
-    ====================================================== -->
+      <div class="max-w-2xl">
+        <p class="text-xs font-bold uppercase tracking-[0.18em] text-slate-700">
+          One connected platform
+        </p>
 
-    <section
-      class="mx-auto max-w-7xl px-5 py-12 sm:px-8 lg:px-10"
-    >
-
-      <div class="max-w-xl">
-
-        <h2
-          class="text-2xl font-bold tracking-tight text-slate-50 sm:text-3xl"
-        >
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
           ONE PLATFORM. COMPLETE FACTORY CONTROL.
         </h2>
 
-
-        <p
-          class="mt-3 text-[11px] leading-5 text-slate-400"
-        >
+        <p class="mt-4 text-sm leading-6 text-slate-600">
           Everything you need to operate, monitor and move your factory forward.
         </p>
-
       </div>
 
-
-      <div class="mt-8 grid gap-3 sm:grid-cols-2">
-
+      <div class="mt-9 grid gap-4 sm:grid-cols-2">
 
         <!-- Feature 1 -->
-
-        <div
-          class="rounded-xl border border-slate-800 bg-slate-900 p-5"
-        >
-
+        <div class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg hover:shadow-slate-200/60">
           <div class="flex gap-4">
-
-            <span
-              class="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-blue-600 text-[9px] font-bold text-white"
-            >
-              1
-            </span>
-
-
+            <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-sm font-bold text-blue-700 transition group-hover:bg-blue-600 group-hover:text-white">01</span>
             <div>
-
-              <h3 class="text-sm lg:text-lg font-semibold text-slate-50">
-                Production visibility
-              </h3>
-
-              <p
-                class="mt-2 text-[12px] lg:text-sm leading-5 text-slate-400"
-              >
+              <h3 class="text-lg font-semibold text-slate-900">Production visibility</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-600">
                 Track production status and identify bottlenecks instantly.
               </p>
-
             </div>
-
           </div>
-
         </div>
-
-
 
         <!-- Feature 2 -->
-
-        <div
-          class="rounded-xl border border-slate-800 bg-slate-900 p-5"
-        >
-
+        <div class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg hover:shadow-slate-200/60">
           <div class="flex gap-4">
-
-            <span
-              class="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-blue-600 text-[9px] font-bold text-white"
-            >
-              2
-            </span>
-
-
+            <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-sm font-bold text-blue-700 transition group-hover:bg-blue-600 group-hover:text-white">02</span>
             <div>
-
-              <h3 class="text-sm lg:text-lg font-semibold text-slate-50">
-                Machine awareness
-              </h3>
-
-              <p
-                class="mt-2 text-[12px] lg:text-sm leading-5 text-slate-400"
-              >
+              <h3 class="text-lg font-semibold text-slate-900">Machine awareness</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-600">
                 Know what every machine is doing and when maintenance is due.
               </p>
-
             </div>
-
           </div>
-
         </div>
-
-
 
         <!-- Feature 3 -->
-
-        <div
-          class="rounded-xl border border-slate-800 bg-slate-900 p-5"
-        >
-
+        <div class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg hover:shadow-slate-200/60">
           <div class="flex gap-4">
-
-            <span
-              class="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-blue-600 text-[9px] font-bold text-white"
-            >
-              3
-            </span>
-
-
+            <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-sm font-bold text-blue-700 transition group-hover:bg-blue-600 group-hover:text-white">03</span>
             <div>
-
-              <h3 class="text-sm lg:text-lg font-semibold text-slate-50">
-                Inventory control
-              </h3>
-
-              <p
-                class="mt-2 text-[12px] lg:text-sm leading-5 text-slate-400"
-              >
+              <h3 class="text-lg font-semibold text-slate-900">Inventory control</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-600">
                 Keep stock levels visible and prevent unexpected shortages.
               </p>
-
             </div>
-
           </div>
-
         </div>
 
-
-
         <!-- Feature 4 -->
-
-        <div
-          class="rounded-xl border border-slate-800 bg-slate-900 p-5"
-        >
-
+        <div class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg hover:shadow-slate-200/60">
           <div class="flex gap-4">
-
-            <span
-              class="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-blue-600 text-[9px] font-bold text-white"
-            >
-              4
-            </span>
-
-
+            <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-sm font-bold text-blue-700 transition group-hover:bg-blue-600 group-hover:text-white">04</span>
             <div>
-
-              <h3 class="text-sm lg:text-lg font-semibold text-slate-50">
-                Operational clarity
-              </h3>
-
-              <p
-                class="mt-2 text-[12px] lg:text-sm leading-5 text-slate-400"
-              >
+              <h3 class="text-lg font-semibold text-slate-900">Operational clarity</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-600">
                 One view for your people, machines, materials and processes.
               </p>
             </div>
           </div>
         </div>
+
       </div>
     </section>
+
 
     <!-- BLUE CTA -->
+    <section class="mx-auto max-w-7xl px-5 py-10 sm:px-8 lg:px-10">
+      <div class="relative overflow-hidden rounded-3xl bg-blue-600 px-6 py-9 shadow-xl shadow-blue-900/10 sm:px-10 sm:py-10">
+        <div class="pointer-events-none absolute -right-10 -top-20 h-56 w-56 rounded-full bg-white/10"></div>
+        <div class="pointer-events-none absolute -bottom-24 right-40 h-48 w-48 rounded-full bg-blue-400/30"></div>
 
-    <section
-      id="demo"
-      class="mx-auto max-w-7xl px-5 py-8 sm:px-8 lg:px-10"
-    >
-      <div
-        class="flex flex-col gap-6 rounded-xl bg-blue-600 px-6 py-7 sm:flex-row sm:items-center sm:justify-between sm:px-8"
-      >
-        <div>
-          <h2
-            class="text-xl font-bold tracking-tight text-white sm:text-2xl"
-          >
-            STOP LOSING TIME TO OPERATIONAL
-            <br class="hidden sm:block" />
-            BLIND SPOTS.
-          </h2>
-          <p
-            class="mt-2 text-[10px] leading-5 text-blue-100"
-          >
-            See how FactoryOS can bring clarity to your factory in one view.
-          </p>
+        <div class="relative flex flex-col gap-7 sm:flex-row sm:items-center sm:justify-between">
+          <div class="max-w-2xl">
+            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-blue-100">
+              Take control of your operations
+            </p>
 
+            <h2 class="mt-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+              STOP LOSING TIME TO OPERATIONAL
+              <br class="hidden sm:block" />
+              BLIND SPOTS.
+            </h2>
+
+            <p class="mt-3 max-w-xl text-sm leading-6 text-blue-100">
+              See how FactoryOS can bring clarity to your factory in one view.
+            </p>
+          </div>
+
+          <a
+            href="./pages/signup.html"
+            class="shrink-0 rounded-full bg-white px-6 py-3 text-center text-sm font-semibold text-blue-700 shadow-sm transition hover:-translate-y-0.5 hover:bg-blue-50"
+          >
+            Get Started
+            <span class="ml-1">→</span>
+          </a>
         </div>
-
-
-        <a
-          href="#contact"
-          class="shrink-0 rounded-full bg-white px-5 py-2.5 text-center text-sm font-semibold text-blue-700 transition hover:bg-slate-100"
-        >
-          Get Started
-        </a>
-
       </div>
     </section>
 
-    <!-- HOW IT WORKS -->
 
+    <!-- HOW IT WORKS -->
     <section
       id="how-it-works"
-      class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10"
+      class="mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-16 lg:px-10"
     >
-
-      <div class="max-w-xl">
-
-        <p
-          class="text-[11px] font-semibold uppercase tracking-[0.18em] text-blue-400"
-        >
+      <div class="max-w-2xl">
+        <p class="text-xs font-bold uppercase tracking-[0.18em] text-slate-700">
           A simpler way to operate
         </p>
 
-
-        <h2
-          class="mt-3 text-2xl font-bold tracking-tight text-slate-50 sm:text-3xl"
-        >
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
           HOW FACTORYOS FITS INTO YOUR DAY
         </h2>
 
-
-        <p
-          class="mt-3 text-[12px] text-slate-400"
-        >
-          A simple flow that's happening in your actual operations.
+        <p class="mt-4 text-sm leading-6 text-slate-600">
+          A simple flow that supports better visibility across your operations.
         </p>
-
       </div>
 
-
-      <div class="mt-10 max-w-3xl">
-
+      <div class="mt-9 max-w-3xl">
 
         <!-- Step 1 -->
-
-        <div
-          class="flex gap-5 border-b border-slate-800 py-6"
-        >
-
-          <div
-            class="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-blue-500/10 text-[9px] font-bold text-blue-400"
-          >
+        <div class="flex gap-5 border-b border-slate-200 py-7">
+          <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-blue-100 bg-blue-50 text-xs font-bold text-blue-700">
             01
           </div>
 
-
           <div>
-
-            <h3 class="text-sm lg:text-lg font-semibold text-slate-50">
-              Capture
-            </h3>
-
-            <p
-              class="mt-2 text-[12px] lg:text-sm leading-5 text-slate-400"
-            >
+            <h3 class="text-lg font-semibold text-slate-900">Capture</h3>
+            <p class="mt-2 text-sm leading-6 text-slate-600">
               Bring operational information into one platform.
             </p>
-
           </div>
-
         </div>
 
-
-
         <!-- Step 2 -->
-
-        <div
-          class="flex gap-5 border-b border-slate-800 py-6"
-        >
-
-          <div
-            class="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-blue-500/10 text-[9px] font-bold text-blue-400"
-          >
+        <div class="flex gap-5 border-b border-slate-200 py-7">
+          <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-blue-100 bg-blue-50 text-xs font-bold text-blue-700">
             02
           </div>
 
-
           <div>
-
-            <h3 class="text-sm lg:text-lg font-semibold text-slate-50">
-              See
-            </h3>
-
-            <p
-              class="mt-2 text-[12px] lg:text-sm leading-5 text-slate-400"
-            >
+            <h3 class="text-lg font-semibold text-slate-900">See</h3>
+            <p class="mt-2 text-sm leading-6 text-slate-600">
               Get a clear picture of production, machines, inventory and people.
             </p>
-
           </div>
-
         </div>
 
         <!-- Step 3 -->
-
-        <div
-          class="flex gap-5 border-b border-slate-800 py-6"
-        >
-
-          <div
-            class="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-blue-500/10 text-[9px] font-bold text-blue-400"
-          >
+        <div class="flex gap-5 border-b border-slate-200 py-7">
+          <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-blue-100 bg-blue-50 text-xs font-bold text-blue-700">
             03
           </div>
 
-
           <div>
-
-            <h3 class="text-sm lg:text-lg font-semibold text-slate-50">
-              Act
-            </h3>
-
-            <p
-              class="mt-2 text-[12px] lg:text-sm leading-5 text-slate-400"
-            >
+            <h3 class="text-lg font-semibold text-slate-900">Act</h3>
+            <p class="mt-2 text-sm leading-6 text-slate-600">
               Turn that visibility into faster and smarter operations.
             </p>
-
           </div>
-
         </div>
 
       </div>
     </section>
 
-    <!-- FINAL CTA -->
 
+    <!-- FINAL CTA -->
     <section
       id="contact"
-      class="mx-auto max-w-7xl px-5 pb-16 sm:px-8 lg:px-10 lg:pb-24"
+      class="mx-auto max-w-7xl px-5 pb-16 pt-6 sm:px-8 lg:px-10 lg:pb-24"
     >
+      <div class="relative overflow-hidden rounded-3xl border border-slate-200 bg-white px-6 py-9 shadow-lg shadow-slate-200/50 sm:px-10 sm:py-12">
 
-      <div
-        class="rounded-xl border border-slate-800 bg-slate-900 px-6 py-8 shadow-xl shadow-black/20 sm:px-8 sm:py-10"
-      >
+        <div class="pointer-events-none absolute -right-10 -top-16 h-56 w-56 rounded-full bg-blue-50"></div>
 
-        <div class="max-w-lg">
+        <div class="relative max-w-2xl">
+          <span class="inline-flex rounded-full border border-blue-100 bg-blue-50 px-3 py-1.5 text-xs font-semibold text-blue-700">
+            Simplify your operations
+          </span>
 
-          <h2
-            class="text-2xl font-bold leading-tight tracking-tight text-slate-50 sm:text-3xl"
-          >
+          <h2 class="mt-5 text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl">
             MAKE YOUR FACTORY
             <br />
             EASIER TO RUN.
           </h2>
 
-
-          <p
-            class="mt-3 max-w-md text-sm leading-5 text-slate-400"
-          >
+          <p class="mt-4 max-w-lg text-sm leading-6 text-slate-600">
             Get visibility. Reduce downtime. Prevent stockouts.
           </p>
 
-
           <a
             href="./pages/signup.html"
-            class="mt-6 inline-flex rounded-full bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-500"
+            class="mt-7 inline-flex items-center rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-blue-700"
           >
             Get Started Now
+            <span class="ml-2">→</span>
           </a>
         </div>
+
       </div>
     </section>
+
   </main>
 
-  <!-- FOOTER -->
 
-  <footer
-    class="border-t border-slate-800 bg-slate-950"
-  >
-    <div
-      class="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-8 sm:px-8 md:flex-row md:items-center md:justify-between lg:px-10"
-    >
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="mx-auto flex max-w-7xl flex-col gap-8 px-5 py-10 sm:px-8 md:flex-row md:items-center md:justify-between lg:px-10">
+
       <div>
-        <div class="flex items-center gap-2">
-          <div
-            class="flex h-6 w-6 items-center justify-center rounded-md bg-slate-50 text-[10px] font-black text-slate-950"
-          >
+        <a href="#" class="flex items-center gap-3">
+          <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 text-sm font-black text-white">
             F
           </div>
-          <span class="text-sm font-bold text-slate-50">
+
+          <span class="text-lg font-bold tracking-tight text-slate-900">
             FactoryOS
           </span>
-        </div>
-        <p class="mt-2 text-[12px] text-slate-500">
+        </a>
+
+        <p class="mt-3 text-sm text-slate-500">
           Complete factory control, simplified.
         </p>
       </div>
-      <div
-        class="flex flex-wrap gap-5 text-[12px] text-slate-500"
-      >
-        <a
-          href="#"
-          class="transition hover:text-slate-50"
-        >
-          Product
-        </a>
-        <a
-          href="#"
-          class="transition hover:text-slate-50"
-        >
-          Privacy
-        </a>
-        <a
-          href="#"
-          class="transition hover:text-slate-50"
-        >
-          Terms
-        </a>
-        <a
-          href="#"
-          class="transition hover:text-slate-50"
-        >
-          Contact
-        </a>
+
+      <div class="flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-600">
+        <a href="#product" class="transition hover:text-blue-600">Product</a>
+        <a href="#why-factoryos" class="transition hover:text-blue-600">Why FactoryOS</a>
+        <a href="#how-it-works" class="transition hover:text-blue-600">How it works</a>
+        <a href="#contact" class="transition hover:text-blue-600">Contact</a>
       </div>
     </div>
-    <div class="text-[12px] text-slate-500 mx-auto max-w-7xl px-5 py-6 sm:px-8 lg:px-10">
-      <p>© 2026 FactoryOS | All Rights Reserved</p>
+
+    <div class="border-t border-slate-100">
+      <div class="mx-auto max-w-7xl px-5 py-5 sm:px-8 lg:px-10">
+        <p class="text-xs text-slate-500">
+          © 2026 FactoryOS. All rights reserved.
+        </p>
+      </div>
     </div>
   </footer>
+
 </body>
 </html>
