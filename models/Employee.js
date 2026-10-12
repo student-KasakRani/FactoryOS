@@ -44,6 +44,12 @@ const employeeSchema = new mongoose.Schema(
             trim: true
         },
 
+        currentShift: {
+    type: String,
+    enum: ["morning", "evening", "night"],
+    default: "morning"
+},
+
         joiningDate: {
             type: Date,
             default: Date.now

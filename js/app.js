@@ -1,481 +1,859 @@
-// ===============================
-// DASHBOARD DUMMY DATA
-// ===============================
-
-const productionCard = document.getElementById("today-production-card");
-const revenueCard = document.getElementById("revenue-card");
-const machineCard = document.getElementById("machine-running-card");
-const stockCard = document.getElementById("stock-card");
-
-if (productionCard) {
-    const value = productionCard.querySelector("h2");
-
-    if (value) {
-        value.innerText =
-            (dashboardData.totalProduction / 1000).toFixed(1) + "T";
-    }
-}
-
-if (machineCard) {
-    const value = machineCard.querySelector("h2");
-
-    if (value) {
-        value.innerText =
-            dashboardData.activeMachines;
-    }
-}
-
-if (stockCard) {
-    const value = stockCard.querySelector("h2");
-
-    if (value) {
-        value.innerText =
-            dashboardData.stockItems + " Items";
-    }
-}
-
-if (revenueCard) {
-    const value = revenueCard.querySelector("h2");
-
-    if (value) {
-        value.innerText =
-            "₹" + (dashboardData.todaysRevenue / 100000).toFixed(1) + "L";
-    }
-}
-
-const ctx = document.getElementById('productionChart');
-
-if (ctx) {
-
-new Chart(ctx, {
-
-type: 'line',
-
-data: {
-
-labels: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
-
-datasets: [{
-
-label: 'Production',
-
-data: [82,91,88,97,110,120,115],
-
-borderColor: '#06b6d4',
-
-backgroundColor: 'rgba(6,182,212,.2)',
-
-fill: true,
-
-tension: .4
-
-}]
-
-},
-
-options: {
-
-plugins: {
-
-legend: {
-
-display:false
-
-}
-
-},
-
-scales: {
-
-x: {
-
-ticks:{color:"#94a3b8"},
-
-grid:{color:"#1e293b"}
-
-},
-
-y:{
-
-ticks:{color:"#94a3b8"},
-
-grid:{color:"#1e293b"}
-
-}
-
-}
-
-}
-
-});
-
-}
-
-
-
-
-
-const ordersCanvas = document.getElementById("ordersChart");
-
-if (ordersCanvas) {
-
-    new Chart(ordersCanvas, {
-
-        type: "bar",
-
-        data: {
-
-            labels: ["Jan","Feb","Mar","Apr","May","Jun"],
-
-            datasets: [{
-
-                label: "Revenue",
-
-                data: [12,18,15,25,30,28],
-
-                backgroundColor: "#06b6d4",
-
-                borderRadius: 8
-
-            }]
-
-        },
-
-        options: {
-
-            plugins: {
-
-                legend: {
-
-                    display: false
-
-                }
-
-            },
-
-            scales: {
-
-                x: {
-
-                    ticks: {
-
-                        color: "#94a3b8"
-
-                    }
-
-                },
-
-                y: {
-
-                    ticks: {
-
-                        color: "#94a3b8"
-
-                    }
-
-                }
-
-            }
-
-        }
-
-    });
-
-}
-
-// Reports Charts
-
-const revenueCanvas = document.getElementById("revenueChart");
-
-if (revenueCanvas) {
-
-    new Chart(revenueCanvas, {
-
-        type: "line",
-
-        data: {
-
-            labels: ["Jan","Feb","Mar","Apr","May","Jun"],
-
-            datasets: [{
-
-                label: "Revenue",
-
-                data: [12,18,16,25,30,35],
-
-                borderColor: "#06b6d4",
-
-                backgroundColor: "rgba(6,182,212,0.2)",
-
-                fill: true,
-
-                tension: 0.4
-
-            }]
-
-        }
-
-    });
-
-}
-
-
-
-const materialCanvas = document.getElementById("materialChart");
-
-if (materialCanvas) {
-
-    new Chart(materialCanvas, {
-
-        type: "doughnut",
-
-        data: {
-
-            labels: ["Plastic","Ink","Packaging"],
-
-            datasets: [{
-
-                data: [55,25,20],
-
-                backgroundColor: [
-
-                    "#06b6d4",
-
-                    "#22c55e",
-
-                    "#f59e0b"
-
-                ]
-
-            }]
-
-        }
-
-    });
-
-}
-
-const attendanceCanvas = document.getElementById("attendanceChart");
-
-if (attendanceCanvas) {
-
-    // Agar pehle se chart bana hua hai to destroy karo
-    const existingChart = Chart.getChart(attendanceCanvas);
-
-    if (existingChart) {
-        existingChart.destroy();
-    }
-
-    new Chart(attendanceCanvas, {
-
-        type: "bar",
-
-        data: {
-
-            labels: ["Mon","Tue","Wed","Thu","Fri","Sat"],
-
-            datasets: [{
-
-                label: "Present Employees",
-
-                data: [145,148,150,147,149,146],
-
-                backgroundColor: "#06b6d4",
-
-                borderRadius: 8
-
-            }]
-
-        },
-
-        options: {
-
-            responsive: true,
-            maintainAspectRatio: false,
-
-            animation: false,
-
-            plugins: {
-                legend: {
-                    display: false
-                }
-            }
-
-        }
-
-    });
-
-}
-
-// ===============================
-// DASHBOARD DEMO INTERACTIONS
-// ===============================
+// ======================================================
+// FACTORYOS - DASHBOARD
+// REAL BACKEND DATA
+// ======================================================
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    // --------------------------------
-    // 1. PRODUCTION EFFICIENCY
-    // --------------------------------
+    const apiBase = "http://localhost:5000/api";
 
-    const productionPeriod =
-        document.getElementById("productionPeriod");
+    const token =
+        localStorage.getItem("token") ||
+        localStorage.getItem("accessToken");
 
-    const productionChart =
-        document.getElementById("productionChart");
+    const loadingBox =
+        document.getElementById("dashboardLoading");
 
-    if (productionPeriod && productionChart) {
+    const errorBox =
+        document.getElementById("dashboardError");
 
-        productionPeriod.addEventListener("change", function () {
 
-            const chart = Chart.getChart(productionChart);
+    // --------------------------------------------------
+    // AUTH HEADER
+    // --------------------------------------------------
 
-            if (!chart) return;
+    function getHeaders() {
 
-            if (productionPeriod.value === "This Week") {
+        return {
+            "Content-Type": "application/json",
+            ...(token
+                ? {
+                    Authorization: `Bearer ${token}`
+                }
+                : {})
+        };
 
-                chart.data.labels = [
-                    "Mon",
-                    "Tue",
-                    "Wed",
-                    "Thu",
-                    "Fri",
-                    "Sat",
-                    "Sun"
-                ];
+    }
 
-                chart.data.datasets[0].data = [
-                    82,
-                    91,
-                    88,
-                    97,
-                    110,
-                    120,
-                    115
-                ];
 
-            } else {
+    // --------------------------------------------------
+    // API REQUEST
+    // --------------------------------------------------
 
-                chart.data.labels = [
-                    "Week 1",
-                    "Week 2",
-                    "Week 3",
-                    "Week 4"
-                ];
+    async function apiRequest(endpoint) {
 
-                chart.data.datasets[0].data = [
-                    420,
-                    465,
-                    510,
-                    590
-                ];
-
+        const response = await fetch(
+            `${apiBase}${endpoint}`,
+            {
+                method: "GET",
+                headers: getHeaders()
             }
+        );
 
-            chart.update();
+        const data = await response.json();
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.message ||
+                "Unable to fetch dashboard data."
+            );
+
+        }
+
+        return data;
+
+    }
+
+
+    // --------------------------------------------------
+    // NUMBER FORMAT
+    // --------------------------------------------------
+
+    function formatNumber(value) {
+
+        return Number(value || 0)
+            .toLocaleString("en-IN");
+
+    }
+
+
+    // --------------------------------------------------
+    // DISPLAY ERROR
+    // --------------------------------------------------
+
+    function showError(message) {
+
+        if (!errorBox) return;
+
+        errorBox.textContent = message;
+        errorBox.classList.remove("hidden");
+
+    }
+
+
+    // --------------------------------------------------
+    // STOCK ALERTS
+    // --------------------------------------------------
+
+    function renderStockAlerts(materials) {
+
+        const list =
+            document.getElementById(
+                "stockAlertsList"
+            );
+
+        const badge =
+            document.getElementById(
+                "stockAlertBadge"
+            );
+
+        if (!list) return;
+
+        list.innerHTML = "";
+
+        const count =
+            materials.length;
+
+        if (badge) {
+            badge.textContent = count;
+        }
+
+
+        if (count === 0) {
+
+            list.innerHTML = `
+                <div class="rounded-xl bg-emerald-50 border border-emerald-200 p-4">
+
+                    <div class="flex items-center gap-3">
+
+                        <div class="w-9 h-9 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center">
+                            <i class="fas fa-check"></i>
+                        </div>
+
+                        <div>
+
+                            <p class="font-semibold text-emerald-800">
+                                Stock looks healthy
+                            </p>
+
+                            <p class="text-xs text-emerald-600 mt-1">
+                                No raw materials are below reorder level.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            `;
+
+            return;
+
+        }
+
+
+        materials.forEach(material => {
+
+            const div =
+                document.createElement("div");
+
+            div.className =
+                "rounded-xl bg-red-50 border border-red-200 p-4";
+
+
+            div.innerHTML = `
+
+                <div class="flex items-start justify-between gap-3">
+
+                    <div>
+
+                        <p class="font-semibold text-slate-800">
+                            ${material.name}
+                        </p>
+
+                        <p class="text-sm text-red-600 mt-1">
+                            ${formatNumber(material.currentStock)}
+                            ${material.unit}
+                            remaining
+                        </p>
+
+                    </div>
+
+                    <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-red-100 text-red-700">
+                        Low Stock
+                    </span>
+
+                </div>
+
+            `;
+
+            list.appendChild(div);
 
         });
 
     }
 
 
-    // --------------------------------
-    // 2. WHATSAPP INVOICE DEMO
-    // --------------------------------
+    // --------------------------------------------------
+    // RECENT ACTIVITY
+    // --------------------------------------------------
 
-    const customerName =
-        document.getElementById("customerName");
+    function renderRecentActivity(movements) {
 
-    const whatsappNumber =
-        document.getElementById("whatsappNumber");
+        const list =
+            document.getElementById(
+                "recentActivityList"
+            );
 
-    const invoiceAmount =
-        document.getElementById("invoiceAmount");
+        if (!list) return;
 
-    const sendInvoiceBtn =
-        document.getElementById("sendInvoiceBtn");
-
-
-    if (
-        customerName &&
-        whatsappNumber &&
-        invoiceAmount &&
-        sendInvoiceBtn
-    ) {
-
-        sendInvoiceBtn.addEventListener("click", function () {
-
-            const name = customerName.value.trim();
-            const number = whatsappNumber.value.trim();
-            const amount = invoiceAmount.value.trim();
+        list.innerHTML = "";
 
 
-            // Validation
+        if (!movements.length) {
 
-            if (!name || !number || !amount) {
+            list.innerHTML = `
+                <p class="text-sm text-slate-500">
+                    No recent inventory activity.
+                </p>
+            `;
 
-                showInvoiceMessage(
-                    "⚠️ Please fill all invoice details.",
-                    "error"
+            return;
+
+        }
+
+
+        movements
+            .slice(0, 5)
+            .forEach(movement => {
+
+                const isOut =
+                    movement.movementType ===
+                    "production_out";
+
+
+                const iconClass =
+                    isOut
+                        ? "fa-arrow-down"
+                        : "fa-arrow-up";
+
+
+                const iconContainer =
+                    isOut
+                        ? "bg-red-50 text-red-600"
+                        : "bg-emerald-50 text-emerald-600";
+
+
+                const div =
+                    document.createElement("div");
+
+
+                div.className =
+                    "flex items-start gap-3";
+
+
+                div.innerHTML = `
+
+                    <div class="w-9 h-9 rounded-lg ${iconContainer} flex items-center justify-center flex-shrink-0">
+
+                        <i class="fas ${iconClass}"></i>
+
+                    </div>
+
+
+                    <div class="min-w-0">
+
+                        <p class="text-sm font-semibold text-slate-800 truncate">
+
+                            ${movement.rawMaterial?.name || "Raw Material"}
+
+                        </p>
+
+
+                        <p class="text-xs text-slate-500 mt-1">
+
+                            ${movement.movementType}
+
+                            ·
+
+                            ${formatNumber(movement.quantity)}
+                            ${movement.rawMaterial?.unit || ""}
+
+                        </p>
+
+                    </div>
+
+                `;
+
+
+                list.appendChild(div);
+
+            });
+
+    }
+
+
+    // --------------------------------------------------
+    // PRODUCTION CHART
+    // --------------------------------------------------
+
+    let productionChart = null;
+
+
+    function renderProductionChart(records) {
+
+        const canvas =
+            document.getElementById(
+                "productionChart"
+            );
+
+        if (!canvas) return;
+
+
+        if (productionChart) {
+
+            productionChart.destroy();
+
+        }
+
+
+        const today =
+            new Date();
+
+
+        today.setHours(
+            0,
+            0,
+            0,
+            0
+        );
+
+
+        const lastSevenDays = [];
+
+
+        for (let i = 6; i >= 0; i--) {
+
+            const date =
+                new Date(today);
+
+
+            date.setDate(
+                today.getDate() - i
+            );
+
+
+            lastSevenDays.push(date);
+
+        }
+
+
+        const labels =
+            lastSevenDays.map(date => {
+
+                return date.toLocaleDateString(
+                    "en-IN",
+                    {
+                        day: "2-digit",
+                        month: "short"
+                    }
                 );
 
-                return;
+            });
+
+
+        const values =
+            lastSevenDays.map(date => {
+
+                const dateKey =
+                    date.toISOString()
+                        .split("T")[0];
+
+
+                return records
+                    .filter(record => {
+
+                        const recordDate =
+                            new Date(
+                                record.productionDate
+                            )
+                            .toISOString()
+                            .split("T")[0];
+
+                        return recordDate === dateKey;
+
+                    })
+                    .reduce(
+                        (
+                            total,
+                            record
+                        ) =>
+                            total +
+                            Number(
+                                record.producedQuantity || 0
+                            ),
+                        0
+                    );
+
+            });
+
+
+        productionChart =
+            new Chart(
+                canvas,
+                {
+                    type: "line",
+
+                    data: {
+
+                        labels,
+
+                        datasets: [
+                            {
+                                label:
+                                    "Production",
+
+                                data:
+                                    values,
+
+                                borderColor:
+                                    "#0891b2",
+
+                                backgroundColor:
+                                    "rgba(8,145,178,0.10)",
+
+                                fill: true,
+
+                                tension: 0.35,
+
+                                pointRadius: 4,
+
+                                pointHoverRadius: 6,
+
+                                borderWidth: 2
+
+                            }
+                        ]
+
+                    },
+
+
+                    options: {
+
+                        responsive: true,
+
+                        maintainAspectRatio:
+                            false,
+
+                        plugins: {
+
+                            legend: {
+                                display: false
+                            }
+
+                        },
+
+
+                        scales: {
+
+                            x: {
+
+                                grid: {
+                                    display: false
+                                },
+
+                                ticks: {
+                                    color: "#64748b"
+                                }
+
+                            },
+
+
+                            y: {
+
+                                beginAtZero: true,
+
+                                grid: {
+                                    color:
+                                        "#e2e8f0"
+                                },
+
+                                ticks: {
+                                    color:
+                                        "#64748b"
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+            );
+
+    }
+
+
+    // --------------------------------------------------
+    // LOAD DASHBOARD
+    // --------------------------------------------------
+
+    async function loadDashboard() {
+
+        try {
+
+            // ------------------------------------------
+            // TOKEN CHECK
+            // ------------------------------------------
+
+            if (!token) {
+
+                throw new Error(
+                    "Login required. Please login first."
+                );
+
             }
 
 
-            // Success
+            // ------------------------------------------
+            // PARALLEL API CALLS
+            // ------------------------------------------
 
-            showInvoiceMessage(
-                `✅ Invoice sent successfully to ${name}!`,
-                "success"
+            const [
+                dashboardResponse,
+                productionResponse,
+                wastageResponse
+            ] = await Promise.all([
+
+                apiRequest(
+                    "/dashboard"
+                ),
+
+                apiRequest(
+                    "/production"
+                ),
+
+                apiRequest(
+                    "/reports/wastage"
+                )
+
+            ]);
+
+
+            const dashboard =
+                dashboardResponse.dashboard ||
+                {};
+
+
+            const productionRecords =
+                productionResponse.productionRecords ||
+                [];
+
+
+            // ------------------------------------------
+            // KPI DATA
+            // ------------------------------------------
+
+            const productionToday =
+                dashboard.production?.todayProducedQuantity ||
+                0;
+
+
+            const todayCount =
+                dashboard.production?.todayCount ||
+                0;
+
+
+            const runningMachines =
+                dashboard.machines?.running ||
+                0;
+
+
+            const totalMachines =
+                dashboard.machines?.total ||
+                0;
+
+
+            const maintenanceMachines =
+                dashboard.machines?.maintenance ||
+                0;
+
+
+            const lowStockCount =
+                dashboard.inventory?.lowStockCount ||
+                0;
+
+
+            const totalRawMaterials =
+                dashboard.inventory?.totalRawMaterials ||
+                0;
+
+
+            const pendingPurchases =
+                dashboard.purchases?.pending ||
+                0;
+
+
+            // ------------------------------------------
+            // UPDATE KPI CARDS
+            // ------------------------------------------
+
+            document.getElementById(
+                "todayProduction"
+            ).textContent =
+                formatNumber(
+                    productionToday
+                );
+
+
+            document.getElementById(
+                "todayProductionMeta"
+            ).textContent =
+                `${todayCount} production record${todayCount === 1 ? "" : "s"} today`;
+
+
+            document.getElementById(
+                "runningMachines"
+            ).textContent =
+                formatNumber(
+                    runningMachines
+                );
+
+
+            document.getElementById(
+                "machineMeta"
+            ).textContent =
+                `${totalMachines} total machine${totalMachines === 1 ? "" : "s"}`;
+
+
+            document.getElementById(
+                "lowStockCount"
+            ).textContent =
+                formatNumber(
+                    lowStockCount
+                );
+
+
+            document.getElementById(
+                "stockMeta"
+            ).textContent =
+                `${totalRawMaterials} raw material${totalRawMaterials === 1 ? "" : "s"} tracked`;
+
+
+            document.getElementById(
+                "pendingPurchases"
+            ).textContent =
+                formatNumber(
+                    pendingPurchases
+                );
+
+
+            document.getElementById(
+                "purchaseMeta"
+            ).textContent =
+                pendingPurchases === 0
+                    ? "No purchase orders pending"
+                    : "Purchase orders need attention";
+
+
+            // ------------------------------------------
+            // MACHINE OVERVIEW
+            // ------------------------------------------
+
+            document.getElementById(
+                "machineRunningValue"
+            ).textContent =
+                formatNumber(
+                    runningMachines
+                );
+
+
+            document.getElementById(
+                "machineMaintenanceValue"
+            ).textContent =
+                formatNumber(
+                    maintenanceMachines
+                );
+
+
+            document.getElementById(
+                "machineTotalValue"
+            ).textContent =
+                formatNumber(
+                    totalMachines
+                );
+
+
+            // ------------------------------------------
+            // STOCK ALERTS
+            // ------------------------------------------
+
+            renderStockAlerts(
+                dashboard.inventory?.lowStockMaterials ||
+                []
             );
 
-        });
+
+            // ------------------------------------------
+            // RECENT ACTIVITY
+            // ------------------------------------------
+
+            renderRecentActivity(
+                dashboard.recentInventoryMovements ||
+                []
+            );
+
+
+            // ------------------------------------------
+            // PRODUCTION CHART
+            // ------------------------------------------
+
+            renderProductionChart(
+                productionRecords
+            );
+
+
+            // ------------------------------------------
+            // WASTAGE
+            // ------------------------------------------
+
+            const wastage =
+                wastageResponse.report ||
+                wastageResponse.wastageReport ||
+                wastageResponse;
+
+
+            const wastagePercentage =
+                Number(
+                    wastage.wastagePercentage ||
+                    0
+                );
+
+
+            const estimatedLoss =
+                Number(
+                    wastage.estimatedLoss ||
+                    0
+                );
+
+
+            document.getElementById(
+                "wastagePercentage"
+            ).textContent =
+                `${wastagePercentage.toFixed(2)}%`;
+
+
+            document.getElementById(
+                "wastageDetails"
+            ).textContent =
+                `Estimated material loss: ₹${estimatedLoss.toLocaleString("en-IN")}`;
+
+
+            // ------------------------------------------
+            // USER INFO
+            // ------------------------------------------
+
+            try {
+
+                const storedUser =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "user"
+                        )
+                    );
+
+
+                if (storedUser) {
+
+                    const name =
+                        storedUser.name ||
+                        "Factory Admin";
+
+
+                    const role =
+                        storedUser.role ||
+                        "Administrator";
+
+
+                    document.getElementById(
+                        "userName"
+                    ).textContent =
+                        name;
+
+
+                    document.getElementById(
+                        "userRole"
+                    ).textContent =
+                        role;
+
+
+                    document.getElementById(
+                        "userAvatar"
+                    ).textContent =
+                        name
+                            .charAt(0)
+                            .toUpperCase();
+
+                }
+
+            } catch (error) {
+
+                console.warn(
+                    "User information unavailable."
+                );
+
+            }
+
+
+            // ------------------------------------------
+            // HIDE LOADING
+            // ------------------------------------------
+
+            if (loadingBox) {
+
+                loadingBox.classList.add(
+                    "hidden"
+                );
+
+            }
+
+        } catch (error) {
+
+            console.error(
+                "Dashboard Load Error:",
+                error
+            );
+
+
+            if (loadingBox) {
+
+                loadingBox.classList.add(
+                    "hidden"
+                );
+
+            }
+
+
+            showError(
+                error.message ||
+                "Unable to load dashboard data."
+            );
+
+        }
 
     }
 
 
-    // --------------------------------
-    // SUCCESS / ERROR MESSAGE
-    // --------------------------------
+    // --------------------------------------------------
+    // START
+    // --------------------------------------------------
 
-    function showInvoiceMessage(message, type) {
-
-        let messageBox =
-            document.getElementById("invoiceMessage");
-
-        if (!messageBox) {
-
-            messageBox = document.createElement("div");
-
-            messageBox.id = "invoiceMessage";
-
-            messageBox.className =
-                "mt-4 p-3 rounded-xl text-sm font-semibold";
-
-            sendInvoiceBtn.parentElement.appendChild(
-                messageBox
-            );
-        }
-
-
-        messageBox.textContent = message;
-
-
-        if (type === "success") {
-
-            messageBox.className =
-                "mt-4 p-3 rounded-xl bg-green-500/10 border border-green-500 text-green-400 text-sm font-semibold";
-
-        } else {
-
-            messageBox.className =
-                "mt-4 p-3 rounded-xl bg-red-500/10 border border-red-500 text-red-400 text-sm font-semibold";
-
-        }
-
-    }
+    loadDashboard();
 
 });
+
 
 
 // =========================================
