@@ -2,464 +2,694 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Reports | FactoryOS</title>
+    <title>Reports & Analytics | FactoryOS</title>
 
     <!-- Tailwind CSS -->
     <link rel="stylesheet" href="../css/output.css">
 
     <!-- Font Awesome -->
     <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
-<body class="bg-slate-950 text-white">
+<body class="min-h-screen overflow-x-hidden bg-slate-50 text-slate-900">
 
 <div class="flex min-h-screen">
 
-    <!-- Sidebar -->
+    <!-- SIDEBAR BACKDROP: MOBILE/TABLET -->
+    <button
+        id="sidebarBackdrop"
+        type="button"
+        aria-label="Close navigation menu"
+        class="fixed inset-0 z-40 hidden bg-slate-900/50 xl:hidden">
+    </button>
 
-    <aside class="w-72 bg-slate-900 border-r border-slate-800 flex flex-col">
+    <!-- SIDEBAR -->
+    <aside
+        id="sidebar"
+        class="fixed inset-y-0 left-0 z-50 flex w-64 max-w-[85vw]
+        -translate-x-full flex-col overflow-y-auto border-r
+        border-slate-200 bg-white transition-transform duration-300
+        ease-in-out xl:static xl:inset-auto xl:z-auto xl:min-h-screen
+        xl:max-w-none xl:translate-x-0 xl:shrink-0">
 
-        <div class="h-20 flex items-center justify-center border-b border-slate-800">
-
-            <div class="text-center">
-
-                <h1 class="text-3xl font-bold text-cyan-400">
-
+        <!-- LOGO -->
+        <div class="flex h-20 shrink-0 items-center border-b
+        border-slate-200 px-6">
+            <div>
+                <h1 class="text-2xl font-bold tracking-tight text-cyan-600">
                     FactoryOS
-
                 </h1>
 
-                <p class="text-xs text-slate-400 mt-1">
-
+                <p class="mt-1 text-xs text-slate-500">
                     Smart Factory Management
-
                 </p>
-
             </div>
-
         </div>
 
-        <nav class="flex-1 px-5 py-6 space-y-3">
+        <!-- NAVIGATION -->
+        <nav class="flex-1 space-y-1 p-4" aria-label="Main navigation">
 
-            <a href="../index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
-
-                <i class="fas fa-chart-line"></i>
-
-                Dashboard
-
+            <a href="../dashboard.html"
+               class="flex items-center gap-3 rounded-xl px-4 py-3
+               text-slate-600 transition hover:bg-slate-100
+               hover:text-slate-900">
+                <i class="fas fa-chart-line w-5 text-center"></i>
+                <span>Dashboard</span>
             </a>
 
-            <a href="machines.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
-
-                <i class="fas fa-industry"></i>
-
-                Machines
-
+            <a href="machines.html"
+               class="flex items-center gap-3 rounded-xl px-4 py-3
+               text-slate-600 transition hover:bg-slate-100
+               hover:text-slate-900">
+                <i class="fas fa-industry w-5 text-center"></i>
+                <span>Machines</span>
             </a>
 
-            <a href="inventory.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
-
-                <i class="fas fa-boxes"></i>
-
-                Inventory
-
+            <a href="inventory.html"
+               class="flex items-center gap-3 rounded-xl px-4 py-3
+               text-slate-600 transition hover:bg-slate-100
+               hover:text-slate-900">
+                <i class="fas fa-boxes-stacked w-5 text-center"></i>
+                <span>Inventory</span>
             </a>
 
-            <a href="production.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
-
-                <i class="fas fa-gears"></i>
-
-                Production
-
+            <a href="production.html"
+               class="flex items-center gap-3 rounded-xl px-4 py-3
+               text-slate-600 transition hover:bg-slate-100
+               hover:text-slate-900">
+                <i class="fas fa-gears w-5 text-center"></i>
+                <span>Production</span>
             </a>
 
-            <a href="orders.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
-
-                <i class="fas fa-cart-shopping"></i>
-
-                Orders
-
+            <a href="orders.html"
+               class="flex items-center gap-3 rounded-xl px-4 py-3
+               text-slate-600 transition hover:bg-slate-100
+               hover:text-slate-900">
+                <i class="fas fa-cart-shopping w-5 text-center"></i>
+                <span>Orders</span>
             </a>
 
-            <a href="invoice.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
-
-                <i class="fas fa-file-invoice"></i>
-
-                Invoice
-
+            <a href="invoice.html"
+               class="flex items-center gap-3 rounded-xl px-4 py-3
+               text-slate-600 transition hover:bg-slate-100
+               hover:text-slate-900">
+                <i class="fas fa-file-invoice w-5 text-center"></i>
+                <span>Invoice</span>
             </a>
 
             <a href="reports.html"
-                class="flex items-center gap-3 px-4 py-3 rounded-xl bg-cyan-500/20 text-cyan-400">
-
-                <i class="fas fa-chart-pie"></i>
-
-                Reports
-
+               aria-current="page"
+               class="flex items-center gap-3 rounded-xl bg-cyan-50
+               px-4 py-3 font-medium text-cyan-700">
+                <i class="fas fa-chart-pie w-5 text-center"></i>
+                <span>Reports</span>
             </a>
 
         </nav>
-
     </aside>
 
-    <!-- Main -->
+    <!-- MAIN CONTENT -->
+    <main class="min-w-0 flex-1">
 
-    <main class="flex-1 overflow-y-auto">
+        <!-- HEADER -->
+        <header
+            class="flex min-h-20 flex-col gap-4 border-b border-slate-200
+            bg-white px-4 py-4 sm:px-6 lg:flex-row lg:items-center
+            lg:justify-between lg:px-8">
 
-        <!-- Header -->
+            <div class="flex min-w-0 items-center gap-3">
 
-        <header class="h-20 border-b border-slate-800 px-8 flex items-center justify-between">
+                <!-- HAMBURGER: MOBILE/TABLET ONLY -->
+                <button
+                    id="sidebarToggle"
+                    type="button"
+                    aria-label="Open navigation menu"
+                    aria-controls="sidebar"
+                    aria-expanded="false"
+                    class="inline-flex h-10 w-10 shrink-0 items-center
+                    justify-center rounded-xl border border-slate-200
+                    bg-white text-slate-700 transition hover:bg-slate-100
+                    focus-visible:outline-none focus-visible:ring-2
+                    focus-visible:ring-cyan-600 xl:hidden">
 
-            <div>
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
 
-                <h2 class="text-3xl font-bold">
+                <div class="min-w-0">
+                    <h2 class="text-xl font-bold tracking-tight
+                    text-slate-900 sm:text-2xl lg:text-3xl">
+                        Reports &amp; Analytics
+                    </h2>
 
-                    Reports & Analytics
-
-                </h2>
-
-                <p class="text-slate-400">
-
-                    Business Insights & Factory Performance
-
-                </p>
-
+                    <p class="mt-1 text-sm text-slate-500 sm:text-base">
+                        Business Insights &amp; Factory Performance
+                    </p>
+                </div>
             </div>
 
-            <div class="flex gap-3">
+            <!-- EXPORT BUTTONS -->
+            <div class="flex flex-wrap gap-2 sm:gap-3">
 
-                <button class="bg-green-600 hover:bg-green-700 px-5 py-3 rounded-xl">
+                <button
+                    id="exportExcelBtn"
+                    type="button"
+                    class="inline-flex min-h-11 flex-1 items-center
+                    justify-center gap-2 rounded-xl bg-emerald-600
+                    px-4 py-2.5 text-sm font-semibold text-white
+                    shadow-sm transition hover:bg-emerald-700
+                    sm:flex-none sm:px-5">
 
+                    <i class="fas fa-file-excel"></i>
                     Export Excel
-
                 </button>
 
-                <button class="bg-cyan-500 hover:bg-cyan-600 px-5 py-3 rounded-xl">
+                <button
+                    id="exportPdfBtn"
+                    type="button"
+                    class="inline-flex min-h-11 flex-1 items-center
+                    justify-center gap-2 rounded-xl bg-cyan-600
+                    px-4 py-2.5 text-sm font-semibold text-white
+                    shadow-sm transition hover:bg-cyan-700
+                    sm:flex-none sm:px-5">
 
+                    <i class="fas fa-file-pdf"></i>
                     Export PDF
-
                 </button>
 
             </div>
-
         </header>
 
-        <section class="p-8">
+        <!-- REPORTS SECTION -->
+        <section class="space-y-6 p-4 sm:space-y-8 sm:p-6 lg:p-8">
 
-            <!-- KPI -->
+            <!-- KPI CARDS -->
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2
+            xl:grid-cols-4 sm:gap-5 lg:gap-6">
 
-            <div class="grid grid-cols-4 gap-6">
+                <!-- REVENUE -->
+                <article class="rounded-2xl border border-slate-200
+                bg-white p-5 shadow-sm sm:p-6">
 
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                    <div class="flex items-center justify-between gap-3">
+                        <p class="text-sm font-medium text-slate-500">
+                            Revenue
+                        </p>
 
-                    <p class="text-slate-400">
+                        <span class="flex h-11 w-11 items-center
+                        justify-center rounded-xl bg-cyan-50 text-cyan-600">
+                            <i class="fas fa-indian-rupee-sign text-lg"></i>
+                        </span>
+                    </div>
 
-                        Revenue
-
-                    </p>
-
-                    <h2 class="text-4xl font-bold mt-3 text-cyan-400">
-
+                    <h3 class="mt-3 text-3xl font-bold
+                    text-cyan-600 sm:text-4xl">
                         ₹58.2L
+                    </h3>
+                </article>
 
-                    </h2>
+                <!-- ORDERS -->
+                <article class="rounded-2xl border border-slate-200
+                bg-white p-5 shadow-sm sm:p-6">
 
-                </div>
+                    <div class="flex items-center justify-between gap-3">
+                        <p class="text-sm font-medium text-slate-500">
+                            Orders
+                        </p>
 
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                        <span class="flex h-11 w-11 items-center
+                        justify-center rounded-xl bg-violet-50 text-violet-600">
+                            <i class="fas fa-cart-shopping text-lg"></i>
+                        </span>
+                    </div>
 
-                    <p class="text-slate-400">
-
-                        Orders
-
-                    </p>
-
-                    <h2 class="text-4xl font-bold mt-3">
-
+                    <h3 class="mt-3 text-3xl font-bold
+                    text-slate-900 sm:text-4xl">
                         1245
+                    </h3>
+                </article>
 
-                    </h2>
+                <!-- PRODUCTION -->
+                <article class="rounded-2xl border border-slate-200
+                bg-white p-5 shadow-sm sm:p-6">
 
-                </div>
+                    <div class="flex items-center justify-between gap-3">
+                        <p class="text-sm font-medium text-slate-500">
+                            Production
+                        </p>
 
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                        <span class="flex h-11 w-11 items-center
+                        justify-center rounded-xl bg-emerald-50 text-emerald-600">
+                            <i class="fas fa-industry text-lg"></i>
+                        </span>
+                    </div>
 
-                    <p class="text-slate-400">
-
-                        Production
-
-                    </p>
-
-                    <h2 class="text-4xl font-bold mt-3 text-green-400">
-
+                    <h3 class="mt-3 text-3xl font-bold
+                    text-emerald-500 sm:text-4xl">
                         96%
+                    </h3>
+                </article>
 
+                <!-- PROFIT -->
+                <article class="rounded-2xl border border-slate-200
+                bg-white p-5 shadow-sm sm:p-6">
+
+                    <div class="flex items-center justify-between gap-3">
+                        <p class="text-sm font-medium text-slate-500">
+                            Profit
+                        </p>
+
+                        <span class="flex h-11 w-11 items-center
+                        justify-center rounded-xl bg-amber-50 text-amber-600">
+                            <i class="fas fa-chart-line text-lg"></i>
+                        </span>
+                    </div>
+
+                    <h3 class="mt-3 text-3xl font-bold
+                    text-amber-500 sm:text-4xl">
+                        ₹18L
+                    </h3>
+                </article>
+
+            </div>
+
+            <!-- REVENUE ANALYTICS + MACHINE EFFICIENCY -->
+            <div class="grid grid-cols-1 gap-5 xl:grid-cols-3 lg:gap-6">
+
+                <!-- REVENUE ANALYTICS -->
+                <article class="min-w-0 rounded-2xl border border-slate-200
+                bg-white p-5 shadow-sm sm:p-6 xl:col-span-2">
+
+                    <div class="mb-6 flex flex-wrap items-start
+                    justify-between gap-3">
+
+                        <div>
+                            <h2 class="text-xl font-bold
+                            text-slate-900 sm:text-2xl">
+                                Revenue Analytics
+                            </h2>
+
+                            <p class="mt-1 text-sm text-slate-500 sm:text-base">
+                                Monthly Revenue Trend
+                            </p>
+                        </div>
+
+                        <span class="inline-flex rounded-xl bg-cyan-50
+                        px-4 py-2 text-sm font-medium text-cyan-700">
+                            Last 6 Months
+                        </span>
+                    </div>
+
+                    <!-- Static Tailwind chart preview -->
+                    <div class="relative">
+                        <div class="flex h-64 gap-3 sm:h-72">
+
+                            <div class="flex w-9 shrink-0 flex-col
+                            justify-between pb-7 text-right text-xs text-slate-400">
+                                <span>₹15L</span>
+                                <span>₹10L</span>
+                                <span>₹5L</span>
+                                <span>₹0</span>
+                            </div>
+
+                            <div class="relative flex min-w-0 flex-1
+                            items-end justify-around gap-2 pb-7">
+
+                                <div class="pointer-events-none absolute inset-0
+                                flex flex-col justify-between pb-7">
+                                    <div class="border-t border-slate-100"></div>
+                                    <div class="border-t border-slate-100"></div>
+                                    <div class="border-t border-slate-100"></div>
+                                    <div class="border-t border-slate-200"></div>
+                                </div>
+
+                                <div class="relative flex h-full flex-1
+                                flex-col justify-end">
+                                    <div class="w-full rounded-t-md bg-cyan-200"
+                                         style="height:42%"></div>
+                                    <span class="absolute -bottom-6 w-full
+                                    text-center text-xs text-slate-500">Apr</span>
+                                </div>
+
+                                <div class="relative flex h-full flex-1
+                                flex-col justify-end">
+                                    <div class="w-full rounded-t-md bg-cyan-300"
+                                         style="height:54%"></div>
+                                    <span class="absolute -bottom-6 w-full
+                                    text-center text-xs text-slate-500">May</span>
+                                </div>
+
+                                <div class="relative flex h-full flex-1
+                                flex-col justify-end">
+                                    <div class="w-full rounded-t-md bg-cyan-400"
+                                         style="height:49%"></div>
+                                    <span class="absolute -bottom-6 w-full
+                                    text-center text-xs text-slate-500">Jun</span>
+                                </div>
+
+                                <div class="relative flex h-full flex-1
+                                flex-col justify-end">
+                                    <div class="w-full rounded-t-md bg-cyan-500"
+                                         style="height:68%"></div>
+                                    <span class="absolute -bottom-6 w-full
+                                    text-center text-xs text-slate-500">Jul</span>
+                                </div>
+
+                                <div class="relative flex h-full flex-1
+                                flex-col justify-end">
+                                    <div class="w-full rounded-t-md bg-cyan-500"
+                                         style="height:78%"></div>
+                                    <span class="absolute -bottom-6 w-full
+                                    text-center text-xs text-slate-500">Aug</span>
+                                </div>
+
+                                <div class="relative flex h-full flex-1
+                                flex-col justify-end">
+                                    <div class="w-full rounded-t-md bg-cyan-600"
+                                         style="height:91%"></div>
+                                    <span class="absolute -bottom-6 w-full
+                                    text-center text-xs text-slate-500">Sep</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="mt-5 text-xs text-slate-400">
+                        Illustrative chart preview — connect actual revenue data
+                        through the existing reports logic.
+                    </p>
+                </article>
+
+                <!-- MACHINE EFFICIENCY -->
+                <article class="min-w-0 rounded-2xl border border-slate-200
+                bg-white p-5 shadow-sm sm:p-6">
+
+                    <h2 class="mb-6 text-xl font-bold
+                    text-slate-900 sm:text-2xl">
+                        Machine Efficiency
                     </h2>
 
-                </div>
+                    <div class="space-y-6">
 
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                        <div>
+                            <div class="mb-2 flex justify-between gap-3 text-sm">
+                                <span class="font-medium text-slate-700">
+                                    Extruder
+                                </span>
+                                <span class="font-semibold text-emerald-600">
+                                    96%
+                                </span>
+                            </div>
 
-                    <p class="text-slate-400">
+                            <div class="h-3 overflow-hidden rounded-full bg-slate-100">
+                                <div class="h-full w-[96%] rounded-full bg-emerald-500"></div>
+                            </div>
+                        </div>
 
-                        Profit
+                        <div>
+                            <div class="mb-2 flex justify-between gap-3 text-sm">
+                                <span class="font-medium text-slate-700">
+                                    Printing
+                                </span>
+                                <span class="font-semibold text-amber-500">
+                                    88%
+                                </span>
+                            </div>
 
+                            <div class="h-3 overflow-hidden rounded-full bg-slate-100">
+                                <div class="h-full w-[88%] rounded-full bg-amber-400"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="mb-2 flex justify-between gap-3 text-sm">
+                                <span class="font-medium text-slate-700">
+                                    Cutting
+                                </span>
+                                <span class="font-semibold text-red-500">
+                                    72%
+                                </span>
+                            </div>
+
+                            <div class="h-3 overflow-hidden rounded-full bg-slate-100">
+                                <div class="h-full w-[72%] rounded-full bg-red-500"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- PRODUCTION + MATERIAL USAGE -->
+            <div class="grid grid-cols-1 gap-5 xl:grid-cols-2 lg:gap-6">
+
+                <!-- PRODUCTION REPORT -->
+                <article class="min-w-0 rounded-2xl border border-slate-200
+                bg-white p-5 shadow-sm sm:p-6">
+
+                    <h2 class="text-xl font-bold
+                    text-slate-900 sm:text-2xl">
+                        Production Report
+                    </h2>
+
+                    <p class="mt-1 text-sm text-slate-500">
+                        Production output across six months
                     </p>
 
-                    <h2 class="text-4xl font-bold mt-3 text-yellow-400">
+                    <div class="mt-7 flex h-52 items-end justify-around gap-3
+                    border-b border-slate-200 pb-0">
 
-                        ₹18L
+                        <div class="flex h-full flex-1 flex-col
+                        items-center justify-end gap-2">
+                            <div class="w-full max-w-12 rounded-t-md
+                            bg-cyan-200" style="height:65%"></div>
+                            <span class="text-xs text-slate-500">Apr</span>
+                        </div>
 
+                        <div class="flex h-full flex-1 flex-col
+                        items-center justify-end gap-2">
+                            <div class="w-full max-w-12 rounded-t-md
+                            bg-cyan-300" style="height:73%"></div>
+                            <span class="text-xs text-slate-500">May</span>
+                        </div>
+
+                        <div class="flex h-full flex-1 flex-col
+                        items-center justify-end gap-2">
+                            <div class="w-full max-w-12 rounded-t-md
+                            bg-cyan-400" style="height:69%"></div>
+                            <span class="text-xs text-slate-500">Jun</span>
+                        </div>
+
+                        <div class="flex h-full flex-1 flex-col
+                        items-center justify-end gap-2">
+                            <div class="w-full max-w-12 rounded-t-md
+                            bg-cyan-500" style="height:82%"></div>
+                            <span class="text-xs text-slate-500">Jul</span>
+                        </div>
+
+                        <div class="flex h-full flex-1 flex-col
+                        items-center justify-end gap-2">
+                            <div class="w-full max-w-12 rounded-t-md
+                            bg-cyan-500" style="height:78%"></div>
+                            <span class="text-xs text-slate-500">Aug</span>
+                        </div>
+
+                        <div class="flex h-full flex-1 flex-col
+                        items-center justify-end gap-2">
+                            <div class="w-full max-w-12 rounded-t-md
+                            bg-cyan-600" style="height:92%"></div>
+                            <span class="text-xs text-slate-500">Sep</span>
+                        </div>
+
+                    </div>
+
+                    <p class="mt-4 text-xs text-slate-400">
+                        Illustrative preview — replace with actual production data.
+                    </p>
+                </article>
+
+                <!-- MATERIAL USAGE -->
+                <article class="min-w-0 rounded-2xl border border-slate-200
+                bg-white p-5 shadow-sm sm:p-6">
+
+                    <h2 class="text-xl font-bold
+                    text-slate-900 sm:text-2xl">
+                        Material Usage
                     </h2>
 
-                </div>
+                    <p class="mt-1 text-sm text-slate-500">
+                        Material consumption breakdown
+                    </p>
+
+                    <div class="mt-8 space-y-5">
+
+                        <div>
+                            <div class="mb-2 flex justify-between gap-3 text-sm">
+                                <span class="text-slate-600">Plastic Granules</span>
+                                <span class="font-semibold text-slate-800">40%</span>
+                            </div>
+                            <div class="h-3 overflow-hidden rounded-full bg-slate-100">
+                                <div class="h-full w-[40%] rounded-full bg-cyan-600"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="mb-2 flex justify-between gap-3 text-sm">
+                                <span class="text-slate-600">Printing Ink</span>
+                                <span class="font-semibold text-slate-800">20%</span>
+                            </div>
+                            <div class="h-3 overflow-hidden rounded-full bg-slate-100">
+                                <div class="h-full w-[20%] rounded-full bg-violet-500"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="mb-2 flex justify-between gap-3 text-sm">
+                                <span class="text-slate-600">Packaging Rolls</span>
+                                <span class="font-semibold text-slate-800">25%</span>
+                            </div>
+                            <div class="h-3 overflow-hidden rounded-full bg-slate-100">
+                                <div class="h-full w-[25%] rounded-full bg-emerald-500"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="mb-2 flex justify-between gap-3 text-sm">
+                                <span class="text-slate-600">Other Materials</span>
+                                <span class="font-semibold text-slate-800">15%</span>
+                            </div>
+                            <div class="h-3 overflow-hidden rounded-full bg-slate-100">
+                                <div class="h-full w-[15%] rounded-full bg-amber-500"></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <p class="mt-5 text-xs text-slate-400">
+                        Illustrative usage breakdown; actual figures require
+                        inventory/production data.
+                    </p>
+                </article>
 
             </div>
 
-            <!-- Analytics Section -->
+            <!-- EXPORT HISTORY -->
+            <article class="overflow-hidden rounded-2xl border
+            border-slate-200 bg-white shadow-sm">
 
-<div class="grid grid-cols-3 gap-6 mt-8">
+                <div class="border-b border-slate-200 p-5 sm:p-6">
+                    <h2 class="text-xl font-bold
+                    text-slate-900 sm:text-2xl">
+                        Export History
+                    </h2>
 
-    <!-- Revenue Chart -->
-
-    <div class="col-span-2 bg-slate-900 border border-slate-800 rounded-2xl p-6">
-
-        <div class="flex justify-between items-center mb-6">
-
-            <div>
-
-                <h2 class="text-2xl font-bold">
-                    Revenue Analytics
-                </h2>
-
-                <p class="text-slate-400">
-                    Monthly Revenue Trend
-                </p>
-
-            </div>
-
-            <span class="bg-cyan-500/20 text-cyan-400 px-4 py-2 rounded-xl">
-                Last 6 Months
-            </span>
-
-        </div>
-
-        <canvas id="revenueChart" height="110"></canvas>
-
-    </div>
-
-    <!-- Machine Efficiency -->
-
-    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-
-        <h2 class="text-2xl font-bold mb-6">
-
-            Machine Efficiency
-
-        </h2>
-
-        <div class="space-y-5">
-
-            <div>
-
-                <div class="flex justify-between mb-2">
-
-                    <span>Extruder</span>
-
-                    <span class="text-green-400">96%</span>
-
+                    <p class="mt-1 text-sm text-slate-500 sm:text-base">
+                        Recently generated reports
+                    </p>
                 </div>
 
-                <div class="w-full bg-slate-800 rounded-full h-3">
+                <div class="overflow-x-auto">
+                    <table id="exportHistoryTable"
+                           class="w-full min-w-[650px] text-left text-sm">
 
-                    <div class="bg-green-500 h-3 rounded-full w-[96%]"></div>
+                        <thead class="bg-slate-50 text-slate-500">
+                            <tr>
+                                <th scope="col"
+                                    class="px-5 py-4 font-semibold sm:px-6">
+                                    Report Name
+                                </th>
 
+                                <th scope="col"
+                                    class="px-5 py-4 font-semibold sm:px-6">
+                                    Generated On
+                                </th>
+
+                                <th scope="col"
+                                    class="px-5 py-4 font-semibold sm:px-6">
+                                    Format
+                                </th>
+
+                                <th scope="col"
+                                    class="px-5 py-4 font-semibold sm:px-6">
+                                    Status
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="reportHistoryBody"
+                               class="divide-y divide-slate-100 text-slate-700">
+
+                            <tr class="transition hover:bg-slate-50">
+                                <td class="whitespace-nowrap px-5 py-4
+                                font-medium text-slate-900 sm:px-6">
+                                    Monthly Revenue
+                                </td>
+
+                                <td class="whitespace-nowrap px-5 py-4 sm:px-6">
+                                    28 Jul 2026
+                                </td>
+
+                                <td class="px-5 py-4 sm:px-6">
+                                    PDF
+                                </td>
+
+                                <td class="px-5 py-4 sm:px-6">
+                                    <span class="inline-flex whitespace-nowrap
+                                    rounded-full bg-emerald-50 px-3 py-1
+                                    text-xs font-semibold text-emerald-700">
+                                        Downloaded
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr class="transition hover:bg-slate-50">
+                                <td class="whitespace-nowrap px-5 py-4
+                                font-medium text-slate-900 sm:px-6">
+                                    Production Report
+                                </td>
+
+                                <td class="whitespace-nowrap px-5 py-4 sm:px-6">
+                                    26 Jul 2026
+                                </td>
+
+                                <td class="px-5 py-4 sm:px-6">
+                                    Excel
+                                </td>
+
+                                <td class="px-5 py-4 sm:px-6">
+                                    <span class="inline-flex whitespace-nowrap
+                                    rounded-full bg-cyan-50 px-3 py-1
+                                    text-xs font-semibold text-cyan-700">
+                                        Exported
+                                    </span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
                 </div>
 
-            </div>
-
-            <div>
-
-                <div class="flex justify-between mb-2">
-
-                    <span>Printing</span>
-
-                    <span class="text-yellow-400">88%</span>
-
+                <div class="border-t border-slate-100 px-5 py-3 sm:px-6">
+                    <p class="text-xs text-slate-500">
+                        Sample report history. Connect real generated report
+                        records through the existing backend integration.
+                    </p>
                 </div>
 
-                <div class="w-full bg-slate-800 rounded-full h-3">
+            </article>
 
-                    <div class="bg-yellow-400 h-3 rounded-full w-[88%]"></div>
-
-                </div>
-
-            </div>
-
-            <div>
-
-                <div class="flex justify-between mb-2">
-
-                    <span>Cutting</span>
-
-                    <span class="text-red-400">72%</span>
-
-                </div>
-
-                <div class="w-full bg-slate-800 rounded-full h-3">
-
-                    <div class="bg-red-500 h-3 rounded-full w-[72%]"></div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
+        </section>
+    </main>
 </div>
 
-<!-- Second Row -->
-
-<div class="grid grid-cols-2 gap-6 mt-8">
-
-    <!-- Production Chart -->
-
-    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-
-        <h2 class="text-2xl font-bold mb-6">
-
-            Production Report
-
-        </h2>
-
-        <canvas id="productionChart" height="120"></canvas>
-
-    </div>
-
-    <!-- Material Usage -->
-
-    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-
-        <h2 class="text-2xl font-bold mb-6">
-
-            Material Usage
-
-        </h2>
-
-        <canvas id="materialChart" height="120"></canvas>
-
-    </div>
-
-</div>
-
-<!-- Export History -->
-
-<div class="bg-slate-900 border border-slate-800 rounded-2xl mt-8 overflow-hidden">
-
-    <div class="p-6 border-b border-slate-800">
-
-        <h2 class="text-2xl font-bold">
-            Export History
-        </h2>
-
-        <p class="text-slate-400">
-            Recently Generated Reports
-        </p>
-
-    </div>
-
-    <table class="w-full">
-
-        <thead class="bg-slate-800">
-
-            <tr>
-
-                <th class="px-6 py-4 text-left">Report</th>
-                <th class="px-6 py-4 text-center">Date</th>
-                <th class="px-6 py-4 text-center">Format</th>
-                <th class="px-6 py-4 text-center">Status</th>
-
-            </tr>
-
-        </thead>
-
-        <tbody class="divide-y divide-slate-800">
-
-            <tr class="hover:bg-slate-800/60">
-
-                <td class="px-6 py-4">Monthly Revenue</td>
-
-                <td class="px-6 py-4 text-center">
-                    28 Jul 2026
-                </td>
-
-                <td class="px-6 py-4 text-center">
-                    PDF
-                </td>
-
-                <td class="px-6 py-4 text-center">
-
-                    <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs">
-
-                        Downloaded
-
-                    </span>
-
-                </td>
-
-            </tr>
-
-            <tr class="hover:bg-slate-800/60">
-
-                <td class="px-6 py-4">Production Report</td>
-
-                <td class="px-6 py-4 text-center">
-                    26 Jul 2026
-                </td>
-
-                <td class="px-6 py-4 text-center">
-                    Excel
-                </td>
-
-                <td class="px-6 py-4 text-center">
-
-                    <span class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-xs">
-
-                        Exported
-
-                    </span>
-
-                </td>
-
-            </tr>
-
-        </tbody>
-
-    </table>
-
-</div>
-
-</section>
-
-</main>
-
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="../js/app.js"></script>
+<!-- Shared sidebar JavaScript: separate file -->
+<script src="../js/sidebar.js" defer></script>
 
 </body>
-
 </html>

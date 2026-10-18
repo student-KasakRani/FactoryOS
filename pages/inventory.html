@@ -2,702 +2,506 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory | FactoryOS</title>
 
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Inventory | FactoryOS</title>
-
-<link rel="stylesheet" href="../css/output.css">
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+    <link rel="stylesheet" href="../css/output.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
-<body class="bg-slate-950 text-white">
+<body class="min-h-screen overflow-x-hidden bg-slate-50 text-slate-900">
 
 <div class="flex min-h-screen">
 
-    <!-- Sidebar -->
-    <aside class="w-72 bg-slate-900 border-r border-slate-800 flex flex-col">
+    <!-- Sidebar Backdrop -->
+    <button
+        id="sidebarBackdrop"
+        type="button"
+        aria-label="Close navigation menu"
+        class="fixed inset-0 z-40 hidden bg-slate-900/50 xl:hidden">
+    </button>
 
-        <div class="h-20 flex items-center justify-center border-b border-slate-800">
+    <!-- Sidebar -->
+    <aside id="sidebar"
+        class="fixed inset-y-0 left-0 z-50 flex w-72 max-w-[85vw] -translate-x-full flex-col overflow-y-auto border-r border-slate-200 bg-white transition-transform duration-300 ease-in-out xl:static xl:inset-auto xl:z-auto xl:min-h-screen xl:max-w-none xl:translate-x-0 xl:shrink-0">
+
+        <div class="flex h-20 shrink-0 items-center justify-center border-b border-slate-200">
             <div class="text-center">
-                <h1 class="text-3xl font-bold text-cyan-400">FactoryOS</h1>
-                <p class="text-xs text-slate-400 mt-1">Smart Factory Management</p>
+                <h1 class="text-3xl font-bold text-cyan-600">FactoryOS</h1>
+                <p class="mt-1 text-xs text-slate-500">Smart Factory Management</p>
             </div>
         </div>
 
-        <nav class="flex-1 px-5 py-6 space-y-3">
+        <nav class="flex-1 space-y-3 px-5 py-6">
 
             <a href="../dashboard.html"
-                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+                class="flex items-center gap-3 rounded-xl px-4 py-3 text-slate-600 hover:bg-slate-100">
                 <i class="fas fa-chart-line"></i>
                 Dashboard
             </a>
 
             <a href="machines.html"
-                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+                class="flex items-center gap-3 rounded-xl px-4 py-3 text-slate-600 hover:bg-slate-100">
                 <i class="fas fa-industry"></i>
                 Machines
             </a>
 
             <a href="inventory.html"
-                class="flex items-center gap-3 px-4 py-3 rounded-xl bg-cyan-500/20 text-cyan-400">
+                class="flex items-center gap-3 rounded-xl bg-cyan-50 px-4 py-3 text-cyan-700">
                 <i class="fas fa-boxes"></i>
                 Inventory
             </a>
 
             <a href="production.html"
-                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+                class="flex items-center gap-3 rounded-xl px-4 py-3 text-slate-600 hover:bg-slate-100">
                 <i class="fas fa-gears"></i>
                 Production
             </a>
 
-           <a href="orders.html"
-class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
-
-    <i class="fas fa-cart-shopping"></i>
-
-    Orders
-
-</a> 
+            <a href="orders.html"
+                class="flex items-center gap-3 rounded-xl px-4 py-3 text-slate-600 hover:bg-slate-100">
+                <i class="fas fa-cart-shopping"></i>
+                Orders
+            </a>
 
             <a href="invoice.html"
-                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+                class="flex items-center gap-3 rounded-xl px-4 py-3 text-slate-600 hover:bg-slate-100">
                 <i class="fas fa-file-invoice"></i>
                 Invoice
             </a>
 
             <a href="reports.html"
-                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+                class="flex items-center gap-3 rounded-xl px-4 py-3 text-slate-600 hover:bg-slate-100">
                 <i class="fas fa-chart-pie"></i>
                 Reports
             </a>
 
             <a href="employees.html"
-                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+                class="flex items-center gap-3 rounded-xl px-4 py-3 text-slate-600 hover:bg-slate-100">
                 <i class="fas fa-users"></i>
                 Employees
             </a>
 
             <a href="settings.html"
-                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800">
+                class="flex items-center gap-3 rounded-xl px-4 py-3 text-slate-600 hover:bg-slate-100">
                 <i class="fas fa-gear"></i>
                 Settings
             </a>
 
         </nav>
-
     </aside>
 
     <!-- Main Content -->
-    <main class="flex-1 overflow-y-auto">
+    <main class="min-w-0 flex-1">
 
-        <!-- Navbar -->
-        <header class="h-20 border-b border-slate-800 px-8 flex items-center justify-between">
+        <header class="flex flex-col gap-4 border-b border-slate-200 bg-white px-4 py-6 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
 
-            <div>
-                <h2 class="text-3xl font-bold">Inventory</h2>
-                <p class="text-slate-400">Manage Raw Materials & Stock</p>
+            <div class="flex items-start gap-3">
+                <button
+                    id="sidebarToggle"
+                    type="button"
+                    aria-label="Open navigation menu"
+                    aria-controls="sidebar"
+                    aria-expanded="false"
+                    class="mt-1 rounded-lg border border-slate-200 px-3 py-2 text-slate-700 hover:bg-slate-100 xl:hidden">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="pt-1">
+                    <h2 class="text-3xl font-bold sm:text-4xl">Inventory</h2>
+                    <p class="text-sm text-slate-500 sm:text-base">Manage Raw Materials & Stock</p>
+                </div>
             </div>
 
-            <div class="flex items-center gap-5">
+            <div class="flex w-full flex-col gap-3 sm:flex-row lg:w-auto lg:items-center lg:gap-5">
 
                 <input
                     type="text"
                     placeholder="Search Material..."
-                    class="bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 w-72 outline-none focus:border-cyan-400">
+                    class="min-w-0 w-full rounded-xl border border-slate-300 bg-white px-4 py-2 outline-none focus:border-cyan-500 sm:flex-1 lg:w-72">
 
                 <button
-                    class="bg-cyan-500 hover:bg-cyan-600 px-5 py-2 rounded-xl font-semibold">
-
+                    class="w-full rounded-xl bg-cyan-600 px-5 py-2 font-semibold text-white hover:bg-cyan-700 sm:w-auto">
                     <i class="fas fa-plus mr-2"></i>
-
                     Add Material
-
                 </button>
 
             </div>
-
         </header>
 
         <!-- Page Content -->
-        <section class="p-8">
+        <section class="p-4 sm:p-6 lg:p-8">
 
             <!-- Inventory Cards -->
-            <div class="grid grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4 xl:gap-6">
 
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-                    <p class="text-slate-400 text-sm">Total Materials</p>
-                    <h2 class="text-4xl font-bold mt-3">148</h2>
-                    <p class="text-green-400 mt-2">+12 This Month</p>
+                <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+                    <p class="text-sm text-slate-500">Total Materials</p>
+                    <h2 class="mt-3 text-3xl font-bold sm:text-4xl">148</h2>
+                    <p class="mt-2 text-green-600">+12 This Month</p>
                 </div>
 
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-                    <p class="text-slate-400 text-sm">Low Stock</p>
-                    <h2 class="text-4xl font-bold mt-3 text-red-400">6</h2>
-                    <p class="text-slate-400 mt-2">Need Reorder</p>
+                <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+                    <p class="text-sm text-slate-500">Low Stock</p>
+                    <h2 class="mt-3 text-3xl font-bold text-red-600 sm:text-4xl">6</h2>
+                    <p class="mt-2 text-slate-500">Need Reorder</p>
                 </div>
 
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-                    <p class="text-slate-400 text-sm">Suppliers</p>
-                    <h2 class="text-4xl font-bold mt-3 text-cyan-400">24</h2>
-                    <p class="text-slate-400 mt-2">Active Vendors</p>
+                <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+                    <p class="text-sm text-slate-500">Suppliers</p>
+                    <h2 class="mt-3 text-3xl font-bold text-cyan-600 sm:text-4xl">24</h2>
+                    <p class="mt-2 text-slate-500">Active Vendors</p>
                 </div>
 
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-                    <p class="text-slate-400 text-sm">Inventory Value</p>
-                    <h2 class="text-4xl font-bold mt-3 text-yellow-400">₹18L</h2>
-                    <p class="text-slate-400 mt-2">Current Value</p>
+                <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+                    <p class="text-sm text-slate-500">Inventory Value</p>
+                    <h2 class="mt-3 text-3xl font-bold text-yellow-600 sm:text-4xl">₹18L</h2>
+                    <p class="mt-2 text-slate-500">Current Value</p>
                 </div>
 
             </div>
 
             <!-- Material Table -->
+            <div class="mt-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
 
-<div class="bg-slate-900 border border-slate-800 rounded-2xl mt-8 overflow-hidden">
-
-    <div class="flex justify-between items-center p-6">
-
-        <div>
-
-            <h2 class="text-2xl font-bold">
-                Material Inventory
-            </h2>
-
-            <p class="text-slate-400 text-sm">
-                Plastic & Packaging Raw Materials
-            </p>
-
-        </div>
-
-        <button
-    id="exportInventoryBtn"
-    type="button"
-    class="bg-cyan-500 hover:bg-cyan-600 px-5 py-2 rounded-xl">
-    Export Report
-</button>
-
-    </div>
-
-    <table class="w-full">
-
-        <thead class="bg-slate-800">
-
-            <tr>
-
-                <th class="text-left p-4">Material</th>
-
-                <th class="text-left">Category</th>
-
-                <th class="text-left">Quantity</th>
-
-                <th class="text-left">Minimum</th>
-
-                <th class="text-left">Supplier</th>
-
-                <th class="text-left">Status</th>
-
-                <th class="text-center">Action</th>
-
-            </tr>
-
-        </thead>
-
-        <tbody>
-
-            <tr class="border-t border-slate-800 hover:bg-slate-800/50">
-
-                <td class="p-4">Plastic Granules</td>
-
-                <td>Raw Material</td>
-
-                <td>950 Kg</td>
-
-                <td>300 Kg</td>
-
-                <td>ABC Polymers</td>
-
-                <td>
-
-                    <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm">
-
-                        In Stock
-
-                    </span>
-
-                </td>
-
-                <td class="text-center">
-
-                    <div class="flex justify-center gap-3">
-
-                        <button class="text-cyan-400">
-                            <i class="fas fa-eye"></i>
-                        </button>
-
-                        <button class="text-yellow-400">
-                            <i class="fas fa-pen"></i>
-                        </button>
-
-                        <button class="text-red-400">
-                            <i class="fas fa-trash"></i>
-                        </button>
-
+                <div class="flex flex-col gap-4 p-4 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+                    <div>
+                        <h2 class="text-xl font-bold sm:text-2xl">Material Inventory</h2>
+                        <p class="text-sm text-slate-500">Plastic & Packaging Raw Materials</p>
                     </div>
 
-                </td>
+                    <button
+                        id="exportInventoryBtn"
+                        type="button"
+                        class="w-full rounded-xl bg-cyan-600 px-5 py-2 text-white hover:bg-cyan-700 sm:w-auto">
+                        Export Report
+                    </button>
+                </div>
 
-            </tr>
+                <div class="overflow-x-auto">
+                    <table class="w-full min-w-[850px] text-left">
+                        <thead class="bg-slate-100 text-slate-700">
+                            <tr>
+                                <th class="p-4">Material</th>
+                                <th class="p-4">Category</th>
+                                <th class="p-4">Quantity</th>
+                                <th class="p-4">Minimum</th>
+                                <th class="p-4">Supplier</th>
+                                <th class="p-4">Status</th>
+                                <th class="p-4 text-center">Action</th>
+                            </tr>
+                        </thead>
 
-            <tr class="border-t border-slate-800 hover:bg-slate-800/50">
+                        <tbody>
+                            <tr class="border-t border-slate-200 hover:bg-slate-50">
+                                <td class="p-4">Plastic Granules</td>
+                                <td class="p-4">Raw Material</td>
+                                <td class="p-4">950 Kg</td>
+                                <td class="p-4">300 Kg</td>
+                                <td class="p-4">ABC Polymers</td>
+                                <td class="p-4">
+                                    <span class="whitespace-nowrap rounded-full bg-green-100 px-3 py-1 text-sm text-green-700">In Stock</span>
+                                </td>
+                                <td class="p-4">
+                                    <div class="flex justify-center gap-3">
+                                        <button type="button" class="text-cyan-600 hover:text-cyan-800" data-action="view-material" data-material="Plastic Granules" aria-label="View Plastic Granules">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button type="button" class="text-green-600 hover:text-green-800" data-action="download-material" data-material="Plastic Granules" aria-label="Download Plastic Granules report">
+                                            <i class="fas fa-download"></i>
+                                        </button>
+                                        <button class="text-yellow-600" aria-label="Edit Plastic Granules"><i class="fas fa-pen"></i></button>
+                                        <button class="text-red-600" aria-label="Delete Plastic Granules"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
 
-                <td class="p-4">Printing Ink</td>
+                            <tr class="border-t border-slate-200 hover:bg-slate-50">
+                                <td class="p-4">Printing Ink</td>
+                                <td class="p-4">Chemical</td>
+                                <td class="p-4">80 L</td>
+                                <td class="p-4">100 L</td>
+                                <td class="p-4">ColorTech</td>
+                                <td class="p-4">
+                                    <span class="whitespace-nowrap rounded-full bg-red-100 px-3 py-1 text-sm text-red-700">Low Stock</span>
+                                </td>
+                                <td class="p-4">
+                                    <div class="flex justify-center gap-3">
+                                        <button type="button" class="text-cyan-600 hover:text-cyan-800" data-action="view-material" data-material="Printing Ink" aria-label="View Printing Ink">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button type="button" class="text-green-600 hover:text-green-800" data-action="download-material" data-material="Printing Ink" aria-label="Download Printing Ink report">
+                                            <i class="fas fa-download"></i>
+                                        </button>
+                                        <button class="text-yellow-600" aria-label="Edit Printing Ink"><i class="fas fa-pen"></i></button>
+                                        <button class="text-red-600" aria-label="Delete Printing Ink"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
 
-                <td>Chemical</td>
+                            <tr class="border-t border-slate-200 hover:bg-slate-50">
+                                <td class="p-4">Packaging Rolls</td>
+                                <td class="p-4">Packing</td>
+                                <td class="p-4">420 Rolls</td>
+                                <td class="p-4">120 Rolls</td>
+                                <td class="p-4">Pack India</td>
+                                <td class="p-4">
+                                    <span class="whitespace-nowrap rounded-full bg-green-100 px-3 py-1 text-sm text-green-700">Available</span>
+                                </td>
+                                <td class="p-4">
+                                    <div class="flex justify-center gap-3">
+                                        <button type="button" class="text-cyan-600 hover:text-cyan-800" data-action="view-material" data-material="Packaging Rolls" aria-label="View Packaging Rolls">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button type="button" class="text-green-600 hover:text-green-800" data-action="download-material" data-material="Packaging Rolls" aria-label="Download Packaging Rolls report">
+                                            <i class="fas fa-download"></i>
+                                        </button>
+                                        <button class="text-yellow-600" aria-label="Edit Packaging Rolls"><i class="fas fa-pen"></i></button>
+                                        <button class="text-red-600" aria-label="Delete Packaging Rolls"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-                <td>80 L</td>
+            <!-- Stock Analytics + Low Stock -->
+            <div class="mt-8 grid grid-cols-1 gap-6 xl:grid-cols-3">
 
-                <td>100 L</td>
+                <!-- Stock Analytics -->
+                <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6 xl:col-span-2">
 
-                <td>ColorTech</td>
+                    <div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                        <div>
+                            <h2 class="text-xl font-bold sm:text-2xl">Stock Analytics</h2>
+                            <p class="text-sm text-slate-500">Weekly Inventory Usage</p>
+                        </div>
 
-                <td>
-
-                    <span class="bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-sm">
-
-                        Low Stock
-
-                    </span>
-
-                </td>
-
-                <td class="text-center">
-
-                    <div class="flex justify-center gap-3">
-
-                        <button class="text-cyan-400">
-                            <i class="fas fa-eye"></i>
-                        </button>
-
-                        <button class="text-yellow-400">
-                            <i class="fas fa-pen"></i>
-                        </button>
-
-                        <button class="text-red-400">
-                            <i class="fas fa-trash"></i>
-                        </button>
-
+                        <select
+                            id="productionPeriod"
+                            class="w-full rounded-xl border border-slate-300 bg-white px-4 py-2 sm:w-auto">
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                        </select>
                     </div>
 
-                </td>
+                    <div class="relative h-64 sm:h-72">
+                        <canvas id="inventoryChart"></canvas>
+                    </div>
+                </div>
 
-            </tr>
+                <!-- Low Stock -->
+                <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
 
-            <tr class="border-t border-slate-800 hover:bg-slate-800/50">
+                    <h2 class="mb-6 text-xl font-bold sm:text-2xl">Low Stock Alerts</h2>
 
-                <td class="p-4">Packaging Rolls</td>
+                    <div class="space-y-4">
+                        <div class="rounded-xl border border-red-200 bg-red-50 p-4">
+                            <h3 class="font-semibold">Printing Ink</h3>
+                            <p class="text-sm text-red-600">Only 80L Left</p>
+                        </div>
 
-                <td>Packing</td>
+                        <div class="rounded-xl border border-yellow-200 bg-yellow-50 p-4">
+                            <h3 class="font-semibold">Adhesive</h3>
+                            <p class="text-sm text-yellow-700">120 Kg Remaining</p>
+                        </div>
 
-                <td>420 Rolls</td>
+                        <div class="rounded-xl border border-red-200 bg-red-50 p-4">
+                            <h3 class="font-semibold">Packaging Labels</h3>
+                            <p class="text-sm text-red-600">Reorder Required</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                <td>120 Rolls</td>
+            <!-- Bottom Section -->
+            <div class="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-3">
 
-                <td>Pack India</td>
+                <!-- Supplier Summary -->
+                <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
+                    <h2 class="mb-5 text-xl font-bold">Supplier Summary</h2>
 
-                <td>
+                    <div class="space-y-4">
+                        <div class="flex justify-between gap-4">
+                            <span>Total Suppliers</span>
+                            <span class="font-bold text-cyan-600">24</span>
+                        </div>
 
-                    <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm">
+                        <div class="flex justify-between gap-4">
+                            <span>Active Suppliers</span>
+                            <span class="font-bold text-green-600">20</span>
+                        </div>
 
-                        Available
+                        <div class="flex justify-between gap-4">
+                            <span>Pending Orders</span>
+                            <span class="font-bold text-yellow-600">4</span>
+                        </div>
+                    </div>
+                </div>
 
-                    </span>
+                <!-- Quick Actions -->
+                <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
+                    <h2 class="mb-5 text-xl font-bold">Quick Actions</h2>
 
-                </td>
-
-                <td class="text-center">
-
-                    <div class="flex justify-center gap-3">
-
-                        <button class="text-cyan-400">
-                            <i class="fas fa-eye"></i>
+                    <div class="space-y-4">
+                        <button class="w-full rounded-xl bg-cyan-600 py-3 text-white hover:bg-cyan-700">
+                            + Add Material
                         </button>
 
-                        <button class="text-yellow-400">
-                            <i class="fas fa-pen"></i>
+                        <button class="w-full rounded-xl bg-green-600 py-3 text-white hover:bg-green-700">
+                            Create Purchase Order
                         </button>
 
-                        <button class="text-red-400">
-                            <i class="fas fa-trash"></i>
+                        <button
+                            id="downloadInventoryReportBtn"
+                            type="button"
+                            class="w-full rounded-xl bg-yellow-500 py-3 text-white hover:bg-yellow-600">
+                            Download Report
                         </button>
+                    </div>
+                </div>
+
+                <!-- Inventory Status -->
+                <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6 lg:col-span-2 xl:col-span-1">
+
+                    <h2 class="mb-5 text-xl font-bold">Inventory Status</h2>
+
+                    <div class="space-y-5">
+
+                        <!-- Stock Health -->
+                        <div>
+                            <div class="mb-2 flex items-center justify-between gap-3">
+                                <p class="text-slate-500">Stock Health</p>
+                                <span id="stockHealthValue" class="text-sm font-semibold text-cyan-600">0%</span>
+                            </div>
+
+                            <div class="h-3 w-full rounded-full bg-slate-100">
+                                <div id="stockHealthBar"
+                                    class="h-3 rounded-full bg-cyan-500"
+                                    style="width: 0%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Reorder Required -->
+                        <div>
+                            <div class="mb-2 flex items-center justify-between gap-3">
+                                <p class="text-slate-500">Reorder Required</p>
+                                <span id="reorderRequiredValue" class="text-sm font-semibold text-red-600">0</span>
+                            </div>
+
+                            <div class="h-3 w-full rounded-full bg-slate-100">
+                                <div id="reorderRequiredBar"
+                                    class="h-3 rounded-full bg-red-500"
+                                    style="width: 0%"></div>
+                            </div>
+                        </div>
 
                     </div>
+                </div>
+            </div>
 
-                </td>
+            <!-- Recent Purchase Orders -->
+            <div class="mt-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
 
-            </tr>
+                <div class="mb-2 flex flex-col gap-4 p-4 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+                    <div>
+                        <h2 class="text-xl font-bold sm:text-2xl">Recent Purchase Orders</h2>
+                        <p class="text-sm text-slate-500">Latest Orders From Suppliers</p>
+                    </div>
 
-        </tbody>
+                    <button class="w-full rounded-xl bg-cyan-600 px-5 py-2 text-white hover:bg-cyan-700 sm:w-auto">
+                        View All
+                    </button>
+                </div>
 
-    </table>
+                <div class="overflow-x-auto">
+                    <table class="w-full min-w-[700px] text-left">
+                        <thead class="bg-slate-100 text-slate-700">
+                            <tr>
+                                <th class="p-4">PO No.</th>
+                                <th class="p-4">Supplier</th>
+                                <th class="p-4">Material</th>
+                                <th class="p-4">Amount</th>
+                                <th class="p-4">Status</th>
+                                <th class="p-4">Action</th>
+                            </tr>
+                        </thead>
 
+                        <tbody>
+                            <tr class="border-t border-slate-200 hover:bg-slate-50">
+                                <td class="p-4">PO-1001</td>
+                                <td class="p-4">ABC Polymers</td>
+                                <td class="p-4">Plastic Granules</td>
+                                <td class="p-4">₹2,40,000</td>
+                                <td class="p-4">
+                                    <span class="whitespace-nowrap rounded-full bg-green-100 px-3 py-1 text-sm text-green-700">Delivered</span>
+                                </td>
+                                <td class="p-4">
+                                    <div class="flex items-center gap-3">
+                                        <button type="button" class="text-cyan-600 hover:text-cyan-800" data-action="view-order" data-order="PO-1001" aria-label="View PO-1001">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button type="button" class="text-green-600 hover:text-green-800" data-action="download-order" data-order="PO-1001" aria-label="Download PO-1001">
+                                            <i class="fas fa-download"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="border-t border-slate-200 hover:bg-slate-50">
+                                <td class="p-4">PO-1002</td>
+                                <td class="p-4">ColorTech</td>
+                                <td class="p-4">Printing Ink</td>
+                                <td class="p-4">₹65,000</td>
+                                <td class="p-4">
+                                    <span class="whitespace-nowrap rounded-full bg-yellow-100 px-3 py-1 text-sm text-yellow-700">In Transit</span>
+                                </td>
+                                <td class="p-4">
+                                    <div class="flex items-center gap-3">
+                                        <button type="button" class="text-cyan-600 hover:text-cyan-800" data-action="view-order" data-order="PO-1002" aria-label="View PO-1002">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button type="button" class="text-green-600 hover:text-green-800" data-action="download-order" data-order="PO-1002" aria-label="Download PO-1002">
+                                            <i class="fas fa-download"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="border-t border-slate-200 hover:bg-slate-50">
+                                <td class="p-4">PO-1003</td>
+                                <td class="p-4">Pack India</td>
+                                <td class="p-4">Packaging Rolls</td>
+                                <td class="p-4">₹1,15,000</td>
+                                <td class="p-4">
+                                    <span class="whitespace-nowrap rounded-full bg-cyan-100 px-3 py-1 text-sm text-cyan-700">Processing</span>
+                                </td>
+                                <td class="p-4">
+                                    <div class="flex items-center gap-3">
+                                        <button type="button" class="text-cyan-600 hover:text-cyan-800" data-action="view-order" data-order="PO-1003" aria-label="View PO-1003">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button type="button" class="text-green-600 hover:text-green-800" data-action="download-order" data-order="PO-1003" aria-label="Download PO-1003">
+                                            <i class="fas fa-download"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+    </main>
 </div>
-
-<!-- Stock Analytics + Low Stock -->
-
-<div class="grid grid-cols-3 gap-6 mt-8">
-
-    <!-- Stock Analytics -->
-
-    <div class="col-span-2 bg-slate-900 border border-slate-800 rounded-2xl p-6">
-
-        <div class="flex justify-between items-center mb-6">
-
-            <div>
-
-                <h2 class="text-2xl font-bold">
-                    Stock Analytics
-                </h2>
-
-                <p class="text-slate-400 text-sm">
-                    Weekly Inventory Usage
-                </p>
-
-            </div>
-
-            <select
-    id="productionPeriod"
-    class="bg-slate-800 border border-slate-700 rounded-xl px-4 py-2">
-
-    <option value="week">This Week</option>
-    <option value="month">This Month</option>
-
-</select>
-
-        </div>
-
-        <div class="h-72">
-    <canvas id="inventoryChart"></canvas>
-</div>
-
-    </div>
-
-    <!-- Low Stock -->
-
-    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-
-        <h2 class="text-2xl font-bold mb-6">
-            Low Stock Alerts
-        </h2>
-
-        <div class="space-y-4">
-
-            <div class="bg-red-500/10 border border-red-500 rounded-xl p-4">
-
-                <h3 class="font-semibold">
-                    Printing Ink
-                </h3>
-
-                <p class="text-red-400 text-sm">
-                    Only 80L Left
-                </p>
-
-            </div>
-
-            <div class="bg-yellow-500/10 border border-yellow-500 rounded-xl p-4">
-
-                <h3 class="font-semibold">
-                    Adhesive
-                </h3>
-
-                <p class="text-yellow-400 text-sm">
-                    120 Kg Remaining
-                </p>
-
-            </div>
-
-            <div class="bg-red-500/10 border border-red-500 rounded-xl p-4">
-
-                <h3 class="font-semibold">
-                    Packaging Labels
-                </h3>
-
-                <p class="text-red-400 text-sm">
-                    Reorder Required
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-<!-- Bottom Section -->
-
-<div class="grid grid-cols-3 gap-6 mt-8">
-
-    <!-- Supplier Summary -->
-
-    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-
-        <h2 class="text-xl font-bold mb-5">
-            Supplier Summary
-        </h2>
-
-        <div class="space-y-4">
-
-            <div class="flex justify-between">
-
-                <span>Total Suppliers</span>
-
-                <span class="text-cyan-400 font-bold">24</span>
-
-            </div>
-
-            <div class="flex justify-between">
-
-                <span>Active Suppliers</span>
-
-                <span class="text-green-400 font-bold">20</span>
-
-            </div>
-
-            <div class="flex justify-between">
-
-                <span>Pending Orders</span>
-
-                <span class="text-yellow-400 font-bold">4</span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- Quick Actions -->
-
-    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-
-        <h2 class="text-xl font-bold mb-5">
-
-            Quick Actions
-
-        </h2>
-
-        <div class="space-y-4">
-
-            <button class="w-full bg-cyan-500 hover:bg-cyan-600 py-3 rounded-xl">
-
-                + Add Material
-
-            </button>
-
-            <button class="w-full bg-green-600 hover:bg-green-700 py-3 rounded-xl">
-
-                Create Purchase Order
-
-            </button>
-
-            <button
-    id="downloadInventoryReportBtn"
-    type="button"
-    class="w-full bg-yellow-500 hover:bg-yellow-600 py-3 rounded-xl">
-    Download Report
-</button>
-
-        </div>
-
-    </div>
-
-    <!-- Inventory Status -->
-
-    <!-- Inventory Status -->
-
-<div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-
-    <h2 class="text-xl font-bold mb-5">
-        Inventory Status
-    </h2>
-
-    <div class="space-y-5">
-
-        <!-- Stock Health -->
-
-        <div>
-
-            <div class="flex justify-between items-center mb-2">
-
-                <p class="text-slate-400">
-                    Stock Health
-                </p>
-
-                <span
-                    id="stockHealthValue"
-                    class="text-sm font-semibold text-cyan-400"
-                >
-                    0%
-                </span>
-
-            </div>
-
-            <div class="w-full bg-slate-800 rounded-full h-3">
-
-                <div
-                    id="stockHealthBar"
-                    class="bg-cyan-500 h-3 rounded-full"
-                    style="width: 0%"
-                ></div>
-
-            </div>
-
-        </div>
-
-
-        <!-- Reorder Required -->
-
-        <div>
-
-            <div class="flex justify-between items-center mb-2">
-
-                <p class="text-slate-400">
-                    Reorder Required
-                </p>
-
-                <span
-                    id="reorderRequiredValue"
-                    class="text-sm font-semibold text-red-400"
-                >
-                    0
-                </span>
-
-            </div>
-
-            <div class="w-full bg-slate-800 rounded-full h-3">
-
-                <div
-                    id="reorderRequiredBar"
-                    class="bg-red-500 h-3 rounded-full"
-                    style="width: 0%"
-                ></div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-</div>
-
-<!-- Recent Purchase Orders -->
-
-<div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 mt-8">
-
-    <div class="flex justify-between items-center mb-6">
-
-        <div>
-            <h2 class="text-2xl font-bold">
-                Recent Purchase Orders
-            </h2>
-
-            <p class="text-slate-400 text-sm">
-                Latest Orders From Suppliers
-            </p>
-        </div>
-
-        <button class="bg-cyan-500 hover:bg-cyan-600 px-5 py-2 rounded-xl">
-            View All
-        </button>
-
-    </div>
-
-    <table class="w-full">
-
-        <thead class="bg-slate-800">
-
-            <tr>
-
-                <th class="text-left p-4">PO No.</th>
-                <th class="text-left">Supplier</th>
-                <th class="text-left">Material</th>
-                <th class="text-left">Amount</th>
-                <th class="text-left">Status</th>
-                <th class="text-left">Action</th>
-
-            </tr>
-
-        </thead>
-
-        <tbody>
-
-            <tr class="border-t border-slate-800 hover:bg-slate-800/40">
-
-                <td class="p-4">PO-1001</td>
-                <td>ABC Polymers</td>
-                <td>Plastic Granules</td>
-                <td>₹2,40,000</td>
-
-                <td>
-                    <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm">
-                        Delivered
-                    </span>
-                </td>
-
-            </tr>
-
-            <tr class="border-t border-slate-800 hover:bg-slate-800/40">
-
-                <td class="p-4">PO-1002</td>
-                <td>ColorTech</td>
-                <td>Printing Ink</td>
-                <td>₹65,000</td>
-
-                <td>
-                    <span class="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-sm">
-                        In Transit
-                    </span>
-                </td>
-
-            </tr>
-
-            <tr class="border-t border-slate-800 hover:bg-slate-800/40">
-
-                <td class="p-4">PO-1003</td>
-                <td>Pack India</td>
-                <td>Packaging Rolls</td>
-                <td>₹1,15,000</td>
-
-                <td>
-                    <span class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-sm">
-                        Processing
-                    </span>
-                </td>
-
-            </tr>
-
-        </tbody>
-
-    </table>
-
-</div>
-
-</section>
-
-</main>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="../js/inventory.js?v=11"></script>
-
-</div>
+<script src="../js/sidebar.js"></script>
 
 </body>
-
 </html>

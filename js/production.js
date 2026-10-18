@@ -420,7 +420,7 @@ if (runningMeta) {
                 <tr>
                     <td
                         colspan="7"
-                        class="p-8 text-center text-slate-400"
+                        class="p-8 text-center text-slate-500"
                     >
                         No production records found.
                     </td>
@@ -446,7 +446,7 @@ if (runningMeta) {
 
 
                 row.className =
-                    "border-t border-slate-800 hover:bg-slate-800/40";
+                    "border-t border-slate-200 hover:bg-slate-50";
 
 
                 const machineName =
@@ -471,7 +471,7 @@ if (runningMeta) {
                             ${
                                 record.product?.productCode
                                     ? `
-                                        <p class="text-xs text-slate-400 mt-1">
+                                        <p class="text-xs text-slate-500 mt-1">
                                             ${record.product.productCode}
                                         </p>
                                       `
@@ -537,8 +537,8 @@ if (runningMeta) {
         if (status === "completed") {
 
             return `
-                bg-green-500/20
-                text-green-400
+                bg-green-100
+                text-green-700
                 px-3 py-1
                 rounded-full
                 text-xs
@@ -551,8 +551,8 @@ if (runningMeta) {
         if (status === "in_progress") {
 
             return `
-                bg-cyan-500/20
-                text-cyan-400
+                bg-cyan-100
+                text-cyan-700
                 px-3 py-1
                 rounded-full
                 text-xs
@@ -565,8 +565,8 @@ if (runningMeta) {
         if (status === "cancelled") {
 
             return `
-                bg-red-500/20
-                text-red-400
+                bg-red-100
+                text-red-700
                 px-3 py-1
                 rounded-full
                 text-xs
@@ -577,8 +577,8 @@ if (runningMeta) {
 
 
         return `
-            bg-yellow-500/20
-            text-yellow-400
+            bg-yellow-100
+            text-yellow-700
             px-3 py-1
             rounded-full
             text-xs
@@ -625,7 +625,7 @@ if (runningMeta) {
         if (!machines.length) {
 
             container.innerHTML = `
-                <p class="text-slate-400 text-sm">
+                <p class="text-slate-500 text-sm">
                     No machines found.
                 </p>
             `;
@@ -687,8 +687,8 @@ if (runningMeta) {
         if (status === "running") {
 
             return `
-                bg-green-500/20
-                text-green-400
+                bg-green-100
+                text-green-700
                 px-3 py-1
                 rounded-full
                 text-xs
@@ -701,8 +701,8 @@ if (runningMeta) {
         if (status === "maintenance") {
 
             return `
-                bg-yellow-500/20
-                text-yellow-400
+                bg-yellow-100
+                text-yellow-700
                 px-3 py-1
                 rounded-full
                 text-xs
@@ -715,8 +715,8 @@ if (runningMeta) {
         if (status === "breakdown") {
 
             return `
-                bg-red-500/20
-                text-red-400
+                bg-red-100
+                text-red-700
                 px-3 py-1
                 rounded-full
                 text-xs
@@ -727,8 +727,8 @@ if (runningMeta) {
 
 
         return `
-            bg-slate-500/20
-            text-slate-400
+            bg-slate-100
+            text-slate-700
             px-3 py-1
             rounded-full
             text-xs
@@ -837,16 +837,14 @@ if (runningMeta) {
 
             container.innerHTML = `
                 <div
-                    class="bg-green-500/10
-                    border border-green-500
-                    rounded-xl p-4"
+                    class="bg-green-50 border border-green-200 rounded-xl p-4"
                 >
 
-                    <h3 class="font-semibold text-green-400">
+                    <h3 class="font-semibold text-green-700">
                         All production systems look healthy
                     </h3>
 
-                    <p class="text-green-300 text-sm mt-1">
+                    <p class="text-green-600 text-sm mt-1">
                         No production or material alerts found.
                     </p>
 
@@ -873,14 +871,10 @@ if (runningMeta) {
                 div.className =
                     isDanger
                         ? `
-                            bg-red-500/10
-                            border border-red-500
-                            rounded-xl p-4
+                            bg-red-50 border border-red-200 rounded-xl p-4
                           `
                         : `
-                            bg-yellow-500/10
-                            border border-yellow-500
-                            rounded-xl p-4
+                            bg-yellow-50 border border-yellow-200 rounded-xl p-4
                           `;
 
 
@@ -899,8 +893,8 @@ if (runningMeta) {
                     <p
                         class="${
                             isDanger
-                                ? "text-red-400"
-                                : "text-yellow-400"
+                                ? "text-red-700"
+                                : "text-yellow-700"
                         } text-sm mt-1"
                     >
                         ${alert.text}
@@ -1242,12 +1236,12 @@ bars[2].style.width =
 
                                 ticks: {
                                     color:
-                                        "#94a3b8"
+                                        "#64748b"
                                 },
 
                                 grid: {
                                     color:
-                                        "#1e293b"
+                                        "#e2e8f0"
                                 }
 
                             },
@@ -1258,12 +1252,12 @@ bars[2].style.width =
 
                                 ticks: {
                                     color:
-                                        "#94a3b8"
+                                        "#64748b"
                                 },
 
                                 grid: {
                                     color:
-                                        "#1e293b"
+                                        "#e2e8f0"
                                 }
 
                             }
@@ -1305,7 +1299,7 @@ bars[2].style.width =
 
         modal.className =
             "fixed inset-0 z-50 " +
-            "bg-slate-950/70 " +
+            "bg-slate-900/50 " +
             "flex items-center justify-center " +
             "p-6";
 
@@ -1314,8 +1308,8 @@ bars[2].style.width =
 
             <div
                 class="
-                    bg-slate-900
-                    border border-slate-700
+                    bg-white
+                    border border-slate-200
                     rounded-2xl
                     w-full
                     max-w-2xl
@@ -1341,7 +1335,7 @@ bars[2].style.width =
                             New Production
                         </h2>
 
-                        <p class="text-slate-400 text-sm mt-1">
+                        <p class="text-slate-500 text-sm mt-1">
                             Enter today's actual production and material usage
                         </p>
 
@@ -1351,7 +1345,7 @@ bars[2].style.width =
                     <button
                         type="button"
                         id="closeRealProductionModal"
-                        class="text-slate-400 hover:text-white text-xl"
+                        class="text-slate-500 hover:text-slate-900 text-xl"
                     >
                         <i class="fas fa-xmark"></i>
                     </button>
@@ -1369,11 +1363,11 @@ bars[2].style.width =
                         required
                         class="
                             w-full
-                            bg-slate-800
-                            border border-slate-700
+                            bg-white
+                            border border-slate-300
                             rounded-xl
                             px-4 py-3
-                            text-white
+                            text-slate-900
                         "
                     >
 
@@ -1389,11 +1383,11 @@ bars[2].style.width =
                         required
                         class="
                             w-full
-                            bg-slate-800
-                            border border-slate-700
+                            bg-white
+                            border border-slate-300
                             rounded-xl
                             px-4 py-3
-                            text-white
+                            text-slate-900
                         "
                     >
 
@@ -1412,11 +1406,11 @@ bars[2].style.width =
                             required
                             class="
                                 w-full
-                                bg-slate-800
-                                border border-slate-700
+                                bg-white
+                                border border-slate-300
                                 rounded-xl
                                 px-4 py-3
-                                text-white
+                                text-slate-900
                             "
                         >
 
@@ -1426,11 +1420,11 @@ bars[2].style.width =
                             required
                             class="
                                 w-full
-                                bg-slate-800
-                                border border-slate-700
+                                bg-white
+                                border border-slate-300
                                 rounded-xl
                                 px-4 py-3
-                                text-white
+                                text-slate-900
                             "
                         >
 
@@ -1466,11 +1460,11 @@ bars[2].style.width =
                             required
                             class="
                                 w-full
-                                bg-slate-800
-                                border border-slate-700
+                                bg-white
+                                border border-slate-300
                                 rounded-xl
                                 px-4 py-3
-                                text-white
+                                text-slate-900
                             "
                         >
 
@@ -1484,11 +1478,11 @@ bars[2].style.width =
                             required
                             class="
                                 w-full
-                                bg-slate-800
-                                border border-slate-700
+                                bg-white
+                                border border-slate-300
                                 rounded-xl
                                 px-4 py-3
-                                text-white
+                                text-slate-900
                             "
                         >
 
@@ -1504,11 +1498,11 @@ bars[2].style.width =
                         placeholder="Rejected Quantity"
                         class="
                             w-full
-                            bg-slate-800
-                            border border-slate-700
+                            bg-white
+                            border border-slate-300
                             rounded-xl
                             px-4 py-3
-                            text-white
+                            text-slate-900
                         "
                     >
 
@@ -1518,11 +1512,11 @@ bars[2].style.width =
                         required
                         class="
                             w-full
-                            bg-slate-800
-                            border border-slate-700
+                            bg-white
+                            border border-slate-300
                             rounded-xl
                             px-4 py-3
-                            text-white
+                            text-slate-900
                         "
                     >
 
@@ -1545,13 +1539,13 @@ bars[2].style.width =
                         id="materialStandardBox"
                         class="
                             hidden
-                            border border-slate-700
+                            border border-slate-300
                             rounded-xl
                             p-4
                         "
                     >
 
-                        <h3 class="font-semibold text-cyan-400 mb-4">
+                        <h3 class="font-semibold text-cyan-700 mb-4">
                             Actual Raw Material Usage
                         </h3>
 
@@ -1570,11 +1564,11 @@ bars[2].style.width =
                         placeholder="Notes"
                         class="
                             w-full
-                            bg-slate-800
-                            border border-slate-700
+                            bg-white
+                            border border-slate-300
                             rounded-xl
                             px-4 py-3
-                            text-white
+                            text-slate-900
                             resize-none
                         "
                     ></textarea>
@@ -1811,7 +1805,7 @@ bars[2].style.width =
 
 
                 div.className =
-                    "border border-slate-700 rounded-xl p-4";
+                    "border border-slate-200 rounded-xl p-4";
 
 
                 div.innerHTML = `
@@ -1822,7 +1816,7 @@ bars[2].style.width =
                             ${material.name}
                         </p>
 
-                        <p class="text-xs text-slate-400">
+                        <p class="text-xs text-slate-500">
                             Standard:
                             ${standard.standardQuantity}
                             ${standard.unit}
@@ -1842,7 +1836,7 @@ bars[2].style.width =
                                 class="
                                     block
                                     text-xs
-                                    text-slate-400
+                                    text-slate-500
                                     mb-2
                                 "
                             >
@@ -1860,11 +1854,11 @@ bars[2].style.width =
                                 class="
                                     production-material-quantity
                                     w-full
-                                    bg-slate-800
-                                    border border-slate-700
+                                    bg-white
+                                    border border-slate-300
                                     rounded-xl
                                     px-4 py-3
-                                    text-white
+                                    text-slate-900
                                 "
                                 placeholder="${standard.standardQuantity}"
                             >
@@ -1878,7 +1872,7 @@ bars[2].style.width =
                                 class="
                                     block
                                     text-xs
-                                    text-slate-400
+                                    text-slate-500
                                     mb-2
                                 "
                             >
@@ -1892,11 +1886,11 @@ bars[2].style.width =
                                 readonly
                                 class="
                                     w-full
-                                    bg-slate-700
-                                    border border-slate-700
+                                    bg-slate-200
+                                    border border-slate-300
                                     rounded-xl
                                     px-4 py-3
-                                    text-slate-300
+                                    text-slate-900
                                 "
                             >
 

@@ -1,344 +1,386 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | FactoryOS</title>
 
-<title>Settings | FactoryOS</title>
+    <link rel="stylesheet" href="../css/output.css">
 
-<link rel="stylesheet" href="../css/output.css">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
-<body class="bg-slate-950 text-white">
+<body class="min-h-screen overflow-x-hidden bg-slate-50 text-slate-900">
 
 <div class="flex min-h-screen">
 
-<!-- Sidebar -->
+    <!-- Sidebar Backdrop -->
 
-<aside class="w-64 bg-slate-900 border-r border-slate-800">
+    <button id="sidebarBackdrop"
+            type="button"
+            aria-label="Close navigation menu"
+            class="fixed inset-0 z-40 hidden bg-slate-900/50 xl:hidden">
+    </button>
 
-<div class="p-8 border-b border-slate-800">
+    <!-- Sidebar -->
 
-<h1 class="text-4xl font-bold text-cyan-400">
-FactoryOS
-</h1>
+    <aside id="sidebar"
+           class="fixed inset-y-0 left-0 z-50 flex w-64 max-w-[85vw]
+                  -translate-x-full flex-col overflow-y-auto border-r
+                  border-slate-200 bg-white transition-transform duration-300
+                  ease-in-out xl:static xl:inset-auto xl:z-auto xl:min-h-screen
+                  xl:max-w-none xl:translate-x-0 xl:shrink-0">
 
-<p class="text-slate-400 text-sm">
-Smart Factory Management
-</p>
+        <div class="flex h-20 shrink-0 items-center justify-center border-b border-slate-200 px-6">
 
-</div>
+            <div class="text-center">
+                <h1 class="text-3xl font-bold text-cyan-600">
+                    FactoryOS
+                </h1>
 
-<nav class="p-5 space-y-2">
-
-<a href="../index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
-<i class="fas fa-chart-line"></i> Dashboard
-</a>
-
-<a href="machines.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
-<i class="fas fa-industry"></i> Machines
-</a>
-
-<a href="inventory.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
-<i class="fas fa-boxes"></i> Inventory
-</a>
-
-<a href="production.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
-<i class="fas fa-gears"></i> Production
-</a>
-
-<a href="orders.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
-<i class="fas fa-cart-shopping"></i> Orders
-</a>
-
-<a href="invoice.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
-<i class="fas fa-file-invoice"></i> Invoice
-</a>
-
-<a href="reports.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
-<i class="fas fa-chart-pie"></i> Reports
-</a>
-
-<a href="employees.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
-<i class="fas fa-users"></i> Employees
-</a>
-
-<a href="settings.html"
-class="flex items-center gap-3 px-4 py-3 rounded-xl bg-cyan-500/20 text-cyan-400">
-
-<i class="fas fa-gear"></i>
-
-Settings
-
-</a>
-
-</nav>
-
-</aside>
-
-<!-- Main -->
-
-<main class="flex-1">
-
-<header class="h-20 border-b border-slate-800 px-8 flex items-center justify-between">
-
-<div>
-
-<h2 class="text-3xl font-bold">
-Settings
-</h2>
-
-<p class="text-slate-400">
-Manage Factory Preferences
-</p>
-
-</div>
-
-<button class="bg-cyan-500 hover:bg-cyan-600 px-6 py-3 rounded-xl">
-
-Save Settings
-
-</button>
-
-</header>
-
-<section class="p-8">
-
-<div class="grid grid-cols-2 gap-6">
-
-  <!-- Profile Settings -->
-
-<div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-
-    <h2 class="text-2xl font-bold mb-6">
-        Profile Settings
-    </h2>
-
-    <div class="space-y-5">
-
-        <div>
-            <label class="text-slate-400 text-sm">Admin Name</label>
-            <input type="text"
-                   value="Factory Admin"
-                   class="w-full mt-2 bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 outline-none focus:border-cyan-400">
-        </div>
-
-        <div>
-            <label class="text-slate-400 text-sm">Email</label>
-            <input type="email"
-                   value="admin@factoryos.com"
-                   class="w-full mt-2 bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 outline-none focus:border-cyan-400">
-        </div>
-
-        <div>
-            <label class="text-slate-400 text-sm">Phone</label>
-            <input type="text"
-                   value="+91 9876543210"
-                   class="w-full mt-2 bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 outline-none focus:border-cyan-400">
-        </div>
-
-    </div>
-
-</div>
-
-<!-- Security -->
-
-<div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-
-    <h2 class="text-2xl font-bold mb-6">
-        Security
-    </h2>
-
-    <div class="space-y-5">
-
-        <div>
-
-            <label class="text-slate-400 text-sm">
-                Current Password
-            </label>
-
-            <input type="password"
-                   placeholder="********"
-                   class="w-full mt-2 bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 outline-none focus:border-cyan-400">
+                <p class="mt-1 text-xs text-slate-500">
+                    Smart Factory Management
+                </p>
+            </div>
 
         </div>
 
-        <div>
+        <nav class="flex-1 space-y-2 p-4" aria-label="Main navigation">
 
-            <label class="text-slate-400 text-sm">
-                New Password
-            </label>
+            <a href="../index.html"
+               class="flex items-center gap-3 rounded-xl px-4 py-3 text-slate-600 transition hover:bg-slate-100">
+                <i class="fas fa-chart-line w-5 text-center"></i>
+                Dashboard
+            </a>
 
-            <input type="password"
-                   placeholder="********"
-                   class="w-full mt-2 bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 outline-none focus:border-cyan-400">
+            <a href="machines.html"
+               class="flex items-center gap-3 rounded-xl px-4 py-3 text-slate-600 transition hover:bg-slate-100">
+                <i class="fas fa-industry w-5 text-center"></i>
+                Machines
+            </a>
 
-        </div>
+            <a href="inventory.html"
+               class="flex items-center gap-3 rounded-xl px-4 py-3 text-slate-600 transition hover:bg-slate-100">
+                <i class="fas fa-boxes w-5 text-center"></i>
+                Inventory
+            </a>
 
-        <div>
+            <a href="production.html"
+               class="flex items-center gap-3 rounded-xl px-4 py-3 text-slate-600 transition hover:bg-slate-100">
+                <i class="fas fa-gears w-5 text-center"></i>
+                Production
+            </a>
 
-            <label class="text-slate-400 text-sm">
-                Confirm Password
-            </label>
+            <a href="orders.html"
+               class="flex items-center gap-3 rounded-xl px-4 py-3 text-slate-600 transition hover:bg-slate-100">
+                <i class="fas fa-cart-shopping w-5 text-center"></i>
+                Orders
+            </a>
 
-            <input type="password"
-                   placeholder="********"
-                   class="w-full mt-2 bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 outline-none focus:border-cyan-400">
+            <a href="invoice.html"
+               class="flex items-center gap-3 rounded-xl px-4 py-3 text-slate-600 transition hover:bg-slate-100">
+                <i class="fas fa-file-invoice w-5 text-center"></i>
+                Invoice
+            </a>
 
-        </div>
+            <a href="reports.html"
+               class="flex items-center gap-3 rounded-xl px-4 py-3 text-slate-600 transition hover:bg-slate-100">
+                <i class="fas fa-chart-pie w-5 text-center"></i>
+                Reports
+            </a>
 
-        <button class="w-full bg-cyan-500 hover:bg-cyan-600 py-3 rounded-xl font-semibold">
+            <a href="employees.html"
+               class="flex items-center gap-3 rounded-xl px-4 py-3 text-slate-600 transition hover:bg-slate-100">
+                <i class="fas fa-users w-5 text-center"></i>
+                Employees
+            </a>
 
-            Change Password
+            <a href="settings.html"
+               aria-current="page"
+               class="flex items-center gap-3 rounded-xl bg-cyan-50 px-4 py-3 font-medium text-cyan-700">
+                <i class="fas fa-gear w-5 text-center"></i>
+                Settings
+            </a>
 
-        </button>
+        </nav>
 
-    </div>
+    </aside>
 
-</div>
+    <!-- Main -->
 
-<!-- Notifications -->
+    <main class="min-w-0 flex-1">
 
-<div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 mt-6">
+        <!-- Header -->
 
-    <h2 class="text-2xl font-bold mb-6">
-        Notifications
-    </h2>
+        <header class="flex flex-col gap-4 border-b border-slate-200 bg-white px-4 py-4 sm:px-6 lg:min-h-20 lg:flex-row lg:items-center lg:justify-between lg:px-8">
 
-    <div class="space-y-5">
+            <div class="flex min-w-0 items-center gap-3">
 
-        <div class="flex justify-between items-center">
-            <span>Email Notifications</span>
-            <input type="checkbox" checked class="w-5 h-5 accent-cyan-500">
-        </div>
+                <button id="sidebarToggle"
+                        type="button"
+                        aria-label="Open navigation menu"
+                        aria-controls="sidebar"
+                        aria-expanded="false"
+                        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-600 xl:hidden">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
 
-        <div class="flex justify-between items-center">
-            <span>SMS Notifications</span>
-            <input type="checkbox" checked class="w-5 h-5 accent-cyan-500">
-        </div>
+                <div class="min-w-0">
+                    <h2 class="text-2xl font-bold sm:text-3xl">
+                        Settings
+                    </h2>
 
-        <div class="flex justify-between items-center">
-            <span>Machine Alerts</span>
-            <input type="checkbox" checked class="w-5 h-5 accent-cyan-500">
-        </div>
+                    <p class="mt-1 text-sm text-slate-500 sm:text-base">
+                        Manage Factory Preferences
+                    </p>
+                </div>
 
-        <div class="flex justify-between items-center">
-            <span>Inventory Alerts</span>
-            <input type="checkbox" class="w-5 h-5 accent-cyan-500">
-        </div>
+            </div>
 
-    </div>
-
-</div>
-
-<!-- Factory Information -->
-
-<div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 mt-6">
-
-    <h2 class="text-2xl font-bold mb-6">
-        Factory Information
-    </h2>
-
-    <div class="space-y-5">
-
-        <div>
-            <label class="text-slate-400 text-sm">Factory Name</label>
-            <input type="text" value="FactoryOS Pvt. Ltd."
-                class="w-full mt-2 bg-slate-800 border border-slate-700 rounded-xl px-4 py-3">
-        </div>
-
-        <div>
-            <label class="text-slate-400 text-sm">Factory Address</label>
-            <input type="text" value="Noida, Uttar Pradesh"
-                class="w-full mt-2 bg-slate-800 border border-slate-700 rounded-xl px-4 py-3">
-        </div>
-
-        <div>
-            <label class="text-slate-400 text-sm">Working Hours</label>
-            <input type="text" value="09:00 AM - 06:00 PM"
-                class="w-full mt-2 bg-slate-800 border border-slate-700 rounded-xl px-4 py-3">
-        </div>
-
-    </div>
-
-</div>
-
-</div>
-
-<!-- Bottom Cards -->
-
-<div class="grid grid-cols-2 gap-6 mt-6">
-
-    <!-- Backup -->
-
-    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-
-        <h2 class="text-2xl font-bold mb-6">
-            Backup & Restore
-        </h2>
-
-        <div class="space-y-4">
-
-            <button class="w-full bg-cyan-500 hover:bg-cyan-600 py-3 rounded-xl">
-                Export Backup
+            <button class="w-full rounded-xl bg-cyan-500 px-6 py-3 text-white transition hover:bg-cyan-600 sm:w-auto">
+                Save Settings
             </button>
 
-            <button class="w-full bg-slate-800 hover:bg-slate-700 py-3 rounded-xl">
-                Import Backup
-            </button>
+        </header>
 
-        </div>
+        <section class="p-4 sm:p-6 lg:p-8">
 
-    </div>
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
 
-    <!-- System Status -->
+                <!-- Profile Settings -->
 
-    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                <div class="min-w-0 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
 
-        <h2 class="text-2xl font-bold mb-6">
-            System Status
-        </h2>
+                    <h2 class="mb-6 text-2xl font-bold">
+                        Profile Settings
+                    </h2>
 
-        <div class="space-y-4">
+                    <div class="space-y-5">
 
-            <div class="flex justify-between">
-                <span>Server</span>
-                <span class="text-green-400">🟢 Online</span>
+                        <div>
+                            <label class="text-sm text-slate-500">Admin Name</label>
+
+                            <input type="text"
+                                   value="Factory Admin"
+                                   class="mt-2 w-full min-w-0 rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100">
+                        </div>
+
+                        <div>
+                            <label class="text-sm text-slate-500">Email</label>
+
+                            <input type="email"
+                                   value="admin@factoryos.com"
+                                   class="mt-2 w-full min-w-0 rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100">
+                        </div>
+
+                        <div>
+                            <label class="text-sm text-slate-500">Phone</label>
+
+                            <input type="text"
+                                   value="+91 9876543210"
+                                   class="mt-2 w-full min-w-0 rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Security -->
+
+                <div class="min-w-0 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+
+                    <h2 class="mb-6 text-2xl font-bold">
+                        Security
+                    </h2>
+
+                    <div class="space-y-5">
+
+                        <div>
+                            <label class="text-sm text-slate-500">
+                                Current Password
+                            </label>
+
+                            <input type="password"
+                                   placeholder="********"
+                                   class="mt-2 w-full min-w-0 rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100">
+                        </div>
+
+                        <div>
+                            <label class="text-sm text-slate-500">
+                                New Password
+                            </label>
+
+                            <input type="password"
+                                   placeholder="********"
+                                   class="mt-2 w-full min-w-0 rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100">
+                        </div>
+
+                        <div>
+                            <label class="text-sm text-slate-500">
+                                Confirm Password
+                            </label>
+
+                            <input type="password"
+                                   placeholder="********"
+                                   class="mt-2 w-full min-w-0 rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100">
+                        </div>
+
+                        <button class="w-full rounded-xl bg-cyan-500 py-3 font-semibold text-white transition hover:bg-cyan-600">
+                            Change Password
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- Notifications -->
+
+                <div class="mt-0 min-w-0 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm md:mt-0 sm:p-6">
+
+                    <h2 class="mb-6 text-2xl font-bold">
+                        Notifications
+                    </h2>
+
+                    <div class="space-y-5">
+
+                        <div class="flex items-center justify-between gap-4">
+                            <span>Email Notifications</span>
+                            <input type="checkbox" checked class="h-5 w-5 shrink-0 accent-cyan-600">
+                        </div>
+
+                        <div class="flex items-center justify-between gap-4">
+                            <span>SMS Notifications</span>
+                            <input type="checkbox" checked class="h-5 w-5 shrink-0 accent-cyan-600">
+                        </div>
+
+                        <div class="flex items-center justify-between gap-4">
+                            <span>Machine Alerts</span>
+                            <input type="checkbox" checked class="h-5 w-5 shrink-0 accent-cyan-600">
+                        </div>
+
+                        <div class="flex items-center justify-between gap-4">
+                            <span>Inventory Alerts</span>
+                            <input type="checkbox" class="h-5 w-5 shrink-0 accent-cyan-600">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Factory Information -->
+
+                <div class="mt-0 min-w-0 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm md:mt-0 sm:p-6">
+
+                    <h2 class="mb-6 text-2xl font-bold">
+                        Factory Information
+                    </h2>
+
+                    <div class="space-y-5">
+
+                        <div>
+                            <label class="text-sm text-slate-500">Factory Name</label>
+
+                            <input type="text"
+                                   value="FactoryOS Pvt. Ltd."
+                                   class="mt-2 w-full min-w-0 rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100">
+                        </div>
+
+                        <div>
+                            <label class="text-sm text-slate-500">Factory Address</label>
+
+                            <input type="text"
+                                   value="Noida, Uttar Pradesh"
+                                   class="mt-2 w-full min-w-0 rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100">
+                        </div>
+
+                        <div>
+                            <label class="text-sm text-slate-500">Working Hours</label>
+
+                            <input type="text"
+                                   value="09:00 AM - 06:00 PM"
+                                   class="mt-2 w-full min-w-0 rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100">
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="flex justify-between">
-                <span>Database</span>
-                <span class="text-green-400">Connected</span>
+            <!-- Bottom Cards -->
+
+            <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+
+                <!-- Backup -->
+
+                <div class="min-w-0 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+
+                    <h2 class="mb-6 text-2xl font-bold">
+                        Backup &amp; Restore
+                    </h2>
+
+                    <div class="space-y-4">
+
+                        <button class="w-full rounded-xl bg-cyan-500 py-3 text-white transition hover:bg-cyan-600">
+                            Export Backup
+                        </button>
+
+                        <button class="w-full rounded-xl bg-slate-100 py-3 text-slate-700 transition hover:bg-slate-200">
+                            Import Backup
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- System Status -->
+
+                <div class="min-w-0 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+
+                    <h2 class="mb-6 text-2xl font-bold">
+                        System Status
+                    </h2>
+
+                    <div class="space-y-4">
+
+                        <div class="flex items-center justify-between gap-3">
+                            <span>Server</span>
+                            <span class="whitespace-nowrap text-green-600">🟢 Online</span>
+                        </div>
+
+                        <div class="flex items-center justify-between gap-3">
+                            <span>Database</span>
+                            <span class="text-green-600">Connected</span>
+                        </div>
+
+                        <div class="flex items-center justify-between gap-3">
+                            <span>Version</span>
+                            <span>v2.1.0</span>
+                        </div>
+
+                        <div class="flex items-center justify-between gap-3">
+                            <span>Last Backup</span>
+                            <span class="text-right">Today 10:30 AM</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="flex justify-between">
-                <span>Version</span>
-                <span>v2.1.0</span>
-            </div>
+        </section>
 
-            <div class="flex justify-between">
-                <span>Last Backup</span>
-                <span>Today 10:30 AM</span>
-            </div>
-
-        </div>
-
-    </div>
+    </main>
 
 </div>
 
-</section>
-
-</main>
-
-</div>
+<script src="../js/app.js"></script>
+<script src="../js/sidebar.js"></script>
 
 </body>
-
 </html>

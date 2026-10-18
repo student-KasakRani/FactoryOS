@@ -277,8 +277,8 @@ document.addEventListener("DOMContentLoaded", () => {
             return `
                 <span
                     class="
-                        bg-green-500/20
-                        text-green-400
+                        bg-green-100
+                        text-green-700
                         px-3 py-1
                         rounded-full
                         text-xs
@@ -296,8 +296,8 @@ document.addEventListener("DOMContentLoaded", () => {
             return `
                 <span
                     class="
-                        bg-cyan-500/20
-                        text-cyan-400
+                        bg-cyan-100
+                        text-cyan-700
                         px-3 py-1
                         rounded-full
                         text-xs
@@ -315,8 +315,8 @@ document.addEventListener("DOMContentLoaded", () => {
             return `
                 <span
                     class="
-                        bg-yellow-500/20
-                        text-yellow-400
+                        bg-yellow-100
+                        text-yellow-700
                         px-3 py-1
                         rounded-full
                         text-xs
@@ -334,8 +334,8 @@ document.addEventListener("DOMContentLoaded", () => {
             return `
                 <span
                     class="
-                        bg-red-500/20
-                        text-red-400
+                        bg-red-100
+                        text-red-700
                         px-3 py-1
                         rounded-full
                         text-xs
@@ -351,8 +351,8 @@ document.addEventListener("DOMContentLoaded", () => {
         return `
             <span
                 class="
-                    bg-slate-500/20
-                    text-slate-400
+                    bg-slate-100
+                    text-slate-600
                     px-3 py-1
                     rounded-full
                     text-xs
@@ -384,8 +384,8 @@ document.addEventListener("DOMContentLoaded", () => {
             return `
                 <span
                     class="
-                        bg-green-500/20
-                        text-green-400
+                        bg-green-100
+                        text-green-700
                         px-3 py-1
                         rounded-full
                         text-xs
@@ -403,8 +403,8 @@ document.addEventListener("DOMContentLoaded", () => {
             return `
                 <span
                     class="
-                        bg-yellow-500/20
-                        text-yellow-400
+                        bg-yellow-100
+                        text-yellow-700
                         px-3 py-1
                         rounded-full
                         text-xs
@@ -422,8 +422,8 @@ document.addEventListener("DOMContentLoaded", () => {
             return `
                 <span
                     class="
-                        bg-red-500/20
-                        text-red-400
+                        bg-red-100
+                        text-red-700
                         px-3 py-1
                         rounded-full
                         text-xs
@@ -439,8 +439,8 @@ document.addEventListener("DOMContentLoaded", () => {
         return `
             <span
                 class="
-                    bg-slate-500/20
-                    text-slate-400
+                    bg-slate-100
+                    text-slate-600
                     px-3 py-1
                     rounded-full
                     text-xs
@@ -618,10 +618,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     right-6
                     z-50
                     max-w-md
-                    bg-red-500/10
+                    bg-red-50
                     border
-                    border-red-500/30
-                    text-red-300
+                    border-red-200
+                    text-red-700
                     rounded-xl
                     p-4
                     shadow-lg
@@ -803,7 +803,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             px-6
                             py-10
                             text-center
-                            text-slate-400
+                            text-slate-500
                         "
                     >
                         No machines found.
@@ -827,8 +827,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 row.className =
                     `
                         border-t
-                        border-slate-800
-                        hover:bg-slate-800/60
+                        border-slate-200
+                        hover:bg-slate-50
                         transition
                     `;
 
@@ -1151,9 +1151,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <div
                 class="
-                    bg-slate-900
+                    bg-white
                     border
-                    border-slate-700
+                    border-slate-200
                     rounded-2xl
                     w-full
                     max-w-3xl
@@ -1187,7 +1187,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <p
                             class="
                                 text-sm
-                                text-slate-400
+                                text-slate-500
                                 mt-1
                             "
                         >
@@ -1201,8 +1201,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         type="button"
                         id="closeMachineModal"
                         class="
-                            text-slate-400
-                            hover:text-white
+                            text-slate-500
+                            hover:text-slate-900
                             text-xl
                         "
                     >
@@ -1236,7 +1236,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 class="
                                     block
                                     text-sm
-                                    text-slate-300
+                                    text-slate-600
                                     mb-2
                                 "
                             >
@@ -1250,9 +1250,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                 placeholder="Extruder Machine"
                                 class="
                                     w-full
-                                    bg-slate-800
+                                    bg-slate-50
                                     border
-                                    border-slate-700
+                                    border-slate-200
                                     rounded-xl
                                     px-4
                                     py-3
@@ -1270,7 +1270,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 class="
                                     block
                                     text-sm
-                                    text-slate-300
+                                    text-slate-600
                                     mb-2
                                 "
                             >
@@ -1284,9 +1284,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                 placeholder="M004"
                                 class="
                                     w-full
-                                    bg-slate-800
+                                    bg-slate-50
                                     border
-                                    border-slate-700
+                                    border-slate-200
                                     rounded-xl
                                     px-4
                                     py-3
@@ -1317,7 +1317,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 class="
                                     block
                                     text-sm
-                                    text-slate-300
+                                    text-slate-600
                                     mb-2
                                 "
                             >
@@ -1329,9 +1329,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                 required
                                 class="
                                     w-full
-                                    bg-slate-800
+                                    bg-slate-50
                                     border
-                                    border-slate-700
+                                    border-slate-200
                                     rounded-xl
                                     px-4
                                     py-3
@@ -1367,7 +1367,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 class="
                                     block
                                     text-sm
-                                    text-slate-300
+                                    text-slate-600
                                     mb-2
                                 "
                             >
@@ -1378,9 +1378,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                 id="machineStatus"
                                 class="
                                     w-full
-                                    bg-slate-800
+                                    bg-slate-50
                                     border
-                                    border-slate-700
+                                    border-slate-200
                                     rounded-xl
                                     px-4
                                     py-3
@@ -1433,7 +1433,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 class="
                                     block
                                     text-sm
-                                    text-slate-300
+                                    text-slate-600
                                     mb-2
                                 "
                             >
@@ -1446,9 +1446,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                 placeholder="Production Machine"
                                 class="
                                     w-full
-                                    bg-slate-800
+                                    bg-slate-50
                                     border
-                                    border-slate-700
+                                    border-slate-200
                                     rounded-xl
                                     px-4
                                     py-3
@@ -1464,7 +1464,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 class="
                                     block
                                     text-sm
-                                    text-slate-300
+                                    text-slate-600
                                     mb-2
                                 "
                             >
@@ -1477,9 +1477,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                 placeholder="Production Floor - A"
                                 class="
                                     w-full
-                                    bg-slate-800
+                                    bg-slate-50
                                     border
-                                    border-slate-700
+                                    border-slate-200
                                     rounded-xl
                                     px-4
                                     py-3
@@ -1508,7 +1508,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 class="
                                     block
                                     text-sm
-                                    text-slate-300
+                                    text-slate-600
                                     mb-2
                                 "
                             >
@@ -1521,9 +1521,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                 placeholder="Manufacturer Name"
                                 class="
                                     w-full
-                                    bg-slate-800
+                                    bg-slate-50
                                     border
-                                    border-slate-700
+                                    border-slate-200
                                     rounded-xl
                                     px-4
                                     py-3
@@ -1539,7 +1539,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 class="
                                     block
                                     text-sm
-                                    text-slate-300
+                                    text-slate-600
                                     mb-2
                                 "
                             >
@@ -1552,9 +1552,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                 placeholder="Model-100"
                                 class="
                                     w-full
-                                    bg-slate-800
+                                    bg-slate-50
                                     border
-                                    border-slate-700
+                                    border-slate-200
                                     rounded-xl
                                     px-4
                                     py-3
@@ -1573,7 +1573,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <h3
                             class="
                                 font-semibold
-                                text-slate-200
+                                text-slate-800
                                 mb-3
                             "
                         >
@@ -1596,9 +1596,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                 placeholder="IP Address"
                                 class="
                                     w-full
-                                    bg-slate-800
+                                    bg-slate-50
                                     border
-                                    border-slate-700
+                                    border-slate-200
                                     rounded-xl
                                     px-4
                                     py-3
@@ -1613,9 +1613,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                 placeholder="Port"
                                 class="
                                     w-full
-                                    bg-slate-800
+                                    bg-slate-50
                                     border
-                                    border-slate-700
+                                    border-slate-200
                                     rounded-xl
                                     px-4
                                     py-3
@@ -1629,9 +1629,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                 placeholder="Protocol"
                                 class="
                                     w-full
-                                    bg-slate-800
+                                    bg-slate-50
                                     border
-                                    border-slate-700
+                                    border-slate-200
                                     rounded-xl
                                     px-4
                                     py-3
@@ -1650,7 +1650,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <h3
                             class="
                                 font-semibold
-                                text-slate-200
+                                text-slate-800
                                 mb-3
                             "
                         >
@@ -1664,7 +1664,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 items-center
                                 gap-3
                                 text-sm
-                                text-slate-300
+                                text-slate-600
                                 mb-3
                             "
                         >
@@ -1698,9 +1698,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                 placeholder="Sensor ID"
                                 class="
                                     w-full
-                                    bg-slate-800
+                                    bg-slate-50
                                     border
-                                    border-slate-700
+                                    border-slate-200
                                     rounded-xl
                                     px-4
                                     py-3
@@ -1714,9 +1714,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                 placeholder="Sensor Type"
                                 class="
                                     w-full
-                                    bg-slate-800
+                                    bg-slate-50
                                     border
-                                    border-slate-700
+                                    border-slate-200
                                     rounded-xl
                                     px-4
                                     py-3
@@ -1745,7 +1745,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 class="
                                     block
                                     text-sm
-                                    text-slate-300
+                                    text-slate-600
                                     mb-2
                                 "
                             >
@@ -1757,9 +1757,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                 type="date"
                                 class="
                                     w-full
-                                    bg-slate-800
+                                    bg-slate-50
                                     border
-                                    border-slate-700
+                                    border-slate-600
                                     rounded-xl
                                     px-4
                                     py-3
@@ -1775,7 +1775,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 class="
                                     block
                                     text-sm
-                                    text-slate-300
+                                    text-slate-600
                                     mb-2
                                 "
                             >
@@ -1787,9 +1787,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                 type="date"
                                 class="
                                     w-full
-                                    bg-slate-800
+                                    bg-slate-50
                                     border
-                                    border-slate-700
+                                    border-slate-200
                                     rounded-xl
                                     px-4
                                     py-3
@@ -1809,9 +1809,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         placeholder="Machine notes"
                         class="
                             w-full
-                            bg-slate-800
+                            bg-slate-50
                             border
-                            border-slate-700
+                            border-slate-200
                             rounded-xl
                             px-4
                             py-3
@@ -1825,8 +1825,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         id="machineSubmitButton"
                         class="
                             w-full
-                            bg-cyan-500
-                            hover:bg-cyan-600
+                            bg-cyan-400
+                            hover:bg-cyan-500
                             text-white
                             py-3
                             rounded-xl
@@ -2194,7 +2194,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 fixed
                 inset-0
                 z-50
-                bg-slate-950/80
+                bg-slate-900/40
                 flex
                 items-center
                 justify-center
@@ -2206,9 +2206,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <div
                 class="
-                    bg-slate-900
+                    bg-white
                     border
-                    border-slate-700
+                    border-slate-200
                     rounded-2xl
                     w-full
                     max-w-2xl
@@ -2242,7 +2242,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <p
                             class="
                                 text-sm
-                                text-slate-400
+                                text-slate-500
                                 mt-1
                             "
                         >
@@ -2259,8 +2259,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         type="button"
                         id="closeViewMachineModal"
                         class="
-                            text-slate-400
-                            hover:text-white
+                            text-slate-500
+                            hover:text-slate-900
                             text-xl
                         "
                     >
@@ -2283,7 +2283,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     <div
                         class="
-                            bg-slate-800
+                            bg-slate-50
                             rounded-xl
                             p-4
                         "
@@ -2292,7 +2292,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <p
                             class="
                                 text-xs
-                                text-slate-400
+                                text-slate-500
                             "
                         >
                             Machine
@@ -2315,7 +2315,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     <div
                         class="
-                            bg-slate-800
+                            bg-slate-50
                             rounded-xl
                             p-4
                         "
@@ -2324,7 +2324,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <p
                             class="
                                 text-xs
-                                text-slate-400
+                                text-slate-500
                             "
                         >
                             Status
@@ -2343,7 +2343,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     <div
                         class="
-                            bg-slate-800
+                            bg-slate-50
                             rounded-xl
                             p-4
                         "
@@ -2352,7 +2352,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <p
                             class="
                                 text-xs
-                                text-slate-400
+                                text-slate-500
                             "
                         >
                             Machine Type
@@ -2374,7 +2374,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     <div
                         class="
-                            bg-slate-800
+                            bg-slate-50
                             rounded-xl
                             p-4
                         "
@@ -2383,7 +2383,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <p
                             class="
                                 text-xs
-                                text-slate-400
+                                text-slate-500
                             "
                         >
                             Category
@@ -2406,7 +2406,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     <div
                         class="
-                            bg-slate-800
+                            bg-slate-50
                             rounded-xl
                             p-4
                         "
@@ -2415,7 +2415,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <p
                             class="
                                 text-xs
-                                text-slate-400
+                                text-slate-500
                             "
                         >
                             Manufacturer
@@ -2438,7 +2438,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     <div
                         class="
-                            bg-slate-800
+                            bg-slate-50
                             rounded-xl
                             p-4
                         "
@@ -2447,7 +2447,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <p
                             class="
                                 text-xs
-                                text-slate-400
+                                text-slate-500
                             "
                         >
                             Location
@@ -2470,7 +2470,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     <div
                         class="
-                            bg-slate-800
+                            bg-slate-50
                             rounded-xl
                             p-4
                         "
@@ -2479,7 +2479,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <p
                             class="
                                 text-xs
-                                text-slate-400
+                                text-slate-500
                             "
                         >
                             Last Maintenance
@@ -2501,7 +2501,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     <div
                         class="
-                            bg-slate-800
+                            bg-slate-50
                             rounded-xl
                             p-4
                         "
@@ -2510,7 +2510,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <p
                             class="
                                 text-xs
-                                text-slate-400
+                                text-slate-500
                             "
                         >
                             Next Maintenance
@@ -2535,7 +2535,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div
                     class="
                         mt-5
-                        bg-slate-800
+                        bg-slate-50
                         rounded-xl
                         p-5
                     "
@@ -2555,7 +2555,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             <p
                                 class="
                                     text-xs
-                                    text-slate-400
+                                    text-slate-500
                                 "
                             >
                                 Latest Health Check
@@ -2576,8 +2576,8 @@ document.addEventListener("DOMContentLoaded", () => {
                             type="button"
                             id="viewHealthCheckBtn"
                             class="
-                                bg-emerald-600
-                                hover:bg-emerald-700
+                                bg-emerald-500
+                                hover:bg-emerald-600
                                 px-4
                                 py-2
                                 rounded-xl
@@ -2608,7 +2608,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                         <p
                                             class="
                                                 text-xs
-                                                text-slate-400
+                                                text-slate-500
                                             "
                                         >
                                             Temperature
@@ -2632,7 +2632,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                         <p
                                             class="
                                                 text-xs
-                                                text-slate-400
+                                                text-slate-500
                                             "
                                         >
                                             Vibration
@@ -2656,7 +2656,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                         <p
                                             class="
                                                 text-xs
-                                                text-slate-400
+                                                text-slate-500
                                             "
                                         >
                                             Pressure
@@ -2680,7 +2680,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <p
                                     class="
                                         text-xs
-                                        text-slate-400
+                                        text-slate-500
                                         mt-4
                                     "
                                 >
@@ -2694,7 +2694,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <p
                                     class="
                                         text-sm
-                                        text-slate-400
+                                        text-slate-500
                                         mt-4
                                     "
                                 >
@@ -2709,7 +2709,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div
                     class="
                         mt-5
-                        bg-slate-800
+                        bg-slate-50
                         rounded-xl
                         p-5
                     "
@@ -2718,7 +2718,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p
                         class="
                             text-xs
-                            text-slate-400
+                            text-slate-500
                         "
                     >
                         Latest Activity
@@ -2748,7 +2748,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <p
                                     class="
                                         text-xs
-                                        text-slate-400
+                                        text-slate-500
                                         mt-1
                                     "
                                 >
@@ -2794,7 +2794,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         id="closeViewMachineBtn"
                         class="
                             flex-1
-                            bg-slate-700
+                            bg-slate-500
                             hover:bg-slate-600
                             py-3
                             rounded-xl
@@ -2933,9 +2933,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <div
                 class="
-                    bg-slate-900
+                    bg-white
                     border
-                    border-slate-700
+                    border-slate-200
                     rounded-2xl
                     w-full
                     max-w-md
@@ -2967,7 +2967,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <p
                             class="
                                 text-sm
-                                text-slate-400
+                                text-slate-500
                                 mt-1
                             "
                         >
@@ -2983,8 +2983,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         type="button"
                         id="closeStatusModal"
                         class="
-                            text-slate-400
-                            hover:text-white
+                            text-slate-500
+                            hover:text-slate-900
                             text-xl
                         "
                     >
@@ -3005,9 +3005,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         id="machineStatusUpdate"
                         class="
                             w-full
-                            bg-slate-800
+                            bg-slate-50
                             border
-                            border-slate-700
+                            border-slate-200
                             rounded-xl
                             px-4
                             py-3
@@ -3106,8 +3106,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                     id="resolveBreakdownBtn"
                                     class="
                                         w-full
-                                        bg-emerald-600
-                                        hover:bg-emerald-700
+                                        bg-emerald-500
+                                        hover:bg-emerald-600
                                         text-white
                                         py-3
                                         rounded-xl
@@ -3372,7 +3372,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 fixed
                 inset-0
                 z-50
-                bg-slate-950/80
+                bg-slate-900/40
                 flex
                 items-center
                 justify-center
@@ -3384,9 +3384,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <div
                 class="
-                    bg-slate-900
+                    bg-white
                     border
-                    border-slate-700
+                    border-slate-200
                     rounded-2xl
                     w-full
                     max-w-md
@@ -3418,7 +3418,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <p
                             class="
                                 text-sm
-                                text-slate-400
+                                text-slate-500
                                 mt-1
                             "
                         >
@@ -3434,8 +3434,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         type="button"
                         id="closeHealthMachineModal"
                         class="
-                            text-slate-400
-                            hover:text-white
+                            text-slate-500
+                            hover:text-slate-900
                             text-xl
                         "
                     >
@@ -3458,7 +3458,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             class="
                                 block
                                 text-sm
-                                text-slate-300
+                                text-slate-600
                                 mb-2
                             "
                         >
@@ -3472,9 +3472,9 @@ document.addEventListener("DOMContentLoaded", () => {
                             placeholder="e.g. 72"
                             class="
                                 w-full
-                                bg-slate-800
+                                bg-slate-50
                                 border
-                                border-slate-700
+                                border-slate-200
                                 rounded-xl
                                 px-4
                                 py-3
@@ -3490,7 +3490,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             class="
                                 block
                                 text-sm
-                                text-slate-300
+                                text-slate-600
                                 mb-2
                             "
                         >
@@ -3504,9 +3504,9 @@ document.addEventListener("DOMContentLoaded", () => {
                             placeholder="e.g. 3.5"
                             class="
                                 w-full
-                                bg-slate-800
+                                bg-slate-50
                                 border
-                                border-slate-700
+                                border-slate-200
                                 rounded-xl
                                 px-4
                                 py-3
@@ -3522,7 +3522,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             class="
                                 block
                                 text-sm
-                                text-slate-300
+                                text-slate-600
                                 mb-2
                             "
                         >
@@ -3536,9 +3536,9 @@ document.addEventListener("DOMContentLoaded", () => {
                             placeholder="e.g. 120"
                             class="
                                 w-full
-                                bg-slate-800
+                                bg-slate-50
                                 border
-                                border-slate-700
+                                border-slate-200
                                 rounded-xl
                                 px-4
                                 py-3
@@ -3553,8 +3553,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         id="submitHealthCheck"
                         class="
                             w-full
-                            bg-emerald-600
-                            hover:bg-emerald-700
+                            bg-emerald-500
+                            hover:bg-emerald-600
                             text-white
                             py-3
                             rounded-xl
@@ -3845,7 +3845,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <p
                     class="
                         text-sm
-                        text-slate-400
+                        text-slate-500
                     "
                 >
                     No machines available.
@@ -3878,7 +3878,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 item.className =
                     `
-                        bg-slate-800
+                        bg-slate-50
                         rounded-xl
                         p-4
                     `;
@@ -3910,7 +3910,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             <p
                                 class="
                                     text-xs
-                                    text-slate-400
+                                    text-slate-500
                                     mt-1
                                 "
                             >
@@ -3953,7 +3953,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                         <p
                                             class="
                                                 text-xs
-                                                text-slate-400
+                                                text-slate-500
                                             "
                                         >
                                             Temp
@@ -3977,7 +3977,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                         <p
                                             class="
                                                 text-xs
-                                                text-slate-400
+                                                text-slate-500
                                             "
                                         >
                                             Vibration
@@ -4001,7 +4001,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                         <p
                                             class="
                                                 text-xs
-                                                text-slate-400
+                                                text-slate-500
                                             "
                                         >
                                             Pressure
@@ -4096,7 +4096,7 @@ document.addEventListener("DOMContentLoaded", () => {
             container.innerHTML = `
                 <div
                     class="
-                        bg-slate-800
+                        bg-slate-50
                         rounded-xl
                         p-4
                     "
@@ -4113,7 +4113,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     <p
                         class="
-                            text-slate-400
+                            text-slate-500
                             text-sm
                             mt-1
                         "
@@ -4139,7 +4139,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 item.className =
                     `
-                        bg-slate-800
+                        bg-slate-50
                         rounded-xl
                         p-4
                     `;
@@ -4158,7 +4158,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     <p
                         class="
-                            text-slate-400
+                            text-slate-500
                             text-sm
                             mt-1
                         "
@@ -4361,7 +4361,7 @@ document.addEventListener("DOMContentLoaded", () => {
             container.innerHTML = `
                 <div
                     class="
-                        bg-slate-800
+                        bg-slate-50
                         rounded-xl
                         p-4
                     "
@@ -4369,7 +4369,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     <p
                         class="
-                            text-slate-400
+                            text-slate-500
                             text-sm
                         "
                     >
@@ -4409,7 +4409,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         items-center
                         justify-between
                         gap-4
-                        bg-slate-800
+                        bg-slate-50
                         rounded-xl
                         p-4
                     `;
@@ -4438,7 +4438,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         <p
                             class="
-                                text-slate-400
+                                text-slate-500
                                 text-sm
                                 mt-1
                             "
