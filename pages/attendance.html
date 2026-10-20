@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance | FactoryOS</title>
+
+    <link rel="stylesheet" href="../css/output.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body class="bg-slate-950 text-white">
+<div class="flex min-h-screen">
+
+    <aside class="w-72 shrink-0 bg-slate-900 border-r border-slate-800">
+        <div class="h-20 flex items-center justify-center border-b border-slate-800">
+            <div class="text-center">
+                <h1 class="text-3xl font-bold text-cyan-400">FactoryOS</h1>
+                <p class="text-xs text-slate-400 mt-1">Smart Factory Management</p>
+            </div>
+        </div>
+
+        <nav class="p-5 space-y-3">
+            <a href="../index.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
+                <i class="fas fa-chart-line"></i> Dashboard
+            </a>
+            <a href="machines.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
+                <i class="fas fa-industry"></i> Machines
+            </a>
+            <a href="inventory.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
+                <i class="fas fa-boxes"></i> Inventory
+            </a>
+            <a href="production.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
+                <i class="fas fa-gears"></i> Production
+            </a>
+            <a href="orders.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
+                <i class="fas fa-cart-shopping"></i> Orders
+            </a>
+            <a href="invoice.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
+                <i class="fas fa-file-invoice"></i> Invoice
+            </a>
+            <a href="reports.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
+                <i class="fas fa-chart-pie"></i> Reports
+            </a>
+            <a href="employees.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
+                <i class="fas fa-users"></i> Employees
+            </a>
+           
+<a href="attendance.html"
+    class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
+    <i class="fas fa-calendar-check"></i>
+    Attendance
+</a>
+
+        </nav>
+    </aside>
+
+    <main class="flex-1 min-w-0">
+        <header class="min-h-20 border-b border-slate-800 flex items-center px-8 py-4">
+            <div>
+                <h2 class="text-3xl font-bold">Attendance</h2>
+                <p class="text-slate-400 mt-1">Daily employee attendance management</p>
+            </div>
+        </header>
+
+        <div class="p-8 space-y-6">
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                    <p class="text-slate-400">Present</p>
+                    <h3 id="presentCount" class="text-3xl font-bold text-emerald-400 mt-3">0</h3>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                    <p class="text-slate-400">Absent</p>
+                    <h3 id="absentCount" class="text-3xl font-bold text-red-400 mt-3">0</h3>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                    <p class="text-slate-400">On Leave</p>
+                    <h3 id="leaveCount" class="text-3xl font-bold text-amber-400 mt-3">0</h3>
+                </div>
+            </div>
+
+            <section class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                <h3 class="text-xl font-bold mb-6">Mark Attendance</h3>
+
+                <form id="attendanceForm" class="space-y-5">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label for="employeeSelect"
+                                class="block text-sm text-slate-300 mb-2">Employee</label>
+                            <select id="employeeSelect" required
+                                class="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 text-white">
+                                <option value="">Loading employees...</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="attendanceDate"
+                                class="block text-sm text-slate-300 mb-2">Attendance Date</label>
+                            <input type="date" id="attendanceDate" required
+                                class="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 text-white">
+                        </div>
+
+                        <div>
+                            <label for="attendanceShift"
+                                class="block text-sm text-slate-300 mb-2">Shift</label>
+                            <select id="attendanceShift" required
+                                class="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 text-white">
+                                <option value="morning">Morning</option>
+                                <option value="evening">Evening</option>
+                                <option value="night">Night</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="attendanceStatus"
+                                class="block text-sm text-slate-300 mb-2">Status</label>
+                            <select id="attendanceStatus" required
+                                class="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 text-white">
+                                <option value="present">Present</option>
+                                <option value="absent">Absent</option>
+                                <option value="on_leave">On Leave</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <p class="text-sm text-slate-400">
+                        Saving attendance again for the same employee and date updates
+                        the existing record in the current backend.
+                    </p>
+
+                    <div class="flex flex-wrap gap-3">
+                        <button id="saveAttendanceBtn" type="submit"
+                            class="bg-cyan-500 hover:bg-cyan-600 disabled:opacity-50 text-slate-950 font-semibold px-6 py-3 rounded-xl">
+                            <i class="fas fa-save mr-2"></i> Save Attendance
+                        </button>
+
+                        <button id="refreshAttendanceBtn" type="button"
+                            class="bg-slate-800 hover:bg-slate-700 px-6 py-3 rounded-xl">
+                            <i class="fas fa-rotate mr-2"></i> Refresh
+                        </button>
+                    </div>
+
+                    <p id="attendanceMessage" role="status"
+                        class="text-sm" aria-live="polite"></p>
+                </form>
+            </section>
+
+            <section class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
+                    <div>
+                        <h3 class="text-xl font-bold">Attendance History</h3>
+                        <p id="historyEmployee" class="text-sm text-slate-400 mt-1">
+                            Select an employee to view saved records.
+                        </p>
+                    </div>
+                    <input id="historySearch" type="date"
+                        aria-label="Filter attendance history by date"
+                        class="bg-slate-800 border border-slate-700 rounded-xl p-3 text-white">
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="border-b border-slate-700 text-slate-400 text-sm">
+                                <th class="p-4">Date</th>
+                                <th class="p-4">Shift</th>
+                                <th class="p-4">Status</th>
+                                <th class="p-4">Last Updated</th>
+                            </tr>
+                        </thead>
+                        <tbody id="attendanceHistoryBody">
+                            <tr>
+                                <td colspan="4" class="p-6 text-center text-slate-400">
+                                    Select an employee to view attendance.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+</div>
+
+<script src="../js/attendance.js"></script>
+</body>
+</html>

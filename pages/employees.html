@@ -82,6 +82,14 @@
                 <i class="fas fa-users"></i>
                 Employees
             </a>
+        
+        
+<a href="attendance.html"
+    class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800">
+    <i class="fas fa-calendar-check"></i>
+    Attendance
+</a>
+
 
         </nav>
 
@@ -106,13 +114,14 @@
             </div>
 
             <button
-                class="bg-cyan-500 hover:bg-cyan-600 px-6 py-3 rounded-xl">
+    id="addEmployeeBtn"
+    type="button"
+    class="bg-cyan-500 hover:bg-cyan-600 px-6 py-3 rounded-xl">
 
-                <i class="fas fa-plus mr-2"></i>
+    <i class="fas fa-plus mr-2"></i>
+    Add Employee
 
-                Add Employee
-
-            </button>
+</button>
 
         </header>
 
@@ -124,7 +133,8 @@
 
                 <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800">
                     <p class="text-slate-400">Total Employees</p>
-                    <h2 class="text-4xl font-bold mt-3 text-cyan-400">156</h2>
+                    <h2 id="totalEmployees"
+                    class="text-4xl font-bold mt-3 text-cyan-400">156</h2>
                 </div>
 
                 <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800">
@@ -155,6 +165,7 @@
         </h2>
 
         <input
+             id="employeeSearch"
             type="text"
             placeholder="Search Employee..."
             class="bg-slate-800 border border-slate-700 rounded-xl px-4 py-2 w-72 outline-none">
@@ -176,51 +187,13 @@
 
         </thead>
 
-        <tbody>
-
-            <tr class="border-t border-slate-800">
-
-                <td class="px-6 py-4">Rahul Sharma</td>
-                <td>Production</td>
-                <td class="text-center">Morning</td>
-
-                <td class="text-center">
-                    <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs">
-                        Present
-                    </span>
-                </td>
-
-            </tr>
-
-            <tr class="border-t border-slate-800">
-
-                <td class="px-6 py-4">Priya Singh</td>
-                <td>Inventory</td>
-                <td class="text-center">Evening</td>
-
-                <td class="text-center">
-                    <span class="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-xs">
-                        Leave
-                    </span>
-                </td>
-
-            </tr>
-
-            <tr class="border-t border-slate-800">
-
-                <td class="px-6 py-4">Amit Verma</td>
-                <td>Quality</td>
-                <td class="text-center">Night</td>
-
-                <td class="text-center">
-                    <span class="bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-xs">
-                        Absent
-                    </span>
-                </td>
-
-            </tr>
-
-        </tbody>
+       <tbody id="employeesTableBody">
+    <tr>
+        <td colspan="4" class="px-6 py-8 text-center text-slate-400">
+            Loading employees...
+        </td>
+    </tr>
+</tbody>
 
     </table>
 
@@ -231,7 +204,7 @@
 <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 mt-8">
 
     <h2 class="text-2xl font-bold mb-6">
-        Weekly Attendance
+        Attendance Summary (Last 7 Days)
     </h2>
 
     <div class="h-80">
@@ -247,6 +220,7 @@
 </div>
 
 <script src="../js/app.js"></script>
+<script src="../js/employee.js"></script>
 
 </body>
 
